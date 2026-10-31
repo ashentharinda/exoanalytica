@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ExoAnalytica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <h1>ExoAnalytica</h1>
+  <button id="logout" hidden>Sign out</button>
+</header>
+
+<main id="auth" class="narrow" hidden>
+  <h2>Find planets in starlight</h2>
+  <p class="lede">Upload a TESS or Kepler light curve, or fetch one from NASA. ExoAnalytica searches for transits, scores the signal, and estimates the planet's size, gravity, temperature and habitability.</p>
+  <form id="auth-form">
+    <label>Email <input name="email" type="email" autocomplete="email" required></label>
+    <label>Password <input name="password" type="password" minlength="10" maxlength="64" autocomplete="current-password" required></label>
+    <div class="row"><button type="submit" data-mode="login">Sign in</button><button type="submit" data-mode="register" class="ghost">Create account</button></div>
+    <p id="auth-msg" class="msg" role="alert"></p>
+  </form>
+</main>
+
+<main id="app" class="wide" hidden>
+  <aside>
+    <section>
+      <h2>New analysis</h2>
+      <div class="tabs" role="tablist">
+        <button role="tab" id="tab-upload" aria-selected="true">Upload file</button>
+        <button role="tab" id="tab-fetch" aria-selected="false">Fetch from NASA</button>
+      </div>
+      <form id="run-form">
+        <div id="pane-upload"><label>Light curve (.csv or .fits, up to 25 MB)<input type="file" name="file" accept=".csv,.fits,.fit"></label></div>
+        <div id="pane-fetch" hidden>
+          <label>Target ID <input name="target" placeholder="TIC 261136679" pattern="(TIC|KIC|EPIC) ?[0-9]{1,10}"></label>
+          <label>Mission <select name="mission"><option>TESS</option><option>Kepler</option></select></label>
+        </div>
+        <fieldset><legend>Host star (optional)</legend>
+          <label>Radius (R☉) <input name="radius_rsun" type="number" step="any" min="0.09" max="100"></label>
+          <label>Mass (M☉) <input name="mass_msun" type="number" step="any" min="0.09" max="100"></label>
+          <label>Temperature (K) <input name="teff_k" type="number" step="any" min="2300" max="50000"></label>
+          <p class="hint">Blank fields use the file header, then Sun-like values.</p>
+        </fieldset>
+         <label class="check"><input type="checkbox" name="injection"><span>Also run the injection-recovery test <span class="hint">(adds about a minute)</span></span></label>
+        <button type="submit" id="run-btn">Run analysis</button>
+        <p id="run-msg" class="msg" role="alert"></p>
+      </form>
+    </section>
+    <section><h2>History</h2><ul id="history" class="history"></ul></section>
+  </aside>
+  <section id="result" aria-live="polite"><p class="empty">Results appear here. Upload a light curve to start.</p></section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.35.2/plotly.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
