@@ -148,15 +148,37 @@ function plot(div, x, y, xt, yt, color, shapes) {
     + `<text transform="translate(16 ${(T + (H - T - B) / 2).toFixed(0)}) rotate(-90)" text-anchor="middle" style="fill:var(--ink)">${yt}</text>`;
   host.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="100%" height="100%" role="img" aria-label="${yt} against ${xt}" style="font:12px 'Hanken Grotesk',sans-serif">${g}</svg>`;
 }
-
 function table(head, rows) {
   const t = el("table", {}, el("thead", {}, el("tr", {}, ...head.map((h) => el("th", {}, h)))),
     el("tbody", {}, ...rows.map((r) => el("tr", {}, ...r.map((c) => el("td", { class: "num" }, c))))));
   return el("div", { class: "tbl" }, t);
 }
 const fmt = (v, d = 2) => Number(v).toLocaleString(undefined, { maximumFractionDigits: d });
+const kv = (rows) => el("dl", {}, ...rows.flatMap(([a, b]) => [el("dt", {}, a), el("dd", {}, b)]));
+
+function extraSection(o, n, later) {
+  const id = "p-fold-" + n, d = o.detection, s = o.signal, p = o.planet;
+  const sec = el("section", {}, el("h2", {}, "Additional signal " + n + ": " + fmt(s.period_d, 3) + " day period"),
+    el("div", { class: "verdict" }, el("strong", { class: d.is_candidate ? "yes" : "no" }, Math.round(d.score * 100) + "%"), el("span", {}, d.is_candidate ? "Likely planetary transit" : "No convincing transit")),
+    el("p", { class: "note" }, "Found after hiding the transits of the stronger signal(s). Extra signals are weaker evidence: check them for stellar variability before trusting them."),
+    el("div", { class: "plot js-plot", id }),
+    kv([["Period", fmt(s.period_d, 4) + " d"], ["Depth", fmt(s.depth_ppm, 0) + " ppm"], ["Duration", fmt(s.duration_h, 1) + " h"],
+      ["Signal-to-noise", fmt(s.snr, 1)], ["SNR with correlated noise", s.snr_red == null ? "-" : fmt(s.snr_red, 1)],
+      ["Transits seen", String(o.n_transits)]]));
+  if (p) {
+    sec.append(el("h3", {}, "Planet"), kv([["Radius", fmt(p.radius_earth) + " R⊕ (" + fmt(p.radius_jupiter, 3) + " R♃)"], ["Mass (estimated)", fmt(p.mass_earth) + " M⊕"],
+      ["Density", fmt(p.density_gcc) + " g/cm³"], ["Surface gravity", fmt(p.gravity_ms2) + " m/s² (" + fmt(p.gravity_g) + " g)"],
+      ["Orbital distance", fmt(p.semi_major_au, 3) + " AU"], ["Equilibrium temperature", fmt(p.teq_k, 0) + " K (albedo 0.3)"],
+      ["Habitable zone", p.hz.status]]));
+  }
+  sec.append(el("h3", {}, "Vetting"));
+  for (const fl of o.vetting.flags) sec.append(el("div", { class: "flag " + fl.level }, fl.text));
+  later.push(() => plot(id, o.plots.phase_d, o.plots.folded, "Days from mid-transit", "Relative flux", css("--transit")));
+  return sec;
+}
 
 function render(r) {
+  const later = [];
   const out = $("#result"), d = r.detection, s = r.signal, p = r.planet;
   const pct = Math.round(d.score * 100);
   const verdict = el("section", {}, el("div", { class: "verdict" },
@@ -165,11 +187,14 @@ function render(r) {
   verdict.append(el("p", { class: "note" }, d.method === "cnn"
     ? "Scored by a CNN trained on " + d.trained_on + ". Treat as a screening score, not a confirmation."
     : "No trained model found; score comes from the transit-search signal-to-noise ratio."));
+  if ((r.planets || []).length) {
+    verdict.append(el("p", { class: "note" }, "This star shows " + (1 + r.planets.length) + " separate transit signals, so it may host several planets. The strongest is described first."));
+  }
 
   const fold = el("section", {}, el("h2", {}, "Folded at " + fmt(s.period_d, 4) + " days"), el("div", { class: "plot js-plot", id: "p-fold" }));
-  const raw = el("section", {}, el("h2", {}, "Detrended light curve"), el("p", { class: "note" }, "Dotted lines mark each transit: green where the model is confident, red where it is not."), el("div", { class: "plot js-plot", id: "p-raw" }));
+  const raw = el("section", {}, el("h2", {}, "Detrended light curve"), el("p", { class: "note" }, "Dotted lines mark each transit of the main signal: green where the model is confident, red where it is not. Grey lines are transits of additional signals."), el("div", { class: "plot js-plot", id: "p-raw" }));
   const sig = el("section", {}, el("h2", {}, "Signal"), el("dl", {},
-    ...[["Period", fmt(s.period_d, 4) + " d"], ["Depth", fmt(s.depth_ppm, 0) + " ppm"], ["Duration", fmt(s.duration_h, 1) + " h"], ["Signal-to-noise", fmt(s.snr, 1)]]
+    ...[["Period", fmt(s.period_d, 4) + " d"], ["Depth", fmt(s.depth_ppm, 0) + " ppm"], ["Duration", fmt(s.duration_h, 1) + " h"], ["Signal-to-noise", fmt(s.snr, 1)], ["SNR with correlated noise", s.snr_red == null ? "-" : fmt(s.snr_red, 1)]]
       .flatMap(([a, b]) => [el("dt", {}, a), el("dd", {}, b)])));
   const parts = [verdict, fold, raw, sig];
 
@@ -200,6 +225,7 @@ function render(r) {
     for (const fl of r.vetting.flags) sec.append(el("div", { class: "flag " + fl.level }, fl.text));
     parts.push(sec);
   }
+  (r.planets || []).forEach((o, i) => parts.push(extraSection(o, i + 2, later)));
   if (r.injection) {
     const inj = r.injection, sec = el("section", {}, el("h2", {}, "Injection-recovery test"));
     if (inj.error) sec.append(el("p", { class: "msg" }, inj.error));
@@ -216,10 +242,18 @@ function render(r) {
     parts.push(sec);
   }
   out.replaceChildren(...parts);
+  later.forEach((fn) => fn());
   plot("p-fold", r.plots.phase_d, r.plots.folded, "Days from mid-transit", "Relative flux", css("--transit"));
   const marks = (r.transits || []).map((x) => ({ type: "line", x0: x.time, x1: x.time, yref: "paper", y0: 0, y1: 1,
     line: { color: x.confidence >= 0.5 ? css("--ok") : css("--bad"), width: 1, dash: "dot" } }));
-  plot("p-raw", r.plots.time, r.plots.flux, "Time (days)", "Relative flux", css("--ink"), marks);
+  const tmin = r.plots.time[0], tmax = r.plots.time[r.plots.time.length - 1];
+  const otherMarks = (r.planets || []).flatMap((o) => {
+    const P = o.signal.period_d, e = o.signal.epoch, lines = [];
+    for (let k = Math.ceil((tmin - e) / P); e + k * P <= tmax; k++)
+      lines.push({ type: "line", x0: e + k * P, x1: e + k * P, yref: "paper", y0: 0, y1: 1, line: { color: css("--mute"), width: 1, dash: "dot" } });
+    return lines;
+  });
+  plot("p-raw", r.plots.time, r.plots.flux, "Time (days)", "Relative flux", css("--ink"), marks.concat(otherMarks));
 }
 
 show();
