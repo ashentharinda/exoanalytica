@@ -6,8 +6,13 @@ from pathlib import Path
 
 import numpy as np
 
-from .services import physics, preprocess as pp
-from .services.model import classify
+from .services import injection, physics, preprocess as pp, vetting
+from .services.model import classify, classify_locals
+
+MAX_SIGNALS = 5        # most signals reported per star
+MIN_SNR_EXTRA = 8.0    # signals after the first must reach this SNR
+# period ratios that suggest an alias (harmonic) or a resonance with an earlier signal
+RATIOS = ((2, 1, "warn"), (1, 2, "warn"), (3, 1, "warn"), (1, 3, "warn"), (3, 2, "info"), (2, 3, "info"))
 
 
 def _lst(a, nd=6):
@@ -29,15 +34,7 @@ def _acquire(job_dir: Path, spec):
     return lc.time.value.astype(float), lc.flux.value.astype(float), meta
 
 
-def main(job_dir: Path):
-    spec = json.loads((job_dir / "spec.json").read_text())
-    t, f, meta = _acquire(job_dir, spec)
-    t, f = pp.clean(t, f)
-    sig = pp.bls_search(t, f)
-    ph = pp.phase(t, sig["period"], sig["t0"])
-    g, l = pp.make_views(ph, f, sig["period"], sig["duration"])
-    score, method, trained_on = classify(g, l, sig["snr"])
-
+def _stellar(spec, meta):
     user = spec["stellar"]
     stellar, src = {}, {}
     for key, default in (("radius_rsun", 1.0), ("mass_msun", 1.0), ("teff_k", 5772.0)):
@@ -49,24 +46,149 @@ def main(job_dir: Path):
             stellar[key], src[key] = default, "solar default"
     if src["radius_rsun"] != "user" and src["mass_msun"] == "solar default":
         stellar["mass_msun"] = max(0.1, stellar["radius_rsun"])  # crude M~R for main-sequence stars
+    return stellar, src
 
+
+def _relation(period, earlier):
+    """Compare a new period with the signals already accepted. Returns (n, label, level) or None."""
+    for n, p0 in enumerate(earlier, 1):
+        r = period / p0
+        if abs(r - 1) < 0.02:
+            return n, "same", None
+        for a, b, level in RATIOS:
+            if abs(r - a / b) / (a / b) < 0.015:
+                return n, f"{a}:{b}", level
+    return None
+
+
+def _analyze(t, f, sig, stellar):
+    """Everything we report about one signal: score, planet properties, per-transit table, vetting."""
+    ph = pp.phase(t, sig["period"], sig["t0"])
+    g, l = pp.make_views(ph, f, sig["period"], sig["duration"])
+    score, method, trained_on = classify(g, l, sig["snr"])
     candidate = score >= 0.5
     planet = physics.characterize(max(sig["depth"], 1e-8), sig["period"], stellar["radius_rsun"],
                                   stellar["mass_msun"], stellar["teff_k"]) if candidate else None
-
-    tb = np.linspace(t[0], t[-1], min(3000, len(t)) + 1)
-    flux_b = pp.binned(t, f, tb)
-    fold_edges = np.linspace(-0.5 * sig["period"], 0.5 * sig["period"], 361)
-    fold_b = pp.binned(ph, f, fold_edges)
-    result = {
+    rows, noise = vetting.per_transit(t, f, sig, g, classify_locals)
+    oe, sec = vetting.odd_even(rows, noise), vetting.secondary(t, f, sig, noise)
+    fl = vetting.flags(sig, rows, oe, sec, planet)
+    snr_red = pp.red_noise_snr(t, f, sig)
+    if snr_red is not None:
+        if snr_red < 7:
+            fl.append({"level": "warn", "text": f"Once correlated noise is accounted for, the signal-to-noise drops to {snr_red:.1f} (below 7). "
+                                                "Slow stellar variability or instrumental trends can produce a signal like this."})
+        else:
+            fl.append({"level": "ok", "text": f"The signal stays strong after accounting for correlated noise (SNR {snr_red:.0f})."})
+    edges = np.linspace(-0.5 * sig["period"], 0.5 * sig["period"], 361)
+    return {
         "detection": {"score": round(score, 4), "is_candidate": candidate, "method": method, "trained_on": trained_on},
         "signal": {"period_d": sig["period"], "epoch": sig["t0"], "depth_ppm": sig["depth"] * 1e6,
-                   "duration_h": sig["duration"] * 24, "snr": sig["snr"]},
+                   "duration_h": sig["duration"] * 24, "snr": sig["snr"],
+                   "snr_red": None if snr_red is None else round(snr_red, 1)},
         "planet": planet,
-        "stellar": {"values": stellar, "source": src},
-        "plots": {"time": _lst((tb[:-1] + tb[1:]) / 2, 4), "flux": _lst(flux_b),
-                  "phase_d": _lst((fold_edges[:-1] + fold_edges[1:]) / 2, 4), "folded": _lst(fold_b)},
+        "transits": [{"time": round(r["time"], 4), "depth_ppm": round(r["depth_ppm"], 1), "snr": round(r["snr"], 1),
+                      "coverage": round(r["coverage"], 2), "confidence": round(r.get("confidence", 0.0), 3)}
+                     for r in rows][:40],
+        "n_transits": len(rows),
+        "vetting": {"passed": not any(x["level"] == "warn" for x in fl), "flags": fl, "odd_even": oe, "secondary": sec},
+        "plots": {"phase_d": _lst((edges[:-1] + edges[1:]) / 2, 4), "folded": _lst(pp.binned(ph, f, edges))},
     }
+
+
+def _mask(t, f, sigs, skip=None):
+    """Remove the in-transit points of every signal in `sigs` (except index `skip`)."""
+    keep = np.ones(len(t), bool)
+    for i, s in enumerate(sigs):
+        if i != skip:
+            keep &= np.abs(pp.phase(t, s["period"], s["t0"])) > max(0.75 * s["duration"], 0.06)
+    return t[keep], f[keep]
+
+
+def _coincides(new, old, t):
+    """True if (almost) every transit of `new` falls on a transit of `old`: a harmonic, not a new planet."""
+    n0, n1 = int(np.floor((t[0] - new["t0"]) / new["period"])), int(np.ceil((t[-1] - new["t0"]) / new["period"]))
+    tc = new["t0"] + np.arange(n0, n1 + 1) * new["period"]
+    off = np.abs(((tc - old["t0"] + old["period"] / 2) % old["period"]) - old["period"] / 2)
+    return bool(np.mean(off < max(old["duration"], new["duration"])) >= 0.8)
+
+
+def find_signals(t, f, stellar):
+    """Iterative search: find the strongest signal, mask its transits, search again.
+    Then analyse each signal with the OTHER signals' transits masked, so they cannot contaminate it."""
+    found, rels = [], []
+    t_k, f_k = t, f
+    for _ in range(MAX_SIGNALS + 3):  # a few spare rounds for duplicates that only get masked
+        if len(found) >= MAX_SIGNALS or len(t_k) < 500:
+            break
+        try:
+            sig = pp.bls_search(t_k, f_k)
+        except pp.DataError:
+            if not found:
+                raise
+            break
+        sig = pp.refine(t_k, f_k, sig)
+        if found and sig["snr"] < MIN_SNR_EXTRA:
+            break
+        rel = _relation(sig["period"], [x["period"] for x in found]) if found else None
+        duplicate = (rel and rel[1] == "same") or any(_coincides(sig, old, t) for old in found)
+        if not duplicate:  # a signal found again is masked but not reported twice
+            found.append(sig)
+            rels.append(rel)
+        t_k, f_k = _mask(t_k, f_k, [sig])
+
+    analysed = []
+    for i, sig in enumerate(found):
+        ti, fi = _mask(t, f, found, skip=i)
+        res = _analyze(ti, fi, sig, stellar)
+        if i > 0:  # extra signals must be repeated, fully observed transits that survive correlated noise
+            cov = float(np.mean([x["coverage"] for x in res["transits"]])) if res["transits"] else 0.0
+            red = res["signal"]["snr_red"]
+            if res["n_transits"] < 2 or cov < 0.7 or red is None or red < 7:
+                continue
+        analysed.append((i, res))
+    number = {i: k for k, (i, _) in enumerate(analysed, 1)}  # display number of each kept signal
+    out = []
+    for i, res in analysed:
+        if rels[i] and rels[i][0] - 1 in number:
+            n, label, level = rels[i]
+            text = (f"Period is in a {label} ratio with signal {number[n - 1]} ({found[n - 1]['period']:.3f} d). It may be a harmonic of that planet rather than a separate one."
+                    if level == "warn" else
+                    f"Period is close to a {label} ratio with signal {number[n - 1]}. This is common for real planets in resonance, but check it is not an alias.")
+            res["vetting"]["flags"].append({"level": level, "text": text})
+            res["vetting"]["passed"] = not any(x["level"] == "warn" for x in res["vetting"]["flags"])
+        out.append(res)
+    return out
+
+
+def main(job_dir: Path):
+    spec = json.loads((job_dir / "spec.json").read_text())
+    t, f, meta = _acquire(job_dir, spec)
+    t_raw, f_raw = pp.prepare(t, f)
+    t, f = pp.detrend(t_raw, f_raw)
+    stellar, src = _stellar(spec, meta)
+    signals = find_signals(t, f, stellar)
+    first = signals[0]
+
+    tb = np.linspace(t[0], t[-1], min(3000, len(t)) + 1)
+    result = {k: first[k] for k in ("detection", "signal", "planet", "transits", "n_transits", "vetting")}
+    result["stellar"] = {"values": stellar, "source": src}
+    result["plots"] = {"time": _lst((tb[:-1] + tb[1:]) / 2, 4), "flux": _lst(pp.binned(t, f, tb)), **first["plots"]}
+    result["n_signals"] = len(signals)
+    result["planets"] = [{k: s[k] for k in ("detection", "signal", "planet", "vetting", "plots", "n_transits")}
+                         for s in signals[1:]]
+
+    if spec.get("injection"):
+        try:  # an injection failure must never lose the main result
+            keep = np.ones(len(t_raw), bool)
+            for s in signals:
+                if s["detection"]["is_candidate"]:  # remove real signals so they cannot interfere with the test
+                    sg = s["signal"]
+                    keep &= np.abs(pp.phase(t_raw, sg["period_d"], sg["epoch"])) > 1.5 * sg["duration_h"] / 24
+            base_t, base_f = (t_raw[keep], f_raw[keep]) if keep.sum() >= 2000 else (t_raw, f_raw)
+            result["injection"] = injection.run(base_t, base_f, np.random.default_rng(12345))
+        except Exception as e:
+            print(repr(e), file=sys.stderr)
+            result["injection"] = {"error": "The injection test could not run on this light curve."}
     (job_dir / "result.json").write_text(json.dumps(result, allow_nan=False, default=float))
 
 

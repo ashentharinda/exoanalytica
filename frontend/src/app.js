@@ -101,12 +101,54 @@ async function loadHistory() {
 }
 
 const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
-function plot(div, x, y, xt, yt, color, shapes) {
-  Plotly.newPlot(div, [{ x, y, mode: "markers", marker: { size: 4, color } }], {
-    margin: { t: 10, r: 10, b: 45, l: 60 }, xaxis: { title: xt, gridcolor: css("--rule") }, yaxis: { title: yt, gridcolor: css("--rule") },
-    shapes: shapes || [], paper_bgcolor: "rgba(0,0,0,0)", plot_bgcolor: "rgba(0,0,0,0)", font: { color: css("--ink"), family: "Hanken Grotesk" },
-  }, { displayModeBar: false, responsive: true });
+function niceTicks(lo, hi, n) {
+  const raw = (hi - lo || 1) / n, mag = Math.pow(10, Math.floor(Math.log10(raw)));
+  const step = [1, 2, 5, 10].map((m) => m * mag).find((s) => s >= raw);
+  const ticks = [];
+  for (let v = Math.ceil(lo / step) * step; v <= hi + step * 1e-9; v += step) ticks.push(+v.toFixed(10));
+  return { ticks, step };
 }
+
+// Draws a scatter plot as plain SVG (no external library, so it cannot fail to load).
+function plot(div, x, y, xt, yt, color, shapes) {
+  const host = document.getElementById(div);
+  const W = 760, H = 340, L = 66, R = 14, T = 12, B = 50;
+  const pts = [];
+  for (let i = 0; i < x.length; i++) if (Number.isFinite(x[i]) && Number.isFinite(y[i])) pts.push([x[i], y[i]]);
+  if (!pts.length) { host.textContent = "No data to plot."; return; }
+  let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+  for (const [px, py] of pts) {
+    if (px < x0) x0 = px; if (px > x1) x1 = px;
+    if (py < y0) y0 = py; if (py > y1) y1 = py;
+  }
+  const pad = (y1 - y0) * 0.06 || 1e-6; y0 -= pad; y1 += pad;
+  if (x1 === x0) x1 = x0 + 1;
+  const sx = (v) => L + ((v - x0) / (x1 - x0)) * (W - L - R);
+  const sy = (v) => T + (1 - (v - y0) / (y1 - y0)) * (H - T - B);
+  const xs = niceTicks(x0, x1, 6), ys = niceTicks(y0, y1, 5);
+  const dec = (s) => Math.min(8, Math.max(0, -Math.floor(Math.log10(s))));
+  let g = "";
+  for (const v of ys.ticks) {
+    const yy = sy(v);
+    g += `<line x1="${L}" x2="${W - R}" y1="${yy.toFixed(1)}" y2="${yy.toFixed(1)}" style="stroke:var(--rule)"/>`
+      + `<text x="${L - 8}" y="${(yy + 4).toFixed(1)}" text-anchor="end" style="fill:var(--mute)">${v.toFixed(dec(ys.step))}</text>`;
+  }
+  for (const v of xs.ticks) {
+    const xx = sx(v);
+    g += `<line x1="${xx.toFixed(1)}" x2="${xx.toFixed(1)}" y1="${T}" y2="${H - B}" style="stroke:var(--rule);opacity:.5"/>`
+      + `<text x="${xx.toFixed(1)}" y="${H - B + 18}" text-anchor="middle" style="fill:var(--mute)">${v.toFixed(dec(xs.step))}</text>`;
+  }
+  for (const s of shapes || []) {
+    if (s.x0 < x0 || s.x0 > x1) continue;
+    const xx = sx(s.x0).toFixed(1);
+    g += `<line x1="${xx}" x2="${xx}" y1="${T}" y2="${H - B}" style="stroke:${s.line.color};stroke-dasharray:3 3"/>`;
+  }
+  g += pts.map(([px, py]) => `<circle cx="${sx(px).toFixed(1)}" cy="${sy(py).toFixed(1)}" r="1.8" style="fill:${color}"/>`).join("");
+  g += `<text x="${(L + (W - L - R) / 2).toFixed(0)}" y="${H - 8}" text-anchor="middle" style="fill:var(--ink)">${xt}</text>`
+    + `<text transform="translate(16 ${(T + (H - T - B) / 2).toFixed(0)}) rotate(-90)" text-anchor="middle" style="fill:var(--ink)">${yt}</text>`;
+  host.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="100%" height="100%" role="img" aria-label="${yt} against ${xt}" style="font:12px 'Hanken Grotesk',sans-serif">${g}</svg>`;
+}
+
 function table(head, rows) {
   const t = el("table", {}, el("thead", {}, el("tr", {}, ...head.map((h) => el("th", {}, h)))),
     el("tbody", {}, ...rows.map((r) => el("tr", {}, ...r.map((c) => el("td", { class: "num" }, c))))));
