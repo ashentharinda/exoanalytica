@@ -61,7 +61,7 @@ def _relation(period, earlier):
     return None
 
 
-def _analyze(t, f, sig, stellar):
+def _analyze(t, f, sig, stellar, known):
     """Everything we report about one signal: score, planet properties, per-transit table, vetting."""
     ph = pp.phase(t, sig["period"], sig["t0"])
     g, l = pp.make_views(ph, f, sig["period"], sig["duration"])
@@ -71,14 +71,17 @@ def _analyze(t, f, sig, stellar):
                                   stellar["mass_msun"], stellar["teff_k"]) if candidate else None
     rows, noise = vetting.per_transit(t, f, sig, g, classify_locals)
     oe, sec = vetting.odd_even(rows, noise), vetting.secondary(t, f, sig, noise)
-    fl = vetting.flags(sig, rows, oe, sec, planet)
+    ex = vetting.extra_checks(t, f, sig, rows, noise, stellar, known)
+    fl = vetting.flags(sig, rows, oe, sec, planet, ex)
     snr_red = pp.red_noise_snr(t, f, sig)
     if snr_red is not None:
         if snr_red < 7:
             fl.append({"level": "warn", "text": f"Once correlated noise is accounted for, the signal-to-noise drops to {snr_red:.1f} (below 7). "
-                                                "Slow stellar variability or instrumental trends can produce a signal like this."})
+                                                "Slow stellar variability or instrumental trends can produce a signal like this.",
+                       "tag": "correlated noise", "hard": False})
         else:
-            fl.append({"level": "ok", "text": f"The signal stays strong after accounting for correlated noise (SNR {snr_red:.0f})."})
+            fl.append({"level": "ok", "text": f"The signal stays strong after accounting for correlated noise (SNR {snr_red:.0f}).",
+                       "tag": None, "hard": False})
     edges = np.linspace(-0.5 * sig["period"], 0.5 * sig["period"], 361)
     return {
         "detection": {"score": round(score, 4), "is_candidate": candidate, "method": method, "trained_on": trained_on},
@@ -90,7 +93,8 @@ def _analyze(t, f, sig, stellar):
                       "coverage": round(r["coverage"], 2), "confidence": round(r.get("confidence", 0.0), 3)}
                      for r in rows][:40],
         "n_transits": len(rows),
-        "vetting": {"passed": not any(x["level"] == "warn" for x in fl), "flags": fl, "odd_even": oe, "secondary": sec},
+        "classification": vetting.classify(fl, score, snr_red),
+        "vetting": {"passed": not any(x["level"] == "warn" for x in fl), "flags": fl, "odd_even": oe, "secondary": sec, "checks": ex},
         "plots": {"phase_d": _lst((edges[:-1] + edges[1:]) / 2, 4), "folded": _lst(pp.binned(ph, f, edges))},
     }
 
@@ -112,7 +116,7 @@ def _coincides(new, old, t):
     return bool(np.mean(off < max(old["duration"], new["duration"])) >= 0.8)
 
 
-def find_signals(t, f, stellar):
+def find_signals(t, f, stellar, known):
     """Iterative search: find the strongest signal, mask its transits, search again.
     Then analyse each signal with the OTHER signals' transits masked, so they cannot contaminate it."""
     found, rels = [], []
@@ -136,27 +140,34 @@ def find_signals(t, f, stellar):
             rels.append(rel)
         t_k, f_k = _mask(t_k, f_k, [sig])
 
-    analysed = []
-    for i, sig in enumerate(found):
-        ti, fi = _mask(t, f, found, skip=i)
-        res = _analyze(ti, fi, sig, stellar)
-        if i > 0:  # extra signals must be repeated, fully observed transits that survive correlated noise
-            cov = float(np.mean([x["coverage"] for x in res["transits"]])) if res["transits"] else 0.0
-            red = res["signal"]["snr_red"]
-            if res["n_transits"] < 2 or cov < 0.7 or red is None or red < 7:
-                continue
-        analysed.append((i, res))
-    number = {i: k for k, (i, _) in enumerate(analysed, 1)}  # display number of each kept signal
+    # Pass A: decide which extra signals are real. Each is judged on the data as it was when it was found.
+    accepted = [0]
+    for i in range(1, len(found)):
+        ti, fi = _mask(t, f, found[:i])
+        res = _analyze(ti, fi, found[i], stellar, known)
+        cov = float(np.mean([x["coverage"] for x in res["transits"]])) if res["transits"] else 0.0
+        red = res["signal"]["snr_red"]
+        # extra signals must be repeated, fully observed transits that survive correlated noise
+        if res["n_transits"] >= 2 and cov >= 0.7 and red is not None and red >= 7:
+            accepted.append(i)
+    # Pass B: analyse every accepted signal with only the OTHER accepted signals' transits hidden.
+    number = {i: k for k, i in enumerate(accepted, 1)}  # display number of each kept signal
     out = []
-    for i, res in analysed:
+    for i in accepted:
+        ti, fi = _mask(t, f, [found[j] for j in accepted if j != i])
+        res = _analyze(ti, fi, found[i], stellar, known)
         if rels[i] and rels[i][0] - 1 in number:
             n, label, level = rels[i]
             text = (f"Period is in a {label} ratio with signal {number[n - 1]} ({found[n - 1]['period']:.3f} d). It may be a harmonic of that planet rather than a separate one."
                     if level == "warn" else
                     f"Period is close to a {label} ratio with signal {number[n - 1]}. This is common for real planets in resonance, but check it is not an alias.")
-            res["vetting"]["flags"].append({"level": level, "text": text})
+            res["vetting"]["flags"].append({"level": level, "text": text, "tag": "possible alias" if level == "warn" else None, "hard": False})
             res["vetting"]["passed"] = not any(x["level"] == "warn" for x in res["vetting"]["flags"])
+            res["classification"] = vetting.classify(res["vetting"]["flags"], res["detection"]["score"], res["signal"]["snr_red"])
         out.append(res)
+    if out[0]["classification"]["label"] == "Likely false positive" or any(
+            x.get("tag") == "out-of-eclipse variation" for x in out[0]["vetting"]["flags"]):
+        out = out[:1]  # leftovers of an eclipsing binary are not extra planets
     return out
 
 
@@ -166,15 +177,15 @@ def main(job_dir: Path):
     t_raw, f_raw = pp.prepare(t, f)
     t, f = pp.detrend(t_raw, f_raw)
     stellar, src = _stellar(spec, meta)
-    signals = find_signals(t, f, stellar)
+    signals = find_signals(t, f, stellar, src["radius_rsun"] != "solar default")
     first = signals[0]
 
     tb = np.linspace(t[0], t[-1], min(3000, len(t)) + 1)
-    result = {k: first[k] for k in ("detection", "signal", "planet", "transits", "n_transits", "vetting")}
+    result = {k: first[k] for k in ("detection", "signal", "planet", "transits", "n_transits", "vetting", "classification")}
     result["stellar"] = {"values": stellar, "source": src}
     result["plots"] = {"time": _lst((tb[:-1] + tb[1:]) / 2, 4), "flux": _lst(pp.binned(t, f, tb)), **first["plots"]}
     result["n_signals"] = len(signals)
-    result["planets"] = [{k: s[k] for k in ("detection", "signal", "planet", "vetting", "plots", "n_transits")}
+    result["planets"] = [{k: s[k] for k in ("detection", "signal", "planet", "vetting", "plots", "n_transits", "classification")}
                          for s in signals[1:]]
 
     if spec.get("injection"):
