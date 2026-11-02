@@ -12,7 +12,7 @@
 </head>
 <body>
 <header class="top">
-       <a class="brand" href="/"><img src="logo.png" alt="" width="36" height="36"><h1>ExoAnalytica</h1></a>
+  <a class="brand" href="/"><img src="logo.png" alt="" width="36" height="36"><h1>ExoAnalytica</h1></a>
   <button id="logout" hidden>Sign out</button>
 </header>
 
@@ -47,7 +47,7 @@
           <label>Temperature (K) <input name="teff_k" type="number" step="any" min="2300" max="50000"></label>
           <p class="hint">Blank fields use the file header, then Sun-like values.</p>
         </fieldset>
-         <label class="check"><input type="checkbox" name="injection"><span>Also run the injection-recovery test <span class="hint">(adds about a minute)</span></span></label>
+        <label class="check"><input type="checkbox" name="injection"><span>Also run the injection-recovery test <span class="hint">(adds about a minute)</span></span></label>
         <button type="submit" id="run-btn">Run analysis</button>
         <p id="run-msg" class="msg" role="alert"></p>
       </form>
