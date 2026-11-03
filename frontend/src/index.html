@@ -11,51 +11,176 @@
 <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
-<header class="top">
-  <a class="brand" href="/"><img src="logo.png" alt="" width="36" height="36"><h1>ExoAnalytica</h1></a>
-  <button id="logout" hidden>Sign out</button>
-</header>
 
+<!-- ===== Public landing page ===== -->
+<div id="landing" hidden>
+  <header class="lp-top">
+    <a class="brand" href="#/"><img src="logo.png" alt="" width="36" height="36"><span class="brand-name">ExoAnalytica</span></a>
+    <nav aria-label="Main">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a class="btn-outline" href="#/login">Login</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Automated exoplanet detection &amp; light curve analysis</h1>
+    <p class="sub">From citizen scientist to researcher: analyse NASA Kepler and TESS data in minutes. ExoAnalytica finds the transits, checks them for false positives, and estimates each planet's size and temperature.</p>
+    <div class="hero-cta">
+      <a class="cta" href="#/signup">Get started free</a>
+      <a class="textlink" href="#how">See how it works</a>
+    </div>
+    <figure class="preview">
+      <figcaption>Example result (illustration)</figcaption>
+      <div class="preview-body">
+        <div class="preview-verdict"><strong>Planet candidate</strong><span>4.2 day period, 4000 ppm deep</span></div>
+        <svg viewBox="0 0 400 120" role="img" aria-label="Example folded light curve with a transit dip in the middle">
+          <path d="M12 38.1h0M17 39.0h0M22 37.0h0M27 38.8h0M32 40.0h0M37 38.9h0M42 41.4h0M47 36.1h0M52 38.1h0M57 36.4h0M62 36.3h0M67 37.6h0M72 38.5h0M77 38.9h0M82 39.1h0M87 42.9h0M92 39.9h0M97 34.5h0M102 38.4h0M107 36.6h0M112 36.9h0M117 40.9h0M122 37.5h0M127 33.7h0M132 38.7h0M137 37.4h0M142 35.4h0M147 36.0h0M152 36.6h0M157 37.9h0M162 37.1h0M167 38.2h0M172 73.0h0M177 98.2h0M182 98.2h0M187 99.5h0M192 102.4h0M197 98.4h0M202 103.2h0M207 97.1h0M212 97.7h0M217 99.9h0M222 98.1h0M227 75.4h0M232 39.0h0M237 39.6h0M242 38.3h0M247 37.4h0M252 41.0h0M257 38.9h0M262 37.5h0M267 40.7h0M272 36.0h0M277 38.4h0M282 39.5h0M287 38.0h0M292 36.7h0M297 38.8h0M302 36.8h0M307 36.7h0M312 35.7h0M317 40.9h0M322 36.8h0M327 40.5h0M332 38.8h0M337 37.4h0M342 39.5h0M347 38.6h0M352 38.3h0M357 35.0h0M362 38.2h0M367 40.0h0M372 39.1h0M377 40.2h0M382 41.3h0M387 38.9h0" style="stroke:#F2873A;stroke-width:3.2;stroke-linecap:round;fill:none"/>
+        </svg>
+      </div>
+    </figure>
+  </section>
+
+  <section id="features" class="lp-section">
+    <h2>What it does</h2>
+    <div class="cards">
+      <article class="card"><h3>Direct NASA access</h3><p>Fetch Kepler and TESS light curves from the MAST archive by target ID (TIC, KIC or EPIC), or upload your own CSV or FITS file.</p></article>
+      <article class="card"><h3>CNN transit scoring</h3><p>A convolutional neural network scores every signal, and each individual transit, so you can see which events to trust.</p></article>
+      <article class="card"><h3>False-positive checks</h3><p>Odd/even depths, secondary eclipses, transit shape, duration and instrumental glitches are checked to flag eclipsing binaries and noise.</p></article>
+      <article class="card"><h3>Multi-planet search</h3><p>Finds up to five separate signals per star by hiding each one in turn, and reports radius, temperature and habitable-zone position.</p></article>
+    </div>
+  </section>
+
+  <section id="how" class="lp-section alt">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><strong>Bring a light curve.</strong> Upload a file or type a target ID such as TIC 261136679.</li>
+      <li><strong>We search and vet.</strong> The data is cleaned, searched for repeating dips, scored and checked.</li>
+      <li><strong>You get a verdict.</strong> Charts, a table of planet parameters, and a CSV or printable report.</li>
+    </ol>
+  </section>
+
+  <section id="pricing" class="lp-section">
+    <h2>Pricing</h2>
+    <div class="plans">
+      <article class="plan on"><h3>Free</h3><p class="tag">Available now</p>
+        <ul><li>Upload CSV or FITS files</li><li>Fetch Kepler and TESS data</li><li>Multi-planet search</li><li>False-positive checks</li><li>CSV export</li></ul>
+        <a class="cta" href="#/signup">Get started</a></article>
+      <article class="plan"><h3>Pro Researcher</h3><p class="tag">Coming soon</p>
+        <ul><li>Batch uploads</li><li>API access</li><li>Priority processing</li></ul>
+        <span class="soon">Coming soon</span></article>
+      <article class="plan"><h3>Institute</h3><p class="tag">Coming soon</p>
+        <ul><li>Shared team workspace</li><li>Larger uploads</li><li>Usage reports</li></ul>
+        <span class="soon">Coming soon</span></article>
+      <article class="plan"><h3>Enterprise</h3><p class="tag">Coming soon</p>
+        <ul><li>Single sign-on</li><li>Dedicated deployment</li><li>Custom model training</li></ul>
+        <span class="soon">Coming soon</span></article>
+    </div>
+  </section>
+
+  <footer class="lp-foot">
+    <p>Scores and labels are screening aids, not confirmations. Data from NASA's MAST archive (Kepler, TESS).</p>
+  </footer>
+</div>
+
+<!-- ===== Sign in / create account ===== -->
 <main id="auth" class="narrow" hidden>
-  <h2>Find planets in starlight</h2>
-  <p class="lede">Upload a TESS or Kepler light curve, or fetch one from NASA. ExoAnalytica searches for transits, scores the signal, and estimates the planet's size, gravity, temperature and habitability.</p>
+  <a class="back" href="#/">&larr; Back to home</a>
+  <h2 id="auth-title">Sign in to ExoAnalytica</h2>
+  <p class="lede">Your analyses are private to your account.</p>
   <form id="auth-form">
     <label>Email <input name="email" type="email" autocomplete="email" required></label>
     <label>Password <input name="password" type="password" minlength="10" maxlength="64" autocomplete="current-password" required></label>
-    <div class="row"><button type="submit" data-mode="login">Sign in</button><button type="submit" data-mode="register" class="ghost">Create account</button></div>
+    <div class="row"><button type="submit" id="btn-login" data-mode="login">Sign in</button><button type="submit" id="btn-register" data-mode="register" class="ghost">Create account</button></div>
+    <p class="hint">Passwords need 10 to 64 characters.</p>
     <p id="auth-msg" class="msg" role="alert"></p>
   </form>
 </main>
 
-<main id="app" class="wide" hidden>
-  <aside>
-    <section>
-      <h2>New analysis</h2>
-      <div class="tabs" role="tablist">
-        <button role="tab" id="tab-upload" aria-selected="true">Upload file</button>
-        <button role="tab" id="tab-fetch" aria-selected="false">Fetch from NASA</button>
+<!-- ===== Dashboard ===== -->
+<div id="app" class="shell" hidden>
+  <nav class="side" aria-label="Dashboard">
+    <a class="brand" href="#/dashboard"><img src="logo.png" alt="" width="32" height="32"><span class="brand-name">ExoAnalytica</span></a>
+    <button type="button" class="navbtn" data-go="dashboard">Dashboard</button>
+    <button type="button" class="navbtn" data-go="new">New analysis</button>
+    <button type="button" class="navbtn" data-go="batch">Batch uploads <small>soon</small></button>
+    <button type="button" class="navbtn" data-go="history">History</button>
+    <button type="button" class="navbtn" data-go="keys">API keys <small>soon</small></button>
+    <button type="button" class="navbtn" data-go="account">My account</button>
+  </nav>
+
+  <div class="main">
+    <header class="bar">
+      <h1 id="page-title">Dashboard</h1>
+      <div class="who"><span id="user-chip" class="chip" aria-hidden="true">?</span><span id="user-email" class="email"></span><button type="button" id="logout" class="ghost">Sign out</button></div>
+    </header>
+
+    <section id="view-dashboard" class="view">
+      <div class="stats">
+        <div class="panel stat"><span>Analyses run</span><strong id="stat-total">0</strong></div>
+        <div class="panel stat"><span>Completed</span><strong id="stat-done">0</strong></div>
+        <div class="panel stat"><span>Failed</span><strong id="stat-fail">0</strong></div>
       </div>
-      <form id="run-form">
-        <div id="pane-upload"><label>Light curve (.csv or .fits, up to 25 MB)<input type="file" name="file" accept=".csv,.fits,.fit"></label></div>
-        <div id="pane-fetch" hidden>
-          <label>Target ID <input name="target" placeholder="TIC 261136679" pattern="(TIC|KIC|EPIC) ?[0-9]{1,10}"></label>
-          <label>Mission <select name="mission"><option>TESS</option><option>Kepler</option></select></label>
+      <div class="panel">
+        <h2>Recent analyses</h2>
+        <ul id="recent" class="history"></ul>
+        <p><button type="button" data-go="new">Start a new analysis</button></p>
+      </div>
+    </section>
+
+    <section id="view-new" class="view">
+      <form id="run-form" class="panel form-panel">
+        <div class="tabs" role="tablist">
+          <button type="button" role="tab" id="tab-upload" aria-selected="true">Upload file</button>
+          <button type="button" role="tab" id="tab-fetch" aria-selected="false">Fetch from NASA</button>
         </div>
-        <fieldset><legend>Host star (optional)</legend>
-          <label>Radius (R☉) <input name="radius_rsun" type="number" step="any" min="0.09" max="100"></label>
-          <label>Mass (M☉) <input name="mass_msun" type="number" step="any" min="0.09" max="100"></label>
-          <label>Temperature (K) <input name="teff_k" type="number" step="any" min="2300" max="50000"></label>
-          <p class="hint">Blank fields use the file header, then Sun-like values.</p>
-        </fieldset>
+        <div class="form-grid">
+          <div id="pane-upload"><label>Light curve (.csv or .fits, up to 25 MB)<input type="file" name="file" accept=".csv,.fits,.fit"></label></div>
+          <div id="pane-fetch" hidden>
+            <label>Target ID <input name="target" placeholder="TIC 261136679" pattern="(TIC|KIC|EPIC) ?[0-9]{1,10}"></label>
+            <label>Mission <select name="mission"><option>TESS</option><option>Kepler</option></select></label>
+          </div>
+          <fieldset><legend>Host star (optional)</legend>
+            <label>Radius (R☉) <input name="radius_rsun" type="number" step="any" min="0.09" max="100"></label>
+            <label>Mass (M☉) <input name="mass_msun" type="number" step="any" min="0.09" max="100"></label>
+            <label>Temperature (K) <input name="teff_k" type="number" step="any" min="2300" max="50000"></label>
+            <p class="hint">Blank fields use the file header, then Sun-like values.</p>
+          </fieldset>
+        </div>
         <label class="check"><input type="checkbox" name="injection"><span>Also run the injection-recovery test <span class="hint">(adds about a minute)</span></span></label>
         <button type="submit" id="run-btn">Run analysis</button>
         <p id="run-msg" class="msg" role="alert"></p>
       </form>
+
+      <div id="progress" class="panel noprint" hidden>
+        <p id="progress-text">Starting…</p>
+        <div class="progress" aria-hidden="true"><i></i></div>
+      </div>
+
+      <div id="result" aria-live="polite"><p class="empty panel">Results appear here. Upload a light curve to start.</p></div>
     </section>
-    <section><h2>History</h2><ul id="history" class="history"></ul></section>
-  </aside>
-  <section id="result" aria-live="polite"><p class="empty">Results appear here. Upload a light curve to start.</p></section>
-</main>
+
+    <section id="view-history" class="view">
+      <div class="panel"><h2>History</h2><div id="history"></div></div>
+    </section>
+
+    <section id="view-batch" class="view">
+      <div class="panel"><h2>Batch uploads</h2><p>Queue many light curves at once. This feature is planned but not built yet.</p></div>
+    </section>
+
+    <section id="view-keys" class="view">
+      <div class="panel"><h2>API keys</h2><p>Programmatic access to the analysis pipeline. This feature is planned but not built yet.</p></div>
+    </section>
+
+    <section id="view-account" class="view">
+      <div class="panel"><h2>My account</h2>
+        <dl><dt>Signed in as</dt><dd id="account-email">-</dd></dl>
+        <p><button type="button" id="logout2" class="ghost">Sign out</button></p>
+      </div>
+    </section>
+  </div>
+</div>
 
 <script src="app.js"></script>
 </body>

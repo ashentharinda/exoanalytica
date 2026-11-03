@@ -154,12 +154,15 @@ function table(head, rows) {
   return el("div", { class: "tbl" }, t);
 }
 const fmt = (v, d = 2) => Number(v).toLocaleString(undefined, { maximumFractionDigits: d });
+// Percentage = CNN confidence; label and tone come from the false-positive checks.
+const verdictLine = (pct, c) => el("div", { class: "verdict" }, el("strong", { class: c.tone }, pct + "%"),
+  el("span", {}, c.label), c.reasons.length ? el("small", {}, "Flagged: " + c.reasons.join(", ")) : "");
 const kv = (rows) => el("dl", {}, ...rows.flatMap(([a, b]) => [el("dt", {}, a), el("dd", {}, b)]));
 
 function extraSection(o, n, later) {
   const id = "p-fold-" + n, d = o.detection, s = o.signal, p = o.planet;
   const sec = el("section", {}, el("h2", {}, "Additional signal " + n + ": " + fmt(s.period_d, 3) + " day period"),
-    el("div", { class: "verdict" }, el("strong", { class: d.is_candidate ? "yes" : "no" }, Math.round(d.score * 100) + "%"), el("span", {}, d.is_candidate ? "Likely planetary transit" : "No convincing transit")),
+    verdictLine(Math.round(d.score * 100), o.classification),
     el("p", { class: "note" }, "Found after hiding the transits of the stronger signal(s). Extra signals are weaker evidence: check them for stellar variability before trusting them."),
     el("div", { class: "plot js-plot", id }),
     kv([["Period", fmt(s.period_d, 4) + " d"], ["Depth", fmt(s.depth_ppm, 0) + " ppm"], ["Duration", fmt(s.duration_h, 1) + " h"],
@@ -181,12 +184,10 @@ function render(r) {
   const later = [];
   const out = $("#result"), d = r.detection, s = r.signal, p = r.planet;
   const pct = Math.round(d.score * 100);
-  const verdict = el("section", {}, el("div", { class: "verdict" },
-    el("strong", { class: d.is_candidate ? "yes" : "no" }, pct + "%"),
-    el("span", {}, d.is_candidate ? "Likely planetary transit" : "No convincing transit")));
+  const verdict = el("section", {}, verdictLine(pct, r.classification));
   verdict.append(el("p", { class: "note" }, d.method === "cnn"
-    ? "Scored by a CNN trained on " + d.trained_on + ". Treat as a screening score, not a confirmation."
-    : "No trained model found; score comes from the transit-search signal-to-noise ratio."));
+    ? "The percentage is the CNN's confidence (trained on " + d.trained_on + "). The label combines it with the false-positive checks below. Treat both as screening, not confirmation."
+    : "No trained model found; the percentage comes from the transit-search signal-to-noise ratio. The label combines it with the false-positive checks below."));
   if ((r.planets || []).length) {
     verdict.append(el("p", { class: "note" }, "This star shows " + (1 + r.planets.length) + " separate transit signals, so it may host several planets. The strongest is described first."));
   }
@@ -220,7 +221,7 @@ function render(r) {
     parts.push(sec);
   }
   if (r.vetting) {
-    const sec = el("section", {}, el("h2", {}, "Vetting"),
+    const sec = el("section", {}, el("h2", {}, "False-positive checks"),
       el("p", {}, r.vetting.passed ? "No red flags from the automated checks." : "Some checks raised warnings. Read them before trusting this detection."));
     for (const fl of r.vetting.flags) sec.append(el("div", { class: "flag " + fl.level }, fl.text));
     parts.push(sec);
