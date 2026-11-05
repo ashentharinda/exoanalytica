@@ -1,6 +1,8 @@
 const $ = (s) => document.querySelector(s);
-const KEY = "exo_token";
+const $$ = (s) => [...document.querySelectorAll(s)];
+const KEY = "exo_token", EMAIL = "exo_email";
 const token = () => sessionStorage.getItem(KEY);
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 function el(tag, attrs = {}, ...kids) {
   const n = document.createElement(tag);
@@ -22,13 +24,59 @@ async function api(path, opts = {}) {
   return body;
 }
 
-function show() {
+/* ---------- routing: #/ landing, #/login, #/signup, #/dashboard ... ---------- */
+const VIEWS = ["dashboard", "new", "history", "batch", "keys", "account"];
+const TITLES = { dashboard: "Dashboard", new: "New analysis", history: "History", batch: "Batch uploads", keys: "API keys", account: "My account" };
+let lastTarget = null;
+
+const go = (v) => { location.hash = "#/" + v; };
+
+function route() {
+  const path = location.hash.replace(/^#\/?/, "").split("/")[0];
   const authed = !!token();
-  $("#auth").hidden = authed; $("#app").hidden = !authed; $("#logout").hidden = !authed;
-  if (authed) loadHistory();
+  let target;
+  if (authed) target = VIEWS.includes(path) ? path : "dashboard";
+  else target = path === "signup" ? "signup" : (path === "login" || VIEWS.includes(path)) ? "login" : "";
+
+  $("#landing").hidden = target !== "";
+  $("#auth").hidden = target !== "login" && target !== "signup";
+  $("#app").hidden = !authed;
+
+  if (target === "login" || target === "signup") {
+    const signup = target === "signup";
+    $("#auth-title").textContent = signup ? "Create your free account" : "Sign in to ExoAnalytica";
+    $("#btn-register").classList.toggle("ghost", !signup);
+    $("#btn-login").classList.toggle("ghost", signup);
+  }
+  if (authed) {
+    VIEWS.forEach((v) => { $("#view-" + v).hidden = v !== target; });
+    $$(".navbtn").forEach((b) => {
+      if (b.dataset.go === target) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current");
+    });
+    $("#page-title").textContent = TITLES[target];
+    const email = sessionStorage.getItem(EMAIL) || "";
+    $("#user-email").textContent = email;
+    $("#account-email").textContent = email || "-";
+    $("#user-chip").textContent = (email[0] || "?").toUpperCase();
+    if (target === "dashboard" || target === "history") loadHistory();
+  }
+  if (target !== lastTarget) window.scrollTo(0, 0);
+  lastTarget = target;
 }
-function logout() { sessionStorage.removeItem(KEY); show(); }
+window.addEventListener("hashchange", route);
+document.addEventListener("click", (e) => {
+  const b = e.target.closest && e.target.closest("[data-go]");
+  if (b) go(b.dataset.go);
+});
+
+function logout() {
+  sessionStorage.removeItem(KEY); sessionStorage.removeItem(EMAIL);
+  $("#result").replaceChildren(el("p", { class: "empty panel" }, "Results appear here. Upload a light curve to start."));
+  location.hash = "#/";
+  route();
+}
 $("#logout").onclick = logout;
+$("#logout2").onclick = logout;
 
 $("#auth-form").addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -37,10 +85,15 @@ $("#auth-form").addEventListener("submit", async (e) => {
   try {
     const r = await api("/auth/" + mode, { method: "POST", headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email: f.get("email"), password: f.get("password") }) });
-    sessionStorage.setItem(KEY, r.access_token); e.target.reset(); show();
+    sessionStorage.setItem(KEY, r.access_token);
+    sessionStorage.setItem(EMAIL, String(f.get("email")));
+    e.target.reset();
+    go("dashboard");
+    route();
   } catch (err) { msg.textContent = err.message; }
 });
 
+/* ---------- new analysis ---------- */
 let mode = "upload";
 function setTab(m) {
   mode = m;
@@ -71,35 +124,59 @@ $("#run-form").addEventListener("submit", async (e) => {
     }
     await watch(job.id);
   } catch (err) { msg.textContent = err.message; }
-  finally { btn.disabled = false; loadHistory(); }
+  finally { btn.disabled = false; }
 });
 
 async function watch(id) {
-  const out = $("#result");
-  out.replaceChildren(el("p", { class: "empty" }, "Analysing light curve…"));
-  for (;;) {
-    const j = await api("/analysis/" + id);
-    if (j.status === "done") return render(j.result);
-    if (j.status === "failed") { out.replaceChildren(el("p", { class: "msg" }, j.error || "Analysis failed.")); return; }
-    await new Promise((r) => setTimeout(r, 2000));
-  }
+  const out = $("#result"), prog = $("#progress"), text = $("#progress-text");
+  prog.hidden = false;
+  out.replaceChildren();
+  try {
+    for (;;) {
+      const j = await api("/analysis/" + id);
+      if (j.status === "done") { prog.hidden = true; render(j.result); return; }
+      if (j.status === "failed") { prog.hidden = true; out.replaceChildren(el("p", { class: "msg panel" }, j.error || "Analysis failed.")); return; }
+      text.textContent = j.status === "running"
+        ? "Running: detrending, searching for transits and scoring them with the CNN…"
+        : "Queued: waiting for a free worker…";
+      await sleep(2000);
+    }
+  } catch (e) { prog.hidden = true; throw e; }
 }
 
+function openJob(id) {
+  go("new");
+  route();
+  watch(id).catch((e) => { $("#result").replaceChildren(el("p", { class: "msg panel" }, e.message)); });
+}
+
+/* ---------- history and dashboard overview ---------- */
 async function loadHistory() {
-  const ul = $("#history");
   try {
     const rows = await api("/analysis");
-    ul.replaceChildren(...rows.map((j) => {
-      const label = j.target || "Uploaded file";
-      const right = j.status === "done" ? Math.round(j.score * 100) + "%" : j.status;
-      const b = el("button", { type: "button" }, el("span", {}, label), el("span", {}, right));
-      b.onclick = () => watch(j.id).catch((e) => ($("#result").textContent = e.message));
-      return el("li", {}, b);
-    }));
-    if (!rows.length) ul.replaceChildren(el("li", { class: "hint" }, "No analyses yet."));
+    $("#stat-total").textContent = String(rows.length);
+    $("#stat-done").textContent = String(rows.filter((j) => j.status === "done").length);
+    $("#stat-fail").textContent = String(rows.filter((j) => j.status === "failed").length);
+    const label = (j) => j.target || "Uploaded file";
+    const score = (j) => (j.status === "done" && j.score != null ? Math.round(j.score * 100) + "%" : j.status);
+    $("#recent").replaceChildren(...(rows.length
+      ? rows.slice(0, 5).map((j) => {
+        const b = el("button", { type: "button" }, el("span", {}, label(j)), el("span", {}, score(j)));
+        b.onclick = () => openJob(j.id);
+        return el("li", {}, b);
+      })
+      : [el("li", { class: "hint" }, "No analyses yet.")]));
+    $("#history").replaceChildren(rows.length
+      ? table(["Date", "Source", "Status", "CNN confidence"], rows.map((j) => {
+        const b = el("button", { type: "button", class: "link" }, new Date(j.created).toLocaleString());
+        b.onclick = () => openJob(j.id);
+        return [b, label(j), j.status, j.status === "done" && j.score != null ? Math.round(j.score * 100) + "%" : "-"];
+      }))
+      : el("p", { class: "empty" }, "No analyses yet. Start one from New analysis."));
   } catch { /* shown by api() on 401 */ }
 }
 
+/* ---------- charts (plain SVG, no external library) ---------- */
 const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
 function niceTicks(lo, hi, n) {
   const raw = (hi - lo || 1) / n, mag = Math.pow(10, Math.floor(Math.log10(raw)));
@@ -109,7 +186,6 @@ function niceTicks(lo, hi, n) {
   return { ticks, step };
 }
 
-// Draws a scatter plot as plain SVG (no external library, so it cannot fail to load).
 function plot(div, x, y, xt, yt, color, shapes) {
   const host = document.getElementById(div);
   const W = 760, H = 340, L = 66, R = 14, T = 12, B = 50;
@@ -148,6 +224,8 @@ function plot(div, x, y, xt, yt, color, shapes) {
     + `<text transform="translate(16 ${(T + (H - T - B) / 2).toFixed(0)}) rotate(-90)" text-anchor="middle" style="fill:var(--ink)">${yt}</text>`;
   host.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="100%" height="100%" role="img" aria-label="${yt} against ${xt}" style="font:12px 'Hanken Grotesk',sans-serif">${g}</svg>`;
 }
+
+/* ---------- small building blocks ---------- */
 function table(head, rows) {
   const t = el("table", {}, el("thead", {}, el("tr", {}, ...head.map((h) => el("th", {}, h)))),
     el("tbody", {}, ...rows.map((r) => el("tr", {}, ...r.map((c) => el("td", { class: "num" }, c))))));
@@ -159,8 +237,45 @@ const verdictLine = (pct, c) => el("div", { class: "verdict" }, el("strong", { c
   el("span", {}, c.label), c.reasons.length ? el("small", {}, "Flagged: " + c.reasons.join(", ")) : "");
 const kv = (rows) => el("dl", {}, ...rows.flatMap(([a, b]) => [el("dt", {}, a), el("dd", {}, b)]));
 
+function exportCsv(r) {
+  const head = ["signal", "period_d", "depth_ppm", "duration_h", "snr", "snr_correlated_noise", "cnn_confidence", "verdict",
+    "radius_earth", "mass_earth", "density_gcc", "gravity_ms2", "semi_major_au", "teq_k", "habitable_zone"];
+  const rows = [r, ...(r.planets || [])].map((q, i) => {
+    const s = q.signal, p = q.planet;
+    return [i + 1, s.period_d, s.depth_ppm, s.duration_h, s.snr, s.snr_red, q.detection.score, q.classification.label,
+      p && p.radius_earth, p && p.mass_earth, p && p.density_gcc, p && p.gravity_ms2, p && p.semi_major_au, p && p.teq_k, p && p.hz.status];
+  });
+  const esc = (v) => { const s = v == null || v === false ? "" : String(v); return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; };
+  const csv = [head, ...rows].map((row) => row.map(esc).join(",")).join("\n");
+  const a = el("a", { href: URL.createObjectURL(new Blob([csv], { type: "text/csv" })), download: "exoanalytica-results.csv" });
+  document.body.append(a); a.click(); a.remove();
+  return csv;
+}
+
+function planetSection(r) {
+  const signals = [r, ...(r.planets || [])];
+  const rows = signals.map((q, i) => q.planet && [String(i + 1), fmt(q.signal.period_d, 3) + " d", fmt(q.planet.radius_earth) + " R⊕",
+    fmt(q.planet.mass_earth) + " M⊕", fmt(q.planet.density_gcc) + " g/cm³", fmt(q.planet.gravity_g) + " g",
+    fmt(q.planet.teq_k, 0) + " K", q.planet.hz.status]).filter(Boolean);
+  const pdf = el("button", { type: "button" }, "Download PDF report");
+  pdf.onclick = () => window.print();
+  const csv = el("button", { type: "button", class: "ghost" }, "Export CSV data");
+  csv.onclick = () => exportCsv(r);
+  const sec = el("section", {}, el("div", { class: "toolbar" }, el("h2", {}, "Planet parameters"), el("div", { class: "btns noprint" }, pdf, csv)));
+  if (rows.length) {
+    sec.append(table(["Signal", "Period", "Radius", "Mass (est.)", "Density", "Gravity", "Equilibrium temp", "Habitable zone"], rows));
+    const first = signals.find((q) => q.planet), st = r.stellar;
+    sec.append(el("p", { class: "note" }, "Mass uses the " + first.planet.mass_note + ". Star: " + fmt(st.values.radius_rsun) + " R☉ (" + st.source.radius_rsun + "), "
+      + fmt(st.values.mass_msun) + " M☉ (" + st.source.mass_msun + "), " + fmt(st.values.teff_k, 0) + " K (" + st.source.teff_k + ")."
+      + (signals.some((q) => q.planet && q.planet.gaseous_likely) ? " A planet this large is probably gaseous, so habitable-zone position alone says little about habitability." : "")));
+  } else {
+    sec.append(el("p", { class: "note" }, "No planet parameters: none of the signals scored as a planet candidate."));
+  }
+  return sec;
+}
+
 function extraSection(o, n, later) {
-  const id = "p-fold-" + n, d = o.detection, s = o.signal, p = o.planet;
+  const id = "p-fold-" + n, d = o.detection, s = o.signal;
   const sec = el("section", {}, el("h2", {}, "Additional signal " + n + ": " + fmt(s.period_d, 3) + " day period"),
     verdictLine(Math.round(d.score * 100), o.classification),
     el("p", { class: "note" }, "Found after hiding the transits of the stronger signal(s). Extra signals are weaker evidence: check them for stellar variability before trusting them."),
@@ -168,13 +283,7 @@ function extraSection(o, n, later) {
     kv([["Period", fmt(s.period_d, 4) + " d"], ["Depth", fmt(s.depth_ppm, 0) + " ppm"], ["Duration", fmt(s.duration_h, 1) + " h"],
       ["Signal-to-noise", fmt(s.snr, 1)], ["SNR with correlated noise", s.snr_red == null ? "-" : fmt(s.snr_red, 1)],
       ["Transits seen", String(o.n_transits)]]));
-  if (p) {
-    sec.append(el("h3", {}, "Planet"), kv([["Radius", fmt(p.radius_earth) + " R⊕ (" + fmt(p.radius_jupiter, 3) + " R♃)"], ["Mass (estimated)", fmt(p.mass_earth) + " M⊕"],
-      ["Density", fmt(p.density_gcc) + " g/cm³"], ["Surface gravity", fmt(p.gravity_ms2) + " m/s² (" + fmt(p.gravity_g) + " g)"],
-      ["Orbital distance", fmt(p.semi_major_au, 3) + " AU"], ["Equilibrium temperature", fmt(p.teq_k, 0) + " K (albedo 0.3)"],
-      ["Habitable zone", p.hz.status]]));
-  }
-  sec.append(el("h3", {}, "Vetting"));
+  sec.append(el("h3", {}, "False-positive checks"));
   for (const fl of o.vetting.flags) sec.append(el("div", { class: "flag " + fl.level }, fl.text));
   later.push(() => plot(id, o.plots.phase_d, o.plots.folded, "Days from mid-transit", "Relative flux", css("--transit")));
   return sec;
@@ -182,9 +291,8 @@ function extraSection(o, n, later) {
 
 function render(r) {
   const later = [];
-  const out = $("#result"), d = r.detection, s = r.signal, p = r.planet;
-  const pct = Math.round(d.score * 100);
-  const verdict = el("section", {}, verdictLine(pct, r.classification));
+  const out = $("#result"), d = r.detection, s = r.signal;
+  const verdict = el("section", {}, verdictLine(Math.round(d.score * 100), r.classification));
   verdict.append(el("p", { class: "note" }, d.method === "cnn"
     ? "The percentage is the CNN's confidence (trained on " + d.trained_on + "). The label combines it with the false-positive checks below. Treat both as screening, not confirmation."
     : "No trained model found; the percentage comes from the transit-search signal-to-noise ratio. The label combines it with the false-positive checks below."));
@@ -194,23 +302,9 @@ function render(r) {
 
   const fold = el("section", {}, el("h2", {}, "Folded at " + fmt(s.period_d, 4) + " days"), el("div", { class: "plot js-plot", id: "p-fold" }));
   const raw = el("section", {}, el("h2", {}, "Detrended light curve"), el("p", { class: "note" }, "Dotted lines mark each transit of the main signal: green where the model is confident, red where it is not. Grey lines are transits of additional signals."), el("div", { class: "plot js-plot", id: "p-raw" }));
-  const sig = el("section", {}, el("h2", {}, "Signal"), el("dl", {},
-    ...[["Period", fmt(s.period_d, 4) + " d"], ["Depth", fmt(s.depth_ppm, 0) + " ppm"], ["Duration", fmt(s.duration_h, 1) + " h"], ["Signal-to-noise", fmt(s.snr, 1)], ["SNR with correlated noise", s.snr_red == null ? "-" : fmt(s.snr_red, 1)]]
-      .flatMap(([a, b]) => [el("dt", {}, a), el("dd", {}, b)])));
-  const parts = [verdict, fold, raw, sig];
-
-  if (p) {
-    const hz = p.hz, st = r.stellar;
-    const rows = [["Radius", fmt(p.radius_earth) + " R⊕ (" + fmt(p.radius_jupiter, 3) + " R♃)"], ["Mass (estimated)", fmt(p.mass_earth) + " M⊕"],
-      ["Density", fmt(p.density_gcc) + " g/cm³"], ["Surface gravity", fmt(p.gravity_ms2) + " m/s² (" + fmt(p.gravity_g) + " g)"],
-      ["Orbital distance", fmt(p.semi_major_au, 3) + " AU"], ["Equilibrium temperature", fmt(p.teq_k, 0) + " K (albedo 0.3)"],
-      ["Habitable zone", hz.status], ["Conservative zone", fmt(hz.inner_cons, 2) + " – " + fmt(hz.outer_cons, 2) + " AU"]];
-    const sec = el("section", {}, el("h2", {}, "Planet"), el("dl", {}, ...rows.flatMap(([a, b]) => [el("dt", {}, a), el("dd", {}, b)])));
-    sec.append(el("p", { class: "note" }, "Mass uses the " + p.mass_note + ". Star: " + fmt(st.values.radius_rsun) + " R☉ (" + st.source.radius_rsun + "), "
-      + fmt(st.values.mass_msun) + " M☉ (" + st.source.mass_msun + "), " + fmt(st.values.teff_k, 0) + " K (" + st.source.teff_k + ")."
-      + (p.gaseous_likely ? " A planet this large is probably gaseous, so habitable-zone position alone says little about habitability." : "")));
-    parts.push(sec);
-  }
+  const sig = el("section", {}, el("h2", {}, "Signal"), kv([["Period", fmt(s.period_d, 4) + " d"], ["Depth", fmt(s.depth_ppm, 0) + " ppm"],
+    ["Duration", fmt(s.duration_h, 1) + " h"], ["Signal-to-noise", fmt(s.snr, 1)], ["SNR with correlated noise", s.snr_red == null ? "-" : fmt(s.snr_red, 1)]]));
+  const parts = [verdict, el("div", { class: "grid2" }, fold, raw), planetSection(r), sig];
 
   if (r.transits && r.transits.length) {
     const sec = el("section", {}, el("h2", {}, "Individual transits (" + r.n_transits + ")"),
@@ -257,4 +351,4 @@ function render(r) {
   plot("p-raw", r.plots.time, r.plots.flux, "Time (days)", "Relative flux", css("--ink"), marks.concat(otherMarks));
 }
 
-show();
+route();

@@ -2,6 +2,7 @@
 import json
 import math
 import sys
+import traceback
 from pathlib import Path
 
 import numpy as np
@@ -19,6 +20,13 @@ def _lst(a, nd=6):
     return [None if not math.isfinite(x) else round(float(x), nd) for x in a]
 
 
+def _plain(a):
+    """astropy Masked array -> plain float ndarray (masked points become NaN)."""
+    if hasattr(a, "filled"):
+        a = a.filled(np.nan)
+    return np.asarray(a, dtype=float)
+
+
 def _acquire(job_dir: Path, spec):
     if spec["source"] == "upload":
         p = job_dir / f"input.{spec['kind']}"
@@ -31,7 +39,9 @@ def _acquire(job_dir: Path, spec):
         raise pp.DataError(f"No {spec['mission']} light curves found for {spec['target']}.")
     lc = sr[:3].download_all(download_dir=str(job_dir)).stitch().remove_nans()
     meta = {"radius_rsun": lc.meta.get("RADIUS"), "teff_k": lc.meta.get("TEFF")}
-    return lc.time.value.astype(float), lc.flux.value.astype(float), meta
+    t, f = _plain(lc.time.value), _plain(lc.flux.value)
+    ok = np.isfinite(t) & np.isfinite(f)
+    return t[ok], f[ok], meta
 
 
 def _stellar(spec, meta):
@@ -197,8 +207,8 @@ def main(job_dir: Path):
                     keep &= np.abs(pp.phase(t_raw, sg["period_d"], sg["epoch"])) > 1.5 * sg["duration_h"] / 24
             base_t, base_f = (t_raw[keep], f_raw[keep]) if keep.sum() >= 2000 else (t_raw, f_raw)
             result["injection"] = injection.run(base_t, base_f, np.random.default_rng(12345))
-        except Exception as e:
-            print(repr(e), file=sys.stderr)
+        except Exception:
+            traceback.print_exc(file=sys.stderr)
             result["injection"] = {"error": "The injection test could not run on this light curve."}
     (job_dir / "result.json").write_text(json.dumps(result, allow_nan=False, default=float))
 
@@ -209,6 +219,6 @@ if __name__ == "__main__":
         main(d)
     except pp.DataError as e:
         (d / "result.json").write_text(json.dumps({"error": str(e)}))
-    except Exception as e:  # details stay in the container log, not in the API response
-        print(repr(e), file=sys.stderr)
+    except Exception:  # details stay in the container log, not in the API response
+        traceback.print_exc(file=sys.stderr)
         (d / "result.json").write_text(json.dumps({"error": "Analysis failed. Check that the file is a valid light curve."}))
