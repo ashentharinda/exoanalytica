@@ -42,9 +42,10 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
-
+import shutil
 # These are the pipeline modules you already have. No torch / CNN needed here.
 from app.services import physics, preprocess as pp, vetting
+from astropy.io import fits
 
 try:  # progress bar is optional
     # from tqdm import tqdm
@@ -196,7 +197,7 @@ def _plain(a):
     return np.asarray(a, dtype=float)
 
 
-def fetch_lightcurve(query, mission, author, exptime, max_sectors, cache_dir):
+def _quarantine_invalid_fits(folder):
     """Download the first few quarters / sectors with lightkurve and stitch them together."""
     import lightkurve as lk  # imported here so every worker process loads it itself
 
