@@ -198,23 +198,125 @@ def _plain(a):
 
 
 def _quarantine_invalid_fits(folder):
-    """Download the first few quarters / sectors with lightkurve and stitch them together."""
-    import lightkurve as lk  # imported here so every worker process loads it itself
+    """Move truncated or unreadable FITS files out of the active Lightkurve cache."""
+    folder = Path(folder)
+    quarantine = folder / "_corrupt_quarantine"
+    quarantined = 0
 
-    sr = _retry(lambda: lk.search_lightcurve(query, mission=mission, author=author, exptime=exptime))
+    for path in folder.rglob("*.fits"):
+        if quarantine in path.parents:
+            continue
+
+        reason = None
+        try:
+            with warnings.catch_warnings(record=True) as caught:
+                warnings.simplefilter("always")
+
+                with fits.open(
+                    path,
+                    mode="readonly",
+                    memmap=False,
+                    lazy_load_hdus=False,
+                ) as hdul:
+                    hdul.verify("exception")
+                    # Force table/image data to be read so truncation is detected.
+                    for hdu in hdul:
+                        if hdu.data is not None:
+                            _ = hdu.data
+
+            if any("truncated" in str(item.message).lower() for item in caught):
+                reason = "Astropy reported a truncated FITS file"
+
+        except Exception as exc:
+            reason = f"{type(exc).__name__}: {exc}"
+
+        if reason is None:
+            continue
+
+        quarantine.mkdir(parents=True, exist_ok=True)
+        destination = quarantine / f"{path.name}.{time.time_ns()}.corrupt"
+        shutil.move(str(path), str(destination))
+        quarantined += 1
+        print(
+            f"[CACHE RECOVERY] Quarantined damaged FITS: {path} "
+            f"({reason})",
+            flush=True,
+        )
+
+    return quarantined
+
+
+def fetch_lightcurve(query, mission, author, exptime, max_sectors, cache_dir):
+    """Download, validate and recover cached light curves before stitching."""
+    import lightkurve as lk  # imported here so each worker process loads it itself
+
+    sr = _retry(
+        lambda: lk.search_lightcurve(
+            query,
+            mission=mission,
+            author=author,
+            exptime=exptime,
+        )
+    )
     if len(sr) == 0:
         raise pp.DataError(f"No {mission} light curves found for {query}.")
-    folder = Path(cache_dir) / re.sub(r"\W+", "_", query)  # one folder per target: threads never clash
+
+    folder = Path(cache_dir) / re.sub(r"\W+", "_", query)
     folder.mkdir(parents=True, exist_ok=True)
-    coll = _retry(lambda: sr[:max_sectors].download_all(download_dir=str(folder)))
+
+    # Remove damaged cached products before Lightkurve attempts to reuse them.
+    _quarantine_invalid_fits(folder)
+
+    coll = None
+    for attempt in range(2):
+        try:
+            coll = _retry(
+                lambda: sr[:max_sectors].download_all(download_dir=str(folder))
+            )
+
+            if coll is None or len(coll) == 0:
+                raise pp.DataError(f"Download returned no data for {query}.")
+
+            # Validate the files that were just downloaded.
+            damaged = _quarantine_invalid_fits(folder)
+            if damaged:
+                if attempt == 0:
+                    print(
+                        f"[CACHE RECOVERY] Retrying download for {query}.",
+                        flush=True,
+                    )
+                    continue
+                raise pp.DataError(
+                    f"Damaged FITS files remained after cache recovery for {query}."
+                )
+
+            break
+
+        except Exception:
+            # A cached FITS file may cause download_all() itself to fail.
+            damaged = _quarantine_invalid_fits(folder)
+            if damaged and attempt == 0:
+                print(
+                    f"[CACHE RECOVERY] Retrying download for {query}.",
+                    flush=True,
+                )
+                continue
+            raise
+
     if coll is None or len(coll) == 0:
-        raise pp.DataError(f"Download returned no data for {query}.")
+        raise pp.DataError(f"No valid light curves available for {query}.")
+
     lc = coll.stitch().remove_nans()
     t, f = _plain(lc.time.value), _plain(lc.flux.value)
     ok = np.isfinite(t) & np.isfinite(f)
+
     if ok.sum() == 0:
         raise pp.DataError("Light curve contains only NaN values.")
-    meta = {"radius_rsun": lc.meta.get("RADIUS"), "teff_k": lc.meta.get("TEFF")}
+
+    meta = {
+        "radius_rsun": lc.meta.get("RADIUS"),
+        "teff_k": lc.meta.get("TEFF"),
+    }
     return t[ok], f[ok], meta
 
 

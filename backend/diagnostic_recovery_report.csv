@@ -1,0 +1,2 @@
+target_id,name,mission,expected,predicted,correct,status,verdict,reasons,period_d,depth_ppm,duration_h,snr_bls,snr_red,n_transits,odd_even_sigma,odd_ppm,even_ppm,secondary_snr,n_points,error,runtime_s
+KIC 6850504,Kepler-20,Kepler,Planet,Planet,True,OK,Planet candidate,,10.8534,856.9,3.6,123.4,101.5,24,0.13,878.7,880.5,2.6,13384,,19.18
