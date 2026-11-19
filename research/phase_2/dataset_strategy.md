@@ -326,7 +326,13 @@ For each event, verify:
 - Posterior sample availability
 - Published event interpretation
 
-Do not assume that the selected microlensing events have corresponding transit or RV observations.\n\n### Pilot D - Roman-like microlensing simulations\n\nBegin with a small, event-level subset of the RMDC26 Beginner tier. Verify the simulation truth fields, observation uncertainties, event grouping, and parameter conventions before selecting validation metrics. After the photometric pilot is reproducible, inspect a small Experienced-tier subset for joint photometric and astrometric modelling. Keep the simulation test set separate from any model-development or tuning sample.\n\nThis pilot validates analysis against simulated truth only. It does not validate performance on actual Roman observations.
+Do not assume that the selected microlensing events have corresponding transit or RV observations.
+
+### Pilot D - Roman-like microlensing simulations
+
+Begin with a small, event-level subset of the RMDC26 Beginner tier. Verify the simulation truth fields, observation uncertainties, event grouping, and parameter conventions before selecting validation metrics. After the photometric pilot is reproducible, inspect a small Experienced-tier subset for joint photometric and astrometric modelling. Keep the simulation test set separate from any model-development or tuning sample.
+
+This pilot validates analysis against simulated truth only. It does not validate performance on actual Roman observations.
 
 ## 6. Data Identification and Cross-Matching
 
