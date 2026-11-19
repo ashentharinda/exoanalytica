@@ -105,14 +105,42 @@ def clean(t, f, window_days=1.0):
     return detrend(*prepare(t, f), window_days)
 
 
+def _estimate_noise_sigma(flux):
+    """Estimate robust flux scatter, including zero-MAD light curves."""
+    values = np.asarray(flux, dtype=float)
+    values = values[np.isfinite(values)]
+
+    if values.size < 10:
+        raise DataError("Insufficient finite flux values for noise estimation.")
+
+    center = float(np.median(values))
+    deviations = np.abs(values - center)
+
+    eps = np.finfo(float).eps * max(1.0, abs(center)) * 10.0
+    sigma = 1.4826 * float(np.median(deviations))
+
+    if not np.isfinite(sigma) or sigma <= eps:
+        nonzero = deviations[deviations > eps]
+
+        if nonzero.size < 10:
+            raise DataError("Flux is constant; noise cannot be estimated.")
+
+        sigma = float(np.percentile(nonzero, 75)) / 1.150349380376008
+
+    if not np.isfinite(sigma) or sigma <= eps:
+        raise DataError("Unable to estimate a reliable flux noise level.")
+
+    return sigma
+
+
 def bls_search(t, f):
     from astropy.timeseries import BoxLeastSquares
 
     k = max(1, int(np.ceil(len(t) / 20000)))
     n = len(t) // k * k
     tb, fb = t[:n].reshape(-1, k).mean(1), f[:n].reshape(-1, k).mean(1)
-    sigma = 1.4826 * float(np.median(np.abs(f - np.median(f)))) / np.sqrt(k)
-    dy = np.full(len(tb), max(sigma, 1e-9))  # without dy, astropy's depth_snr is not a real SNR
+    sigma = _estimate_noise_sigma(f) / np.sqrt(k)
+    dy = np.full(len(tb), sigma)  # use an estimated noise level, not an artificial floor
     pmax = min((t[-1] - t[0]) / 2, 40.0)
     if pmax <= 0.6:
         raise DataError("Observation window too short to search for periodic transits.")
