@@ -185,6 +185,39 @@ It highlights the potential of microlensing surveys to investigate planetary pop
 
 ---
 
+### 4.3 Nancy Grace Roman Space Telescope and Microlensing
+
+The Nancy Grace Roman Space Telescope is expected to provide a major space-based microlensing survey through its Galactic Bulge Time-Domain Survey (GBTDS).
+
+The survey design includes:
+- High-cadence F146 imaging at approximately 12.1-minute cadence during six high-cadence seasons.
+- Lower-cadence monitoring during four middle seasons to retain sensitivity to longer-duration events.
+- Additional photometric and grism-spectroscopic snapshots for stellar characterization.
+
+The survey is designed to investigate planetary demographics in parameter-space regions complementary to transit and radial-velocity surveys, including wide-orbit and free-floating planets.
+
+**Roman Microlensing Data Challenge 2026 (RMDC26):**
+
+RMDC26 provides semi-realistic simulated Roman microlensing data for developing and evaluating analysis methods before and during the mission's science operations. Its published data documentation describes:
+- Beginner tier: 188 simulated events and 9,230,048 photometric observations.
+- Experienced tier: 2,087 simulated events and 103,281,456 observations, including astrometric measurements and more complex lens/source configurations.
+- Separate machine-learning training resources containing 372,655 simulated events, with observation, metadata, and epoch tables.
+
+The machine-learning observations table is approximately 172 GB. It should not be downloaded or loaded in full for the initial ExoAnalytica pilot.
+
+**Research relevance to ExoAnalytica:**
+1. Develop and test microlensing event modelling using Roman-like simulated photometry.
+2. Investigate joint photometric and astrometric information using the Experienced tier.
+3. Evaluate parameter recovery, uncertainty calibration, model degeneracies, and anomaly detection.
+4. Test how analysis performance changes across simulated event complexity and observing conditions.
+5. Prepare a reproducible workflow for future Roman observations.
+
+**Important scientific distinction:** RMDC26 datasets are simulations, not observations collected by the Roman telescope. Results obtained from these datasets must be reported as simulation-based validation. They do not establish performance on real Roman observations.
+
+As of 19 November 2026, NASA reports that Roman is in science commissioning. Actual GBTDS survey observations should be treated as a future validation source until suitable public survey data products are released. The first available observing window after commissioning is the planned start point for the GBTDS.
+
+**Important modelling consideration:** Roman's astrometric microlensing measurements can provide information complementary to photometric light curves. The analysis must preserve the distinction between the background source star and the foreground lens/host system. Astrometric and photometric constraints should be combined only through an appropriate physical model.
+
 ## 5. Comparison of the Three Observational Methods
 
 | Property | Transit | Radial Velocity | Microlensing |
@@ -296,7 +329,7 @@ The following limitations must be addressed during subsequent research:
 
 - Identify suitable Kepler and TESS datasets.
 - Investigate Gaia and HARPS RV data access.
-- Investigate OGLE and Roman microlensing data availability.
+- Investigate OGLE event-level data and the Roman Microlensing Data Challenge 2026 (RMDC26) simulated datasets.\n- Monitor the release of suitable public Roman GBTDS observations for later real-data validation.
 - Define data-quality and cross-matching requirements.
 
 ### WP4 – Architecture Planning
@@ -332,7 +365,7 @@ The following limitations must be addressed during subsequent research:
 **Phase:** 2  
 **Work Package:** WP1 – Literature Review  
 **Status:** Initial review prepared  
-**Next milestone:** Expanded literature review and research gap analysis
+**Next milestone:** Expanded literature review, Roman simulation pilot assessment, and research gap refinement
 
 This document is a research-planning artefact. It does not represent a completed algorithm design, implementation, or scientific validation.
 
