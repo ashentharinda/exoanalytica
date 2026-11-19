@@ -1,0 +1,97 @@
+PI MEN - THREE MODEL JOINT COMPARISON
+========================================================================
+Input: phase2_6_pi_men_corrected_dataset.csv
+Observations: 548
+HARPS_PRE: 129
+HARPS_POST: 419
+Fixed b period: 2088.33 days
+Fixed b eccentricity: 0.6396
+Fixed b omega: 331.03 degrees
+Fixed c period: 6.267852 days
+Common global time reference used.
+Same Gaussian likelihood and observations for all models.
+
+MODEL DEFINITIONS:
+A: b Keplerian only.
+B: b Keplerian + shared c sine/cosine coefficients.
+C: b Keplerian + separate PRE and POST c coefficients.
+
+MODEL COMPARISON:
+model  parameters  success         nll       chi2  reduced_chi2   rms_ms         AIC        AICc         BIC  delta_AICc  delta_BIC
+    A           6     True 1317.448964 550.122514      1.014986 2.721445 2646.897928 2647.053196 2672.735580   68.578133  51.607447
+    B           8     True 1285.544315 551.081993      1.020522 2.559338 2587.088629 2587.355791 2621.538832    8.880727   0.410699
+    C          10     True 1279.032690 551.466273      1.025030 2.522699 2578.065380 2578.475063 2621.128133    0.000000   0.000000
+
+------------------------------------------------------------------------
+MODEL A
+Optimizer success: True
+Optimizer message: Optimization terminated successfully.
+NLL: 1317.44896395
+Chi-square: 550.12251393
+Reduced chi-square: 1.01498619
+RMS: 2.72144501 m/s
+K_b: 192.93477528 m/s
+M0_b: 2.64034424 rad
+Gamma PRE: -58.18621233 m/s
+Gamma POST: -40.64294510 m/s
+Jitter PRE: 3.17160032 m/s
+Jitter POST: 2.49151128 m/s
+AICc: 2647.05319592
+BIC: 2672.73557962
+
+------------------------------------------------------------------------
+MODEL B
+Optimizer success: True
+Optimizer message: Optimization terminated successfully.
+NLL: 1285.54431471
+Chi-square: 551.08199319
+Reduced chi-square: 1.02052221
+RMS: 2.55933759 m/s
+K_b: 192.89807109 m/s
+M0_b: 2.64036951 rad
+Gamma PRE: -58.31394479 m/s
+Gamma POST: -40.63265140 m/s
+Jitter PRE: 2.87980024 m/s
+Jitter POST: 2.36993259 m/s
+AICc: 2587.35579082
+BIC: 2621.53883171
+Shared c sine coefficient: 0.82159099
+Shared c cosine coefficient: 0.93783732
+Shared c amplitude: 1.24681618 m/s
+Shared c global phase: 0.85137279 rad
+
+------------------------------------------------------------------------
+MODEL C
+Optimizer success: True
+Optimizer message: Optimization terminated successfully.
+NLL: 1279.03268997
+Chi-square: 551.46627264
+Reduced chi-square: 1.02503025
+RMS: 2.52269896 m/s
+K_b: 192.92462827 m/s
+M0_b: 2.64038137 rad
+Gamma PRE: -58.34513032 m/s
+Gamma POST: -40.64195416 m/s
+Jitter PRE: 2.74896554 m/s
+Jitter POST: 2.36412970 m/s
+AICc: 2578.47506336
+BIC: 2621.12813280
+PRE c sine: 0.69774186
+PRE c cosine: 2.09358840
+PRE c amplitude: 2.20679770 m/s
+PRE c global phase: 1.24909776 rad
+POST c sine: 0.85679522
+POST c cosine: 0.69540237
+POST c amplitude: 1.10348652 m/s
+POST c global phase: 0.68179345 rad
+
+========================================================================
+SCIENTIFIC CAVEATS:
+- b period, eccentricity and omega are fixed, not refitted.
+- The PRE/POST gamma and jitter parameters are independently fitted.
+- Model C has two additional c parameters compared with Model B.
+- AICc/BIC compare these specified models, not planet existence.
+- Optimizer success and parameter bounds must be inspected.
+- Correlated noise, activity and orbital-parameter uncertainty
+  are not fully represented.
+- This comparison alone cannot confirm an independent planet.

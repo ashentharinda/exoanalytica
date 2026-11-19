@@ -1,0 +1,51 @@
+PI MEN C - PARAMETRIC BOOTSTRAP
+========================================================================
+Input: phase2_6_pi_men_corrected_dataset.csv
+Successful bootstrap replicates: 200
+Failed replicates: 0
+Seed: 20261119
+Fixed b period: 2088.33
+Fixed b eccentricity: 0.6396
+Fixed b omega degrees: 331.03
+Fixed c period: 6.267852
+
+OBSERVED DATA PROFILE FIT:
+Model B success: True
+Model C success: True
+Model B NLL: 1285.54431128
+Model C NLL: 1279.03268499
+Observed 2 delta NLL: 13.02325259
+PRE amplitude in C: 2.20671125 m/s
+POST amplitude in C: 1.10361710 m/s
+Observed absolute amplitude difference: 1.10309415 m/s
+
+BOOTSTRAP TEST UNDER SHARED-SIGNAL MODEL B:
+Replicates >= observed likelihood improvement: 0
+Empirical p-value: 0.00497512
+
+AMPLITUDE DIFFERENCE DIAGNOSTIC:
+Replicates with amplitude difference >= observed: 1
+Empirical tail fraction: 0.00995025
+
+BOOTSTRAP 2 DELTA NLL QUANTILES:
+0.50     1.324051
+0.90     5.065442
+0.95     6.600275
+0.99    10.235289
+Name: delta_2_nll, dtype: float64
+
+BOOTSTRAP ABSOLUTE AMPLITUDE DIFFERENCE QUANTILES:
+0.50    0.298125
+0.90    0.705939
+0.95    0.807824
+0.99    0.918138
+Name: absolute_amplitude_difference_ms, dtype: float64
+
+IMPORTANT CAVEATS:
+- Null simulations assume the fitted shared-signal Model B is correct.
+- Measurement errors and fitted epoch jitters define Gaussian noise.
+- b period, eccentricity, omega and c period remain fixed.
+- This profile optimizer must be checked against the earlier DE fits.
+- Correlated stellar/instrumental noise is not simulated.
+- Bootstrap tests B versus C, not planet existence versus no planet.
+- Results are exploratory and conditional on the specified model.

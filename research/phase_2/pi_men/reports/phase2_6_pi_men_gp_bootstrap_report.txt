@@ -1,0 +1,34 @@
+PI MEN GP PARAMETRIC BOOTSTRAP
+=================================================================
+Input observations: 548
+Fixed c period: 6.267852
+Bootstrap requested: 200
+Successful: 200
+Failed: 0
+Random seed: 20261120
+
+OBSERVED DATA
+----------------------------------------
+Model A NLL: 1228.4226970753
+Model B NLL: 1206.7517334254
+Observed 2 delta NLL: 43.3419273000
+Observed c amplitude: 1.19163488 m/s
+
+BOOTSTRAP NULL DISTRIBUTION
+----------------------------------------
+Exceedances: 0
+Empirical p-value: 0.00497512
+Median: 1.39272346
+90th percentile: 4.43650094
+95th percentile: 5.18526149
+99th percentile: 7.35420795
+
+INTERPRETATION
+----------------------------------------
+Simulations use the fitted Model A OU covariance and the observed measurement-error/jitter structure.
+Both models re-estimate their GP hyperparameters for each simulated dataset.
+The empirical p-value is conditional on the fitted OU null model and fixed c period.
+The period-search trial factor is not included.
+The b baseline is held fixed; its uncertainty is not propagated.
+Activity indicators and alternative GP kernels are not jointly tested.
+This is not independent planet confirmation.

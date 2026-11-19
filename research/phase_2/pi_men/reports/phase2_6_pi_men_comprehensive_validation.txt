@@ -1,0 +1,37 @@
+PI MEN COMPREHENSIVE RV RESIDUAL VALIDATION
+======================================================================
+Input: phase2_6_pi_men_model_comparison_residuals.csv
+Valid observations: 548
+PRE observations: 129
+POST observations: 419
+Periods: c=6.267852 d, d=124.64 d, activity=184.0 d
+
+MODEL COMPARISON
+----------------------------------------------------------------------
+Model | k | chi2 | reduced chi2 | AICc | BIC | Delta BIC vs BASE
+BASE | 2 | 550.1225 | 1.00755 | 2638.9199 | 2647.5105 | 0.0000
+C_ONLY | 4 | 490.2871 | 0.90126 | 2583.1362 | 2600.2877 | 47.2228
+D_ONLY | 4 | 461.0639 | 0.84754 | 2553.9130 | 2571.0645 | 76.4460
+ACTIVITY184_ONLY | 4 | 475.0675 | 0.87329 | 2567.9166 | 2585.0680 | 62.4425
+C_PLUS_D | 6 | 393.5710 | 0.72615 | 2490.5016 | 2516.1840 | 131.3265
+C_PLUS_D_PLUS_184 | 8 | 358.3555 | 0.66362 | 2459.3980 | 2493.5811 | 153.9294
+
+PLANETARY / ACTIVITY AMPLITUDES
+----------------------------------------------------------------------
+c: K=1.27799 +/- 0.16016 m/s (approximate)
+d: K=1.32802 +/- 0.17850 m/s (approximate)
+activity184: K=1.01021 +/- 0.18300 m/s (approximate)
+
+EPOCH-SPECIFIC AMPLITUDE CHECK
+----------------------------------------------------------------------
+HARPS_PRE N=129 | c K=2.12865 +/- 0.40334 m/s | d K=1.32960 +/- 0.70669 m/s
+HARPS_POST N=419 | c K=1.19243 +/- 0.17457 m/s | d K=1.74660 +/- 0.18813 m/s
+
+IMPORTANT LIMITATIONS
+----------------------------------------------------------------------
+1. This is a conditional residual analysis after the fitted planet-b model, not a full simultaneous refit of all planets.
+2. The supplied sigma values are treated as known independent Gaussian uncertainties.
+3. Amplitude uncertainties are approximate linear covariance estimates, not full posterior credible intervals.
+4. PRE/POST amplitude fits are diagnostic and do not prove planet identity or activity origin.
+5. Fixed-period model comparisons do not account for every possible alias or period-search trial.
+6. No detection claim or false-alarm probability is made here.

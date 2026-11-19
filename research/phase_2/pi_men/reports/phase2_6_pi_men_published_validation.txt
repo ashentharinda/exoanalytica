@@ -1,0 +1,41 @@
+===== PI MEN B PUBLISHED ORBIT VALIDATION =====
+Optimization success: True
+Optimizer message: Optimization terminated successfully.
+Observations: 555
+Reference epoch BJD: 2453001.82961663
+
+FIXED PUBLISHED PARAMETERS
+Period (days): 2088.33
+Eccentricity: 0.6396
+Omega (degrees): 331.03
+
+OPTIMIZED PARAMETERS
+K (m/s): 200.05987847
+Published K (m/s): 192.99
+K difference (m/s): 7.06987847
+M0 at first observation (rad): 2.6328547728
+Gamma (m/s): -42.21948326
+Jitter (m/s): 8.64677261
+
+FIT DIAGNOSTICS
+Residual RMS (m/s): 8.66897017
+Residual median (m/s): 0.22671431
+Weighted chi-square: 555.61844009
+Reduced chi-square: 1.00838192
+Objective: 1985.84025321
+
+RESIDUAL SUMMARY
+count    555.000000
+mean      -0.012486
+std        8.676782
+min      -19.903834
+25%       -4.875784
+50%        0.226714
+75%        6.961922
+max       16.372360
+
+CAUTION
+Exploratory fixed-orbit fit only.
+Reference epoch and published parameter convention must be
+verified against the original publication before interpretation.
+This fit does not establish an independent planet validation.

@@ -1,0 +1,382 @@
+[
+  {
+    "script": "phase2_6_pi_men_AB_bootstrap.py",
+    "filename": "phase2_6_pi_men_AB_bootstrap_report.txt",
+    "target": "REPORTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_AB_bootstrap.py",
+    "filename": "phase2_6_pi_men_AB_bootstrap_results.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_AB_bootstrap.py",
+    "filename": "phase2_6_pi_men_corrected_dataset.csv",
+    "target": "DATA_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_activity_indicator_validation.py",
+    "filename": "phase2_6_pi_men_activity_indicator_report.txt",
+    "target": "REPORTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_activity_indicator_validation.py",
+    "filename": "phase2_6_pi_men_activity_indicator_validation.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_activity_indicator_validation.py",
+    "filename": "phase2_6_pi_men_model_comparison_residuals.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_anomaly_verification.py",
+    "filename": "phase2_6_pi_men_harps_timeseries.csv",
+    "target": "DATA_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_c_baseline_diagnostic.py",
+    "filename": "phase2_6_pi_men_corrected_dataset.csv",
+    "target": "DATA_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_c_epoch_baseline_validation.py",
+    "filename": "phase2_6_pi_men_c_epoch_baseline_validation.txt",
+    "target": "REPORTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_c_epoch_baseline_validation.py",
+    "filename": "phase2_6_pi_men_c_incremental_residuals.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_c_epoch_consistency.py",
+    "filename": "phase2_6_pi_men_c_incremental_residuals.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_c_incremental.py",
+    "filename": "phase2_6_pi_men_c_incremental_report.txt",
+    "target": "REPORTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_c_incremental.py",
+    "filename": "phase2_6_pi_men_c_incremental_residuals.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_c_incremental.py",
+    "filename": "phase2_6_pi_men_corrected_dataset.csv",
+    "target": "DATA_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_clean_keplerian_fit.py",
+    "filename": "phase2_6_pi_men_clean_keplerian_residuals.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_clean_keplerian_fit.py",
+    "filename": "phase2_6_pi_men_harps_timeseries.csv",
+    "target": "DATA_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_comprehensive_validation.py",
+    "filename": "phase2_6_pi_men_comprehensive_validation.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_comprehensive_validation.py",
+    "filename": "phase2_6_pi_men_comprehensive_validation.txt",
+    "target": "REPORTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_comprehensive_validation.py",
+    "filename": "phase2_6_pi_men_epoch_amplitude_check.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_comprehensive_validation.py",
+    "filename": "phase2_6_pi_men_model_comparison_residuals.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_corrected_alias_analysis.py",
+    "filename": "phase2_6_pi_men_alias_candidate_comparison.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_corrected_alias_analysis.py",
+    "filename": "phase2_6_pi_men_corrected_alias_analysis_report.txt",
+    "target": "REPORTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_corrected_alias_analysis.py",
+    "filename": "phase2_6_pi_men_corrected_residual_periodograms.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_corrected_alias_analysis.py",
+    "filename": "phase2_6_pi_men_corrected_sampling_window.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_corrected_alias_analysis.py",
+    "filename": "phase2_6_pi_men_model_comparison_residuals.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_correlated_noise.py",
+    "filename": "phase2_6_pi_men_corrected_dataset.csv",
+    "target": "DATA_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_correlated_noise.py",
+    "filename": "phase2_6_pi_men_correlated_noise_report.txt",
+    "target": "REPORTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_correlated_noise.py",
+    "filename": "phase2_6_pi_men_correlated_noise_results.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_detrended_activity_validation.py",
+    "filename": "phase2_6_pi_men_detrended_activity_report.txt",
+    "target": "REPORTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_detrended_activity_validation.py",
+    "filename": "phase2_6_pi_men_detrended_activity_validation.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_detrended_activity_validation.py",
+    "filename": "phase2_6_pi_men_model_comparison_residuals.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_epoch_alias_analysis.py",
+    "filename": "phase2_6_pi_men_epoch_specific_alias_analysis.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_epoch_alias_analysis.py",
+    "filename": "phase2_6_pi_men_epoch_specific_alias_report.txt",
+    "target": "REPORTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_epoch_alias_analysis.py",
+    "filename": "phase2_6_pi_men_model_comparison_residuals.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_instrument_audit.py",
+    "filename": "phase2_6_pi_men_harps_timeseries.csv",
+    "target": "DATA_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_instrument_audit.py",
+    "filename": "phase2_6_pi_men_instrument_audit.csv",
+    "target": "DATA_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_instrument_audit.py",
+    "filename": "phase2_6_pi_men_instrument_audit.txt",
+    "target": "REPORTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_joint_fit.py",
+    "filename": "phase2_6_pi_men_corrected_dataset.csv",
+    "target": "DATA_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_joint_fit.py",
+    "filename": "phase2_6_pi_men_joint_fit_report.txt",
+    "target": "REPORTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_joint_fit.py",
+    "filename": "phase2_6_pi_men_joint_fit_results.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_keplerian.py",
+    "filename": "phase2_6_pi_men_harps_timeseries.csv",
+    "target": "DATA_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_keplerian.py",
+    "filename": "phase2_6_pi_men_keplerian_residuals.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_model_comparison.py",
+    "filename": "phase2_6_pi_men_corrected_dataset.csv",
+    "target": "DATA_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_model_comparison.py",
+    "filename": "phase2_6_pi_men_model_comparison_report.txt",
+    "target": "REPORTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_model_comparison.py",
+    "filename": "phase2_6_pi_men_model_comparison_residuals.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_model_comparison.py",
+    "filename": "phase2_6_pi_men_residual_periodogram.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_parametric_bootstrap.py",
+    "filename": "phase2_6_pi_men_bootstrap_report.txt",
+    "target": "REPORTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_parametric_bootstrap.py",
+    "filename": "phase2_6_pi_men_bootstrap_results.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_parametric_bootstrap.py",
+    "filename": "phase2_6_pi_men_corrected_dataset.csv",
+    "target": "DATA_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_periodogram.py",
+    "filename": "phase2_6_pi_men_harps_timeseries.csv",
+    "target": "DATA_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_periodogram_recheck.py",
+    "filename": "phase2_6_pi_men_harps_timeseries.csv",
+    "target": "DATA_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_pre_post_fit.py",
+    "filename": "phase2_6_pi_men_corrected_dataset.csv",
+    "target": "DATA_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_pre_post_fit.py",
+    "filename": "phase2_6_pi_men_pre_post_fit.txt",
+    "target": "REPORTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_pre_post_fit.py",
+    "filename": "phase2_6_pi_men_pre_post_residuals.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_prepare_corrected_data.py",
+    "filename": "phase2_6_pi_men_corrected_dataset.csv",
+    "target": "DATA_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_prepare_corrected_data.py",
+    "filename": "phase2_6_pi_men_corrected_dataset.txt",
+    "target": "REPORTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_prepare_corrected_data.py",
+    "filename": "phase2_6_pi_men_instrument_audit.csv",
+    "target": "DATA_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_prewhitening.py",
+    "filename": "phase2_6_pi_men_b_prewhitened.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_prewhitening.py",
+    "filename": "phase2_6_pi_men_harps_timeseries.csv",
+    "target": "DATA_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_published_period_validation.py",
+    "filename": "phase2_6_pi_men_model_comparison_residuals.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_published_period_validation.py",
+    "filename": "phase2_6_pi_men_published_period_validation.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_published_period_validation.py",
+    "filename": "phase2_6_pi_men_published_period_validation_report.txt",
+    "target": "REPORTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_published_validation.py",
+    "filename": "phase2_6_pi_men_harps_timeseries.csv",
+    "target": "DATA_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_published_validation.py",
+    "filename": "phase2_6_pi_men_published_validation.txt",
+    "target": "REPORTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_published_validation.py",
+    "filename": "phase2_6_pi_men_published_validation_residuals.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_quality_audit.py",
+    "filename": "phase2_6_pi_men_harps_timeseries.csv",
+    "target": "DATA_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_residual_verification.py",
+    "filename": "phase2_6_pi_men_activity_correlations.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_residual_verification.py",
+    "filename": "phase2_6_pi_men_epoch_periodograms.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_residual_verification.py",
+    "filename": "phase2_6_pi_men_model_comparison_residuals.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_residual_verification.py",
+    "filename": "phase2_6_pi_men_residual_verification_report.txt",
+    "target": "REPORTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_residual_verification.py",
+    "filename": "phase2_6_pi_men_sampling_window_peaks.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_rv_diagnostics.py",
+    "filename": "phase2_6_pi_men_harps_timeseries.csv",
+    "target": "DATA_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_three_model_comparison.py",
+    "filename": "phase2_6_pi_men_corrected_dataset.csv",
+    "target": "DATA_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_three_model_comparison.py",
+    "filename": "phase2_6_pi_men_three_model_comparison.csv",
+    "target": "RESULTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_three_model_comparison.py",
+    "filename": "phase2_6_pi_men_three_model_comparison.txt",
+    "target": "REPORTS_DIR"
+  },
+  {
+    "script": "phase2_6_pi_men_three_model_comparison.py",
+    "filename": "phase2_6_pi_men_three_model_residuals.csv",
+    "target": "RESULTS_DIR"
+  }
+]

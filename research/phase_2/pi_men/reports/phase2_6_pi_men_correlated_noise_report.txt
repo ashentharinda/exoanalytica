@@ -1,0 +1,56 @@
+PI MEN C - CORRELATED NOISE ROBUSTNESS TEST
+========================================================================
+Input: phase2_6_pi_men_corrected_dataset.csv
+Observations: 548
+PRE observations: 129
+POST observations: 419
+Bootstrap replicates per block length: 500
+Block lengths: [2, 3, 5, 10]
+Seed: 20261121
+
+OBSERVED MODEL COMPARISON:
+Model A NLL: 1317.44896154
+Model B NLL: 1285.54431128
+Observed 2 delta NLL: 63.80930051
+
+STANDARDIZED RESIDUAL ACF:
+PRE residual ACF:
+  Lag 1: 0.717814
+  Lag 2: 0.609433
+  Lag 3: 0.529790
+  Lag 4: 0.563367
+  Lag 5: 0.518841
+  Lag 6: 0.453799
+  Lag 7: 0.395770
+  Lag 8: 0.325756
+  Lag 9: 0.298449
+  Lag 10: 0.230814
+POST residual ACF:
+  Lag 1: 0.642612
+  Lag 2: 0.463245
+  Lag 3: 0.377243
+  Lag 4: 0.394880
+  Lag 5: 0.383304
+  Lag 6: 0.328421
+  Lag 7: 0.357265
+  Lag 8: 0.398187
+  Lag 9: 0.440028
+  Lag 10: 0.398544
+
+MOVING-BLOCK BOOTSTRAP SUMMARY:
+ block_length  successful  exceedances  empirical_p      q50      q90       q95       q99
+            2         500            0     0.001996 1.737174 6.060290  7.845116 10.754900
+            3         500            0     0.001996 2.297273 8.453701 10.769611 15.154659
+            5         500            0     0.001996 2.703539 9.432161 12.594260 19.625478
+           10         500            0     0.001996 2.947959 9.706239 11.977516 17.367242
+
+INTERPRETATION NOTES:
+- Blocks are consecutive observations within each instrument epoch.
+- PRE and POST residual sequences are resampled separately.
+- This preserves short-range ordering approximately, not exact time correlations.
+- Irregular time gaps mean block length is not a fixed number of days.
+- This is a residual bootstrap conditional on fitted Model A.
+- It does not prove the residual process is stationary.
+- It does not fully model long-term correlated stellar or instrumental noise.
+- The c period is fixed; period-search trial factors are not included.
+- Results are exploratory and require further validation.

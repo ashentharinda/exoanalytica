@@ -1,0 +1,67 @@
+PI MEN TIME-AWARE RESIDUAL CORRELATION
+=================================================================
+Input rows: 548
+Time separation is calculated from actual BJD differences.
+PRE and POST epochs are analyzed independently.
+Residuals standardized by sqrt(rv_error^2 + epoch_jitter^2).
+
+PAIRWISE TIME-CORRELATION RESULTS
+-----------------------------------------------------------------
+HARPS_PRE  MODEL_A     <0.5 days | pairs=   240 | r=0.8318800854606129
+HARPS_PRE  MODEL_A    0.5-1 days | pairs=    75 | r=0.4178404168674283
+HARPS_PRE  MODEL_A      1-2 days | pairs=   202 | r=0.25162515952563635
+HARPS_PRE  MODEL_A      2-5 days | pairs=   663 | r=0.1428262899299805
+HARPS_PRE  MODEL_A     5-10 days | pairs=   250 | r=0.42595841847391
+HARPS_PRE  MODEL_A    10-20 days | pairs=   124 | r=0.3659210310308998
+HARPS_PRE  MODEL_A    20-50 days | pairs=   463 | r=0.07586837447754004
+HARPS_PRE  MODEL_A   50-100 days | pairs=   138 | r=0.3500330055836424
+HARPS_PRE  MODEL_A    >=100 days | pairs=  6101 | r=-0.0847215253865848
+HARPS_PRE  MODEL_B     <0.5 days | pairs=   240 | r=0.8053944873619231
+HARPS_PRE  MODEL_B    0.5-1 days | pairs=    75 | r=0.34601322395611434
+HARPS_PRE  MODEL_B      1-2 days | pairs=   202 | r=0.2836066048490959
+HARPS_PRE  MODEL_B      2-5 days | pairs=   663 | r=0.26125199550842493
+HARPS_PRE  MODEL_B     5-10 days | pairs=   250 | r=0.20731735456561698
+HARPS_PRE  MODEL_B    10-20 days | pairs=   124 | r=0.285668589532776
+HARPS_PRE  MODEL_B    20-50 days | pairs=   463 | r=0.08657936781999744
+HARPS_PRE  MODEL_B   50-100 days | pairs=   138 | r=0.2934274402710141
+HARPS_PRE  MODEL_B    >=100 days | pairs=  6101 | r=-0.07610289023619919
+HARPS_POST MODEL_A     <0.5 days | pairs=   472 | r=0.8568090379499556
+HARPS_POST MODEL_A    0.5-1 days | pairs=   324 | r=0.525415436644273
+HARPS_POST MODEL_A      1-2 days | pairs=   668 | r=0.4583076065060367
+HARPS_POST MODEL_A      2-5 days | pairs=  1369 | r=0.2784975104189089
+HARPS_POST MODEL_A     5-10 days | pairs=  1616 | r=0.4162544882018
+HARPS_POST MODEL_A    10-20 days | pairs=  2825 | r=0.3615288433335057
+HARPS_POST MODEL_A    20-50 days | pairs=  6397 | r=0.05379443956392839
+HARPS_POST MODEL_A   50-100 days | pairs=  8829 | r=-0.10966984565847253
+HARPS_POST MODEL_A    >=100 days | pairs= 65071 | r=-0.03916942158410538
+HARPS_POST MODEL_B     <0.5 days | pairs=   472 | r=0.8425504038410657
+HARPS_POST MODEL_B    0.5-1 days | pairs=   324 | r=0.5695089201629561
+HARPS_POST MODEL_B      1-2 days | pairs=   668 | r=0.5512237944886039
+HARPS_POST MODEL_B      2-5 days | pairs=  1369 | r=0.43239445503045676
+HARPS_POST MODEL_B     5-10 days | pairs=  1616 | r=0.4716742123721964
+HARPS_POST MODEL_B    10-20 days | pairs=  2825 | r=0.42465284883059273
+HARPS_POST MODEL_B    20-50 days | pairs=  6397 | r=0.03329201081256501
+HARPS_POST MODEL_B   50-100 days | pairs=  8829 | r=-0.10884255570446638
+HARPS_POST MODEL_B    >=100 days | pairs= 65071 | r=-0.046769736671801836
+
+ACTIVITY INDICATOR CORRELATIONS
+-----------------------------------------------------------------
+HARPS_PRE  MODEL_A BIS      | r=0.388526 | p=5.36684e-06
+HARPS_PRE  MODEL_A FWHM     | r=-0.232656 | p=0.0079718
+HARPS_PRE  MODEL_A CONTRAST | r=-0.153897 | p=0.0816299
+HARPS_PRE  MODEL_B BIS      | r=0.356874 | p=3.30453e-05
+HARPS_PRE  MODEL_B FWHM     | r=-0.232800 | p=0.00793204
+HARPS_PRE  MODEL_B CONTRAST | r=-0.137226 | p=0.120959
+HARPS_POST MODEL_A BIS      | r=0.046587 | p=0.341465
+HARPS_POST MODEL_A FWHM     | r=0.115524 | p=0.0180022
+HARPS_POST MODEL_A CONTRAST | r=-0.239180 | p=7.2948e-07
+HARPS_POST MODEL_B BIS      | r=0.038503 | p=0.431827
+HARPS_POST MODEL_B FWHM     | r=0.131828 | p=0.00688846
+HARPS_POST MODEL_B CONTRAST | r=-0.240776 | p=6.11966e-07
+
+IMPORTANT LIMITATIONS
+-----------------------------------------------------------------
+Pairwise correlations are exploratory; pairs share observations and are not statistically independent.
+Time bins contain unequal numbers of pairs and irregular sampling.
+Activity correlations are linear-trend-adjusted, not proof of stellar or instrumental causation.
+This diagnostic does not establish planet confirmation.

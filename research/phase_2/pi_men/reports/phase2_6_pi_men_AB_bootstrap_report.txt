@@ -1,0 +1,45 @@
+PI MEN C - MODEL A VS MODEL B PARAMETRIC BOOTSTRAP
+========================================================================
+Input: phase2_6_pi_men_corrected_dataset.csv
+Observations: 548
+PRE observations: 129
+POST observations: 419
+Successful replicates: 1000
+Failed replicates: 0
+Seed: 20261120
+Bootstrap requested: 1000
+
+FIXED PARAMETERS:
+b period: 2088.33
+b eccentricity: 0.6396
+b omega degrees: 331.03
+c period: 6.267852
+
+OBSERVED DATA FIT:
+Model A success: True
+Model B success: True
+Model A NLL: 1317.44896154
+Model B NLL: 1285.54431128
+Observed 2 delta NLL: 63.80930051
+
+BOOTSTRAP TEST UNDER MODEL A:
+Replicates >= observed improvement: 0
+Empirical p-value: 0.00099900
+
+BOOTSTRAP 2 DELTA NLL QUANTILES:
+0.50    1.401652
+0.90    4.393052
+0.95    5.710650
+0.99    9.862500
+Name: delta_2_nll, dtype: float64
+
+IMPORTANT CAVEATS:
+- Null simulations assume Model A is correct.
+- Noise assumes independent Gaussian errors.
+- Measurement errors and fitted epoch jitters define the noise.
+- b period, eccentricity and omega remain fixed.
+- c period is fixed at the tested published period.
+- Correlated stellar/instrumental noise is not simulated.
+- This is a conditional test, not definitive planet confirmation.
+- Period-search trial factors are not included.
+- Results require independent scientific validation.

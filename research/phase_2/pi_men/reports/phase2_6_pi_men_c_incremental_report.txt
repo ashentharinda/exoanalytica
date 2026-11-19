@@ -1,0 +1,41 @@
+PI MEN C INCREMENTAL VALIDATION
+=================================================================
+Observations: 548
+HARPS PRE: 129
+HARPS POST: 419
+
+MODEL A: B ONLY
+Optimizer success: True
+Optimizer message: Optimization terminated successfully.
+K b: 192.93477528
+NLL: 1317.44896395
+Chi-square: 550.12251393
+Reduced chi-square: 1.01498619
+RMS: 2.72144501
+AICc: 2647.05319592
+BIC: 2672.73557962
+
+MODEL B: B + C
+Optimizer success: True
+Optimizer message: Optimization terminated successfully.
+K b: 192.89807109
+NLL: 1285.54431471
+Chi-square: 551.08199319
+Reduced chi-square: 1.02052221
+RMS: 2.55933759
+AICc: 2587.35579082
+BIC: 2621.53883171
+
+C SIGNAL
+Sine coefficient: 0.82159099
+Cosine coefficient: 0.93783732
+Amplitude: 1.24681618
+Phase: 0.85137279
+
+Delta AICc (B-A): -59.69740510
+Delta BIC (B-A): -51.19674791
+
+Exploratory fixed-period sinusoidal comparison.
+Not a confirmed independent planet detection.
+No false-alarm probability or amplitude uncertainty calculated.
+Both models use the same observations and Gaussian jitter likelihood.

@@ -1,0 +1,147 @@
+PHASE 2.6 FILE DEPENDENCY INVENTORY
+Scripts scanned: 36
+
+[phase2_6_pi_men_AB_bootstrap.py]
+  EXISTS: phase2_6_pi_men_AB_bootstrap_report.txt
+  EXISTS: phase2_6_pi_men_AB_bootstrap_results.csv
+  EXISTS: phase2_6_pi_men_corrected_dataset.csv
+
+[phase2_6_pi_men_activity_indicator_validation.py]
+  MISSING / GENERATED: CSV: phase2_6_pi_men_activity_indicator_validation.csv
+  MISSING / GENERATED: REPORT: phase2_6_pi_men_activity_indicator_report.txt
+  EXISTS: phase2_6_pi_men_activity_indicator_report.txt
+  EXISTS: phase2_6_pi_men_activity_indicator_validation.csv
+  EXISTS: phase2_6_pi_men_model_comparison_residuals.csv
+
+[phase2_6_pi_men_anomaly_verification.py]
+  EXISTS: phase2_6_pi_men_harps_timeseries.csv
+
+[phase2_6_pi_men_c_baseline_diagnostic.py]
+  EXISTS: phase2_6_pi_men_corrected_dataset.csv
+
+[phase2_6_pi_men_c_epoch_baseline_validation.py]
+  EXISTS: phase2_6_pi_men_c_epoch_baseline_validation.txt
+  EXISTS: phase2_6_pi_men_c_incremental_residuals.csv
+
+[phase2_6_pi_men_c_epoch_consistency.py]
+  EXISTS: phase2_6_pi_men_c_incremental_residuals.csv
+
+[phase2_6_pi_men_c_incremental.py]
+  EXISTS: phase2_6_pi_men_c_incremental_report.txt
+  EXISTS: phase2_6_pi_men_c_incremental_residuals.csv
+  EXISTS: phase2_6_pi_men_corrected_dataset.csv
+
+[phase2_6_pi_men_clean_keplerian_fit.py]
+  EXISTS: phase2_6_pi_men_clean_keplerian_residuals.csv
+  EXISTS: phase2_6_pi_men_harps_timeseries.csv
+
+[phase2_6_pi_men_comprehensive_validation.py]
+  EXISTS: phase2_6_pi_men_comprehensive_validation.csv
+  EXISTS: phase2_6_pi_men_comprehensive_validation.txt
+  EXISTS: phase2_6_pi_men_epoch_amplitude_check.csv
+  EXISTS: phase2_6_pi_men_model_comparison_residuals.csv
+
+[phase2_6_pi_men_corrected_alias_analysis.py]
+  EXISTS: phase2_6_pi_men_alias_candidate_comparison.csv
+  EXISTS: phase2_6_pi_men_corrected_alias_analysis_report.txt
+  EXISTS: phase2_6_pi_men_corrected_residual_periodograms.csv
+  EXISTS: phase2_6_pi_men_corrected_sampling_window.csv
+  EXISTS: phase2_6_pi_men_model_comparison_residuals.csv
+
+[phase2_6_pi_men_correlated_noise.py]
+  EXISTS: phase2_6_pi_men_corrected_dataset.csv
+  EXISTS: phase2_6_pi_men_correlated_noise_report.txt
+  EXISTS: phase2_6_pi_men_correlated_noise_results.csv
+
+[phase2_6_pi_men_detrended_activity_validation.py]
+  MISSING / GENERATED: CSV: phase2_6_pi_men_detrended_activity_validation.csv
+  MISSING / GENERATED: REPORT: phase2_6_pi_men_detrended_activity_report.txt
+  EXISTS: phase2_6_pi_men_detrended_activity_report.txt
+  EXISTS: phase2_6_pi_men_detrended_activity_validation.csv
+  EXISTS: phase2_6_pi_men_model_comparison_residuals.csv
+
+[phase2_6_pi_men_epoch_alias_analysis.py]
+  MISSING / GENERATED: Output: phase2_6_pi_men_epoch_specific_alias_analysis.csv
+  MISSING / GENERATED: Report: phase2_6_pi_men_epoch_specific_alias_report.txt
+  EXISTS: phase2_6_pi_men_epoch_specific_alias_analysis.csv
+  EXISTS: phase2_6_pi_men_epoch_specific_alias_report.txt
+  EXISTS: phase2_6_pi_men_model_comparison_residuals.csv
+
+[phase2_6_pi_men_extract.py]
+  EXISTS: phase2_6_pi_men_harps_timeseries.csv
+
+[phase2_6_pi_men_instrument_audit.py]
+  EXISTS: phase2_6_pi_men_harps_timeseries.csv
+  EXISTS: phase2_6_pi_men_instrument_audit.csv
+  EXISTS: phase2_6_pi_men_instrument_audit.txt
+
+[phase2_6_pi_men_joint_fit.py]
+  EXISTS: phase2_6_pi_men_corrected_dataset.csv
+  EXISTS: phase2_6_pi_men_joint_fit_report.txt
+  EXISTS: phase2_6_pi_men_joint_fit_results.csv
+
+[phase2_6_pi_men_keplerian.py]
+  EXISTS: phase2_6_pi_men_harps_timeseries.csv
+  EXISTS: phase2_6_pi_men_keplerian_residuals.csv
+
+[phase2_6_pi_men_model_comparison.py]
+  EXISTS: phase2_6_pi_men_corrected_dataset.csv
+  EXISTS: phase2_6_pi_men_model_comparison_report.txt
+  EXISTS: phase2_6_pi_men_model_comparison_residuals.csv
+  EXISTS: phase2_6_pi_men_residual_periodogram.csv
+
+[phase2_6_pi_men_parametric_bootstrap.py]
+  EXISTS: phase2_6_pi_men_bootstrap_report.txt
+  EXISTS: phase2_6_pi_men_bootstrap_results.csv
+  EXISTS: phase2_6_pi_men_corrected_dataset.csv
+
+[phase2_6_pi_men_periodogram.py]
+  EXISTS: phase2_6_pi_men_harps_timeseries.csv
+
+[phase2_6_pi_men_periodogram_recheck.py]
+  EXISTS: phase2_6_pi_men_harps_timeseries.csv
+
+[phase2_6_pi_men_pre_post_fit.py]
+  EXISTS: phase2_6_pi_men_corrected_dataset.csv
+  EXISTS: phase2_6_pi_men_pre_post_fit.txt
+  EXISTS: phase2_6_pi_men_pre_post_residuals.csv
+
+[phase2_6_pi_men_prepare_corrected_data.py]
+  EXISTS: phase2_6_pi_men_corrected_dataset.csv
+  EXISTS: phase2_6_pi_men_corrected_dataset.txt
+  EXISTS: phase2_6_pi_men_instrument_audit.csv
+
+[phase2_6_pi_men_prewhitening.py]
+  EXISTS: phase2_6_pi_men_b_prewhitened.csv
+  EXISTS: phase2_6_pi_men_harps_timeseries.csv
+
+[phase2_6_pi_men_published_period_validation.py]
+  MISSING / GENERATED: CSV: phase2_6_pi_men_published_period_validation.csv
+  MISSING / GENERATED: REPORT: phase2_6_pi_men_published_period_validation_report.txt
+  EXISTS: phase2_6_pi_men_model_comparison_residuals.csv
+  EXISTS: phase2_6_pi_men_published_period_validation.csv
+  EXISTS: phase2_6_pi_men_published_period_validation_report.txt
+
+[phase2_6_pi_men_published_validation.py]
+  EXISTS: phase2_6_pi_men_harps_timeseries.csv
+  EXISTS: phase2_6_pi_men_published_validation.txt
+  EXISTS: phase2_6_pi_men_published_validation_residuals.csv
+
+[phase2_6_pi_men_quality_audit.py]
+  EXISTS: phase2_6_pi_men_harps_timeseries.csv
+
+[phase2_6_pi_men_residual_verification.py]
+  EXISTS: phase2_6_pi_men_activity_correlations.csv
+  EXISTS: phase2_6_pi_men_epoch_periodograms.csv
+  EXISTS: phase2_6_pi_men_model_comparison_residuals.csv
+  EXISTS: phase2_6_pi_men_residual_verification_report.txt
+  EXISTS: phase2_6_pi_men_sampling_window_peaks.csv
+
+[phase2_6_pi_men_rv_diagnostics.py]
+  EXISTS: phase2_6_pi_men_harps_timeseries.csv
+
+[phase2_6_pi_men_three_model_comparison.py]
+  EXISTS: phase2_6_pi_men_corrected_dataset.csv
+  EXISTS: phase2_6_pi_men_three_model_comparison.csv
+  EXISTS: phase2_6_pi_men_three_model_comparison.txt
+  EXISTS: phase2_6_pi_men_three_model_residuals.csv

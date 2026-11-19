@@ -1,0 +1,22 @@
+PI MEN PRE/POST KEPLERIAN FIT
+============================================================
+Observations: 548
+HARPS-PRE: 129
+HARPS-POST: 419
+K: 192.93477528
+Published K: 192.99
+K difference (%): -0.028615
+M0: 2.6403442442
+Gamma PRE: -58.18621233
+Gamma POST: -40.64294510
+PRE-POST offset difference: 17.54326722
+PRE jitter: 3.17160032
+POST jitter: 2.49151128
+Residual RMS: 2.72144501
+Reduced chi-square: 1.01498619
+Optimizer success: True
+
+Exploratory fit only.
+Published epoch and omega convention require verification.
+ESO DRS RVs are not HARPS-TERRA RVs.
+PRE/POST offsets are phenomenological.

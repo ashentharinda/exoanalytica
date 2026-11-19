@@ -1,0 +1,76 @@
+PI MEN MODEL COMPARISON AND RESIDUAL VALIDATION
+=================================================================
+Observations: 548
+HARPS-PRE: 129
+HARPS-POST: 419
+
+FIXED ORBITAL PARAMETERS
+Period: 2088.33 days
+Eccentricity: 0.6396
+Omega: 331.03 degrees
+
+MODEL A: SHARED GAMMA AND JITTER
+K: 198.30324575
+M0: 2.6353552779
+Gamma: -47.55684586
+Jitter: 6.85082205
+Negative log likelihood: 1833.63693606
+AIC: 3675.27387213
+BIC: 3692.49897328
+Residual RMS: 6.87316107
+Residual median: 0.48651904
+Optimizer success: True
+
+MODEL B: SEPARATE PRE/POST GAMMA AND JITTER
+K: 192.93477528
+M0: 2.6403442442
+Gamma PRE: -58.18621233
+Gamma POST: -40.64294510
+PRE-POST offset: 17.54326722
+Jitter PRE: 3.17160032
+Jitter POST: 2.49151128
+Negative log likelihood: 1317.44896395
+AIC: 2646.89792790
+BIC: 2672.73557962
+Residual RMS: 2.72144501
+Residual median: -0.22276643
+Optimizer success: True
+
+MODEL COMPARISON
+Delta AIC (A-B): 1028.37594423
+Delta BIC (A-B): 1019.76339366
+Positive delta means Model B has the lower information criterion.
+
+MODEL B RESIDUALS BY INSTRUMENT EPOCH
+PRE:
+  Count: 129
+  Mean: 0.01370208
+  Median: -0.39318250
+  Std: 3.30078264
+  RMS: 3.28799257
+POST:
+  Count: 419
+  Mean: -0.00646201
+  Median: -0.16513788
+  Std: 2.52452521
+  RMS: 2.52151913
+
+TOP MODEL B RESIDUAL PERIODOGRAM PEAKS
+Period 120.347983 days | Power 0.18469659
+Period 120.492950 days | Power 0.18229993
+Period 120.203365 days | Power 0.18004434
+Period 178.888860 days | Power 0.17619813
+Period 178.569516 days | Power 0.17498111
+Period 120.638267 days | Power 0.17229145
+Period 179.209348 days | Power 0.17053608
+Period 120.059094 days | Power 0.16957274
+Period 178.251310 days | Power 0.16749505
+Period 179.530987 days | Power 0.15846506
+
+SCIENTIFIC LIMITATIONS
+- Fixed orbital parameters are exploratory inputs.
+- Reference epoch and omega convention require verification.
+- Periodogram peaks are exploratory, not planet detections.
+- AIC/BIC compare only these two specified models.
+- Secular acceleration correction is approximate.
+- No independent published-solution validation is claimed.

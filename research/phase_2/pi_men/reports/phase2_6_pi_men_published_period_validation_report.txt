@@ -1,0 +1,114 @@
+
+=================================================================
+FULL: 548 observations
+=================================================================
+Null model: chi2=550.1225, AIC=554.1225, BIC=562.7351
+
+Model: pi_Men_c
+Chi-square: 490.2871
+Delta AIC: 55.8354
+Delta BIC: 47.2228
+pi_Men_c: K=1.23497 +/- 0.15968 m/s
+
+Model: pi_Men_d
+Chi-square: 461.0639
+Delta AIC: 85.0586
+Delta BIC: 76.4460
+pi_Men_d: K=1.57521 +/- 0.17050 m/s
+
+Model: activity_184d
+Chi-square: 475.0675
+Delta AIC: 71.0550
+Delta BIC: 62.4425
+activity_184d: K=1.36871 +/- 0.15814 m/s
+
+Model: pi_Men_c + pi_Men_d
+Chi-square: 393.5710
+Delta AIC: 148.5516
+Delta BIC: 131.3265
+pi_Men_c: K=1.31374 +/- 0.15994 m/s
+pi_Men_d: K=1.63752 +/- 0.17001 m/s
+
+Model: pi_Men_c + pi_Men_d + activity_184d
+Chi-square: 358.3555
+Delta AIC: 179.7671
+Delta BIC: 153.9294
+pi_Men_c: K=1.27799 +/- 0.16008 m/s
+pi_Men_d: K=1.32802 +/- 0.17624 m/s
+activity_184d: K=1.01021 +/- 0.17054 m/s
+
+=================================================================
+HARPS_PRE: 129 observations
+=================================================================
+Null model: chi2=130.8717, AIC=132.8717, BIC=135.7315
+
+Model: pi_Men_c
+Chi-square: 100.7873
+Delta AIC: 26.0844
+Delta BIC: 20.3647
+pi_Men_c: K=2.21193 +/- 0.40384 m/s
+
+Model: pi_Men_d
+Chi-square: 121.3104
+Delta AIC: 5.5612
+Delta BIC: -0.1584
+pi_Men_d: K=1.39131 +/- 0.57373 m/s
+
+Model: activity_184d
+Chi-square: 130.0656
+Delta AIC: -3.1939
+Delta BIC: -8.9135
+activity_184d: K=0.52250 +/- 0.58271 m/s
+
+Model: pi_Men_c + pi_Men_d
+Chi-square: 93.7999
+Delta AIC: 29.0717
+Delta BIC: 17.6325
+pi_Men_c: K=2.12865 +/- 0.40617 m/s
+pi_Men_d: K=1.32960 +/- 0.63949 m/s
+
+Model: pi_Men_c + pi_Men_d + activity_184d
+Chi-square: 84.4903
+Delta AIC: 34.3814
+Delta BIC: 17.2225
+pi_Men_c: K=2.12458 +/- 0.40479 m/s
+pi_Men_d: K=3.31749 +/- 1.00529 m/s
+activity_184d: K=2.36658 +/- 0.78248 m/s
+
+=================================================================
+HARPS_POST: 419 observations
+=================================================================
+Null model: chi2=419.2509, AIC=421.2509, BIC=425.2887
+
+Model: pi_Men_c
+Chi-square: 378.9002
+Delta AIC: 36.3506
+Delta BIC: 28.2749
+pi_Men_c: K=1.10291 +/- 0.17365 m/s
+
+Model: pi_Men_d
+Chi-square: 326.6583
+Delta AIC: 88.5925
+Delta BIC: 80.5168
+pi_Men_d: K=1.69579 +/- 0.17960 m/s
+
+Model: activity_184d
+Chi-square: 333.9192
+Delta AIC: 81.3317
+Delta BIC: 73.2559
+activity_184d: K=1.51479 +/- 0.16413 m/s
+
+Model: pi_Men_c + pi_Men_d
+Chi-square: 279.6777
+Delta AIC: 131.5732
+Delta BIC: 115.4217
+pi_Men_c: K=1.19243 +/- 0.17399 m/s
+pi_Men_d: K=1.74660 +/- 0.17847 m/s
+
+Model: pi_Men_c + pi_Men_d + activity_184d
+Chi-square: 245.0196
+Delta AIC: 162.2313
+Delta BIC: 138.0040
+pi_Men_c: K=1.14674 +/- 0.17422 m/s
+pi_Men_d: K=1.34045 +/- 0.18979 m/s
+activity_184d: K=1.08889 +/- 0.18644 m/s

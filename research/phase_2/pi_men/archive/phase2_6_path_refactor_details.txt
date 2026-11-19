@@ -1,0 +1,216 @@
+===== phase2_6_pi_men_AB_bootstrap.py =====
+6: INPUT = Path("phase2_6_pi_men_corrected_dataset.csv")
+7: REPORT = Path("phase2_6_pi_men_AB_bootstrap_report.txt")
+8: OUTPUT = Path("phase2_6_pi_men_AB_bootstrap_results.csv")
+18: df = pd.read_csv(INPUT)
+235: boot.to_csv(OUTPUT, index=False)
+295: REPORT.write_text("\n".join(lines), encoding="utf-8")
+
+===== phase2_6_pi_men_activity_indicator_validation.py =====
+7: INPUT = Path("phase2_6_pi_men_model_comparison_residuals.csv")
+9: df = pd.read_csv(INPUT)
+46: report = []
+153: output = pd.DataFrame(rows)
+155: output.to_csv(
+160: Path(
+162: ).write_text(
+
+===== phase2_6_pi_men_anomaly_verification.py =====
+4: path = Path("phase2_6_pi_men_harps_timeseries.csv")
+5: df = pd.read_csv(path)
+
+===== phase2_6_pi_men_clean_keplerian_fit.py =====
+6: df = pd.read_csv("phase2_6_pi_men_harps_timeseries.csv")
+102: out.to_csv("phase2_6_pi_men_clean_keplerian_residuals.csv", index=False)
+
+===== phase2_6_pi_men_comprehensive_validation.py =====
+5: INPUT = Path("phase2_6_pi_men_model_comparison_residuals.csv")
+11: OUTPUT_CSV = Path("phase2_6_pi_men_comprehensive_validation.csv")
+12: OUTPUT_REPORT = Path("phase2_6_pi_men_comprehensive_validation.txt")
+15: df = pd.read_csv(INPUT)
+78: BASE = [
+202: report = []
+324: model_df.to_csv(OUTPUT_CSV, index=False)
+326: epoch_output = OUTPUT_CSV.with_name(
+329: epoch_df.to_csv(epoch_output, index=False)
+358: OUTPUT_REPORT.write_text("\n".join(report), encoding="utf-8")
+
+===== phase2_6_pi_men_corrected_alias_analysis.py =====
+11: BASE = Path(".")
+12: INPUT = BASE / "phase2_6_pi_men_model_comparison_residuals.csv"
+17: df = pd.read_csv(INPUT)
+166: window_df.to_csv(
+249: periodogram_df.to_csv(
+317: alias_df.to_csv(
+326: report = []
+394: Path(
+396: ).write_text(
+
+===== phase2_6_pi_men_correlated_noise.py =====
+6: INPUT = Path("phase2_6_pi_men_corrected_dataset.csv")
+7: REPORT = Path("phase2_6_pi_men_correlated_noise_report.txt")
+8: OUTPUT = Path("phase2_6_pi_men_correlated_noise_results.csv")
+19: df = pd.read_csv(INPUT)
+333: results.to_csv(OUTPUT, index=False)
+399: REPORT.write_text("\n".join(lines), encoding="utf-8")
+
+===== phase2_6_pi_men_c_baseline_diagnostic.py =====
+4: df = pd.read_csv("phase2_6_pi_men_corrected_dataset.csv")
+
+===== phase2_6_pi_men_c_epoch_baseline_validation.py =====
+6: INPUT = Path("phase2_6_pi_men_c_incremental_residuals.csv")
+7: OUTPUT = Path("phase2_6_pi_men_c_epoch_baseline_validation.txt")
+16: df = pd.read_csv(INPUT)
+123: OUTPUT.write_text("\n".join(lines), encoding="utf-8")
+
+===== phase2_6_pi_men_c_epoch_consistency.py =====
+6: FILE = "phase2_6_pi_men_c_incremental_residuals.csv"
+8: df = pd.read_csv(FILE)
+
+===== phase2_6_pi_men_c_incremental.py =====
+6: INPUT = Path("phase2_6_pi_men_corrected_dataset.csv")
+8: OUTPUT_CSV = Path("phase2_6_pi_men_c_incremental_residuals.csv")
+9: OUTPUT_REPORT = Path("phase2_6_pi_men_c_incremental_report.txt")
+18: df = pd.read_csv(INPUT)
+235: df.to_csv(OUTPUT_CSV, index=False)
+237: report = [
+281: OUTPUT_REPORT.write_text("\n".join(report), encoding="utf-8")
+
+===== phase2_6_pi_men_detrended_activity_validation.py =====
+5: INPUT = Path("phase2_6_pi_men_model_comparison_residuals.csv")
+7: df = pd.read_csv(INPUT)
+75: report = []
+169: output = pd.DataFrame(rows)
+171: output.to_csv(
+176: Path(
+178: ).write_text(
+
+===== phase2_6_pi_men_epoch_alias_analysis.py =====
+6: INPUT = Path("phase2_6_pi_men_model_comparison_residuals.csv")
+8: df = pd.read_csv(INPUT)
+129: output = pd.DataFrame(results)
+131: output.to_csv(
+136: Path(
+138: ).write_text(
+
+===== phase2_6_pi_men_extract.py =====
+63: output = "phase2_6_pi_men_harps_timeseries.csv"
+64: df.to_csv(output, index=False)
+
+===== phase2_6_pi_men_instrument_audit.py =====
+10: INPUT = Path("phase2_6_pi_men_harps_timeseries.csv")
+11: OUTPUT_CSV = Path("phase2_6_pi_men_instrument_audit.csv")
+12: OUTPUT_REPORT = Path("phase2_6_pi_men_instrument_audit.txt")
+23: df = pd.read_csv(INPUT)
+224: df.to_csv(OUTPUT_CSV, index=False)
+225: OUTPUT_REPORT.write_text("\n".join(lines), encoding="utf-8")
+
+===== phase2_6_pi_men_joint_fit.py =====
+6: INPUT = Path("phase2_6_pi_men_corrected_dataset.csv")
+12: OUTPUT = Path("phase2_6_pi_men_joint_fit_results.csv")
+13: REPORT = Path("phase2_6_pi_men_joint_fit_report.txt")
+15: df = pd.read_csv(INPUT)
+244: output = {
+292: report = []
+401: pd.DataFrame(csv_rows).to_csv(OUTPUT, index=False)
+402: REPORT.write_text("\n".join(report), encoding="utf-8")
+
+===== phase2_6_pi_men_keplerian.py =====
+8: FILE = "phase2_6_pi_men_harps_timeseries.csv"
+40: df = pd.read_csv(FILE)
+162: }).to_csv(
+
+===== phase2_6_pi_men_model_comparison.py =====
+7: INPUT = Path("phase2_6_pi_men_corrected_dataset.csv")
+13: df = pd.read_csv(INPUT)
+235: residual_file = Path("phase2_6_pi_men_model_comparison_residuals.csv")
+236: period_file = Path("phase2_6_pi_men_residual_periodogram.csv")
+237: report_file = Path("phase2_6_pi_men_model_comparison_report.txt")
+239: df.to_csv(residual_file, index=False)
+240: period_table.to_csv(period_file, index=False)
+324: report_file.write_text("\n".join(lines), encoding="utf-8")
+
+===== phase2_6_pi_men_parametric_bootstrap.py =====
+6: INPUT = Path("phase2_6_pi_men_corrected_dataset.csv")
+7: REPORT = Path("phase2_6_pi_men_bootstrap_report.txt")
+8: OUTPUT = Path("phase2_6_pi_men_bootstrap_results.csv")
+18: df = pd.read_csv(INPUT)
+246: boot.to_csv(OUTPUT, index=False)
+306: REPORT.write_text("\n".join(lines), encoding="utf-8")
+
+===== phase2_6_pi_men_periodogram.py =====
+7: FILE = "phase2_6_pi_men_harps_timeseries.csv"
+18: df = pd.read_csv(FILE)
+
+===== phase2_6_pi_men_periodogram_recheck.py =====
+6: df = pd.read_csv(path)
+
+===== phase2_6_pi_men_prepare_corrected_data.py =====
+5: SOURCE = Path("phase2_6_pi_men_instrument_audit.csv")
+6: OUTPUT = Path("phase2_6_pi_men_corrected_dataset.csv")
+7: REPORT = Path("phase2_6_pi_men_corrected_dataset.txt")
+11: df = pd.read_csv(SOURCE)
+65: clean.to_csv(OUTPUT, index=False)
+101: REPORT.write_text("\n".join(lines), encoding="utf-8")
+
+===== phase2_6_pi_men_prewhitening.py =====
+7: FILE = "phase2_6_pi_men_harps_timeseries.csv"
+14: df = pd.read_csv(FILE)
+104: output = "phase2_6_pi_men_b_prewhitened.csv"
+112: }).to_csv(output, index=False)
+
+===== phase2_6_pi_men_pre_post_fit.py =====
+6: INPUT = Path("phase2_6_pi_men_corrected_dataset.csv")
+12: df = pd.read_csv(INPUT)
+138: output = Path("phase2_6_pi_men_pre_post_residuals.csv")
+139: report = Path("phase2_6_pi_men_pre_post_fit.txt")
+141: df.to_csv(output, index=False)
+168: report.write_text("\n".join(report_lines), encoding="utf-8")
+
+===== phase2_6_pi_men_published_period_validation.py =====
+5: INPUT = Path("phase2_6_pi_men_model_comparison_residuals.csv")
+6: df = pd.read_csv(INPUT)
+121: report = []
+192: output = pd.DataFrame(rows)
+194: output.to_csv(
+199: Path(
+201: ).write_text(
+
+===== phase2_6_pi_men_published_validation.py =====
+10: INPUT = "phase2_6_pi_men_harps_timeseries.csv"
+11: OUTPUT = "phase2_6_pi_men_published_validation_residuals.csv"
+12: REPORT = "phase2_6_pi_men_published_validation.txt"
+22: df = pd.read_csv(INPUT)
+171: out.to_csv(OUTPUT, index=False)
+173: with open(REPORT, "w", encoding="utf-8") as f:
+
+===== phase2_6_pi_men_quality_audit.py =====
+5: path = Path("phase2_6_pi_men_harps_timeseries.csv")
+6: df = pd.read_csv(path)
+
+===== phase2_6_pi_men_residual_verification.py =====
+6: INPUT = Path("phase2_6_pi_men_model_comparison_residuals.csv")
+8: df = pd.read_csv(INPUT)
+199: peak_file = Path("phase2_6_pi_men_epoch_periodograms.csv")
+200: window_file = Path("phase2_6_pi_men_sampling_window_peaks.csv")
+201: indicator_file = Path("phase2_6_pi_men_activity_correlations.csv")
+202: report_file = Path("phase2_6_pi_men_residual_verification_report.txt")
+204: peak_table.to_csv(peak_file, index=False)
+205: window_table.to_csv(window_file, index=False)
+206: indicator_table.to_csv(indicator_file, index=False)
+287: report_file.write_text("\n".join(lines), encoding="utf-8")
+
+===== phase2_6_pi_men_rv_diagnostics.py =====
+4: FILE = "phase2_6_pi_men_harps_timeseries.csv"
+8: df = pd.read_csv(FILE)
+
+===== phase2_6_pi_men_three_model_comparison.py =====
+6: INPUT = Path("phase2_6_pi_men_corrected_dataset.csv")
+7: OUTPUT_CSV = Path("phase2_6_pi_men_three_model_comparison.csv")
+8: OUTPUT_REPORT = Path("phase2_6_pi_men_three_model_comparison.txt")
+15: df = pd.read_csv(INPUT)
+229: comparison.to_csv(OUTPUT_CSV, index=False)
+313: output = df.copy()
+320: output.to_csv(
+338: OUTPUT_REPORT.write_text("\n".join(lines), encoding="utf-8")
+342: print(f"Residual CSV: {Path('phase2_6_pi_men_three_model_residuals.csv').resolve()}")

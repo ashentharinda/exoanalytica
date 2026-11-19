@@ -1,0 +1,44 @@
+PI MEN FULL SIMULTANEOUS RV MODEL
+===========================================================================
+Input: phase2_6_pi_men_corrected_dataset.csv
+Observations: 548
+Baseline: 6183.885 days
+Reference BJD: 2453001.82961663
+
+MODEL COMPARISON
+---------------------------------------------------------------------------
+Model | k | Success | chi2 | reduced chi2 | AICc | BIC | Delta BIC
+BASE | 9 | True | 669.1377 | 1.24144 | 4855.8098 | 4894.2317 | 0.0000
+c | 11 | True | 643.8848 | 1.19904 | 4115.4461 | 4162.3226 | 731.9091
+d | 11 | False | 673.8649 | 1.25487 | 4857.3038 | 4904.1803 | -9.9486
+activity184 | 11 | True | 547.8430 | 1.02019 | 4318.5296 | 4365.4061 | 528.8256
+c+d | 13 | False | 547.8417 | 1.02400 | 3997.8668 | 4053.1667 | 841.0649
+c+d+activity184 | 15 | False | 677.7229 | 1.27153 | 4846.5908 | 4910.2827 | -16.0510
+
+FULL MODEL PARAMETERS
+---------------------------------------------------------------------------
+Planet b period: 1542.41082215 days
+Planet b K: 173.366301 m/s
+Planet b eccentricity: 0.5456762
+Planet b omega: 338.08631 deg
+Planet b M0 at reference BJD: 21.9980091 rad
+Reference BJD: 2453001.82961663
+Gamma PRE: -70.021128 m/s
+Gamma POST: -5.344541 m/s
+Jitter PRE: 50.000000 m/s
+Jitter POST: 12.568005 m/s
+
+SINUSOIDAL COMPONENTS
+---------------------------------------------------------------------------
+c: period=6.267852 d | amplitude=2.667651 m/s | sin coefficient=0.778382 | cos coefficient=2.551565 | phase=1.274703 rad
+d: period=124.640000 d | amplitude=2.919007 m/s | sin coefficient=1.581754 | cos coefficient=-2.453295 | phase=-0.998123 rad
+activity184: period=184.000000 d | amplitude=3.031760 m/s | sin coefficient=-0.913227 | cos coefficient=-2.890949 | phase=-1.876768 rad
+
+LIMITATIONS
+---------------------------------------------------------------------------
+1. This is a fixed-period sinusoidal approximation for c, d and the 184-day candidate, not full Keplerian solutions for them.
+2. The 184-day term is a diagnostic candidate, not an established stellar activity or planetary signal.
+3. The approximate secular acceleration correction in the input dataset must be independently verified.
+4. HARPS DRS CCF velocities may differ from the data products used in the published orbital solution.
+5. AICc/BIC comparisons are conditional on this model family and do not replace alias analysis, bootstrap tests or posterior checks.
+6. Optimizer success and parameter stability must be inspected before interpreting the fit physically.

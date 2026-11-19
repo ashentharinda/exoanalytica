@@ -1,0 +1,35 @@
+PI MEN C - PRE/POST BASELINE RESIDUAL VALIDATION
+=================================================================
+Signal fitted to baseline_residual_ms.
+Common global relative-BJD reference used.
+Fixed period: 6.267852 days
+
+-----------------------------------------------------------------
+Epoch: HARPS_PRE
+Observations: 129
+Baseline days: 4031.807
+Amplitude: 2.211926 +/- 0.403835 m/s
+Global phase: 1.242934 rad
+Delta chi-square: 30.084353
+Approx p-value: 2.93269e-07
+Delta BIC: -20.364728
+RMS null: 3.287993 m/s
+RMS with c: 2.889730 m/s
+
+-----------------------------------------------------------------
+Epoch: HARPS_POST
+Observations: 419
+Baseline days: 1886.862
+Amplitude: 1.102907 +/- 0.173650 m/s
+Global phase: 0.680661 rad
+Delta chi-square: 40.350609
+Approx p-value: 1.72972e-09
+Delta BIC: -28.274867
+RMS null: 2.521519 m/s
+RMS with c: 2.398290 m/s
+
+CAVEATS:
+- Conditional fits after fixed b baseline.
+- Does not refit b orbital parameters.
+- Approximate p-values ignore correlated noise and parameter uncertainty.
+- Not a planet confirmation.

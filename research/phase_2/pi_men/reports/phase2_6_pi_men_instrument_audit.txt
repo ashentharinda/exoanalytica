@@ -1,0 +1,104 @@
+
+========================================================================
+PI MEN HARPS INSTRUMENT AUDIT
+========================================================================
+Input file: D:\exoanalytica\phase2_6_pi_men_harps_timeseries.csv
+Total input rows: 557
+Fibre upgrade boundary: 2015-06-03 00:00:00+00:00
+Published rejection window: 2018-11-27 to 2018-11-29
+Classification is diagnostic only; no observations were removed.
+
+========================================================================
+1. INSTRUMENT EPOCH COUNTS
+========================================================================
+
+HARPS_PRE
+------------------------------------------------------------
+Rows: 129
+Valid RV rows: 129
+Median SNR: 163.6500
+Median RV error (m/s): 0.387537
+RV median (m/s): -108.185900
+RV standard deviation (m/s): 43.932126
+RV minimum (m/s): -134.578821
+RV maximum (m/s): 17.966714
+SNR = 0 rows: 0
+Invalid measurement rows: 0
+
+HARPS_POST
+------------------------------------------------------------
+Rows: 428
+Valid RV rows: 428
+Median SNR: 212.6250
+Median RV error (m/s): 0.328388
+RV median (m/s): 77.567006
+RV standard deviation (m/s): 1223.662854
+RV minimum (m/s): -17916.776571
+RV maximum (m/s): 270.439654
+SNR = 0 rows: 2
+Invalid measurement rows: 0
+
+========================================================================
+2. PUBLISHED REJECTION WINDOW
+========================================================================
+Rows dated 2018-11-27 or 2018-11-28: 7
+               date_obs          bjd        rv_ms  rv_relative_ms  rv_error_ms  drs_snr ins_mode
+2018-11-27T08:36:32.653 2.458450e+06 11025.259638      260.014814     0.308053    225.7      HAM
+2018-11-27T08:42:03.841 2.458450e+06 11025.541392      260.296568     0.314357    220.7      HAM
+2018-11-27T08:47:34.960 2.458450e+06 11025.417690      260.172867     0.305305    227.7      HAM
+2018-11-28T08:30:10.315 2.458451e+06 11029.070743      263.825920     0.257529    273.6      HAM
+2018-11-28T08:35:41.743 2.458451e+06 11029.038764      263.793940     0.265737    263.9      HAM
+2018-11-28T08:41:13.221 2.458451e+06 11029.038620      263.793797     0.260464    270.0      HAM
+2018-11-28T08:46:43.750 2.458451e+06 11028.780251      263.535427     0.253441    278.1      HAM
+
+========================================================================
+3. ZERO-SNR OBSERVATIONS
+========================================================================
+Total SNR=0 rows: 2
+               date_obs          bjd        rv_ms  rv_relative_ms  rv_error_ms  drs_snr ins_mode
+2019-12-05T06:03:13.405 2.458823e+06 -6788.050191   -17553.295014    10.091254      0.0      HAM
+2019-12-05T06:08:44.262 2.458823e+06 -7151.531747   -17916.776571    10.115928      0.0      HAM
+
+========================================================================
+4. OBSERVATIONS BY CALENDAR YEAR
+========================================================================
+ year instrument_epoch  observations  median_snr  median_error_ms   rv_std_ms  zero_snr_count
+ 2003        HARPS_PRE             1      65.100         1.017112         NaN               0
+ 2004        HARPS_PRE            45      62.000         0.992075    5.790970               0
+ 2006        HARPS_PRE             8     193.175         0.336632    2.970851               0
+ 2009        HARPS_PRE            45     187.250         0.341428    1.451882               0
+ 2010        HARPS_PRE             3     165.250         0.382581    0.572196               0
+ 2013        HARPS_PRE            12     177.175         0.368679    2.761066               0
+ 2014        HARPS_PRE            14     193.275         0.336220   30.382923               0
+ 2015       HARPS_POST             8     248.975         0.283392    4.291860               0
+ 2015        HARPS_PRE             1     322.150         0.204371         NaN               0
+ 2016       HARPS_POST             9     241.400         0.294068    1.297003               0
+ 2018       HARPS_POST           113     221.350         0.312182   13.618648               0
+ 2019       HARPS_POST           186     199.075         0.344118 1844.431842               2
+ 2020       HARPS_POST           112     219.425         0.326476   21.157751               0
+
+========================================================================
+5. OBSERVATION MODE COUNTS
+========================================================================
+ins_mode
+HAM    557
+
+========================================================================
+6. SECULAR ACCELERATION SCALE
+========================================================================
+Time baseline (years): 16.930552
+Approximate published acceleration: 0.4800 m/s/year
+Expected drift over baseline: 8.1267 m/s
+NOTE: This is an estimated scale, not a correction applied to the data.
+
+========================================================================
+7. SCIENTIFIC LIMITATIONS
+========================================================================
+1. HARPS PRE and POST must be modelled with separate zero-point offsets.
+2. Raw PRE/POST medians are not a valid instrumental offset measurement
+   because planetary signals and secular acceleration also affect RV.
+3. The seven observations rejected in the paper should be checked
+   against the original ESO records and exact observation timestamps.
+4. This CSV contains ESO DRS RVs, not HARPS-TERRA RVs.
+5. No secular acceleration correction or data exclusion was applied.
+6. This audit does not perform a new orbital fit.

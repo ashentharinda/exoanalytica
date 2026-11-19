@@ -1,0 +1,57 @@
+
+HARPS_PRE
+Observations: 129
+Baseline: 4031.807 days
+ 1. P=81.491 d | Residual=0.331131 | Window=0.111575
+ 2. P=56.637 d | Residual=0.317053 | Window=0.103656
+ 3. P=3.107 d | Residual=0.298702 | Window=0.003851
+ 4. P=49.046 d | Residual=0.297921 | Window=0.078317
+ 5. P=50.446 d | Residual=0.294600 | Window=0.272810
+ 6. P=66.792 d | Residual=0.292088 | Window=0.089143
+ 7. P=62.222 d | Residual=0.284119 | Window=0.075430
+ 8. P=37.077 d | Residual=0.284064 | Window=0.027145
+ 9. P=2.199 d | Residual=0.278558 | Window=0.043102
+10. P=2.995 d | Residual=0.277878 | Window=0.005003
+11. P=11.650 d | Residual=0.276565 | Window=0.004907
+12. P=9.141 d | Residual=0.275071 | Window=0.007280
+13. P=11.155 d | Residual=0.270933 | Window=0.018252
+14. P=118.958 d | Residual=0.262632 | Window=0.063352
+15. P=2.023 d | Residual=0.262342 | Window=0.012989
+
+HARPS_POST
+Observations: 419
+Baseline: 1886.862 days
+ 1. P=123.718 d | Residual=0.218322 | Window=0.061706
+ 2. P=183.586 d | Residual=0.182994 | Window=0.061055
+ 3. P=984.086 d | Residual=0.160211 | Window=0.082607
+ 4. P=73.808 d | Residual=0.137759 | Window=0.003655
+ 5. P=251.542 d | Residual=0.137527 | Window=0.058100
+ 6. P=377.437 d | Residual=0.121329 | Window=0.233609
+ 7. P=104.486 d | Residual=0.112948 | Window=0.042677
+ 8. P=145.217 d | Residual=0.108191 | Window=0.020107
+ 9. P=6.273 d | Residual=0.101114 | Window=0.001598
+10. P=91.907 d | Residual=0.091153 | Window=0.055341
+11. P=61.541 d | Residual=0.083591 | Window=0.038016
+12. P=67.669 d | Residual=0.082269 | Window=0.028843
+13. P=82.470 d | Residual=0.077218 | Window=0.046114
+14. P=6.380 d | Residual=0.073383 | Window=0.000565
+15. P=9.579 d | Residual=0.072835 | Window=0.004972
+
+FULL
+Observations: 548
+Baseline: 6183.885 days
+ 1. P=120.347 d | Residual=0.184686 | Window=0.008783
+ 2. P=178.808 d | Residual=0.176534 | Window=0.012814
+ 3. P=125.221 d | Residual=0.157406 | Window=0.084977
+ 4. P=171.852 d | Residual=0.135778 | Window=0.016914
+ 5. P=860.800 d | Residual=0.134951 | Window=0.134383
+ 6. P=247.515 d | Residual=0.132335 | Window=0.029696
+ 7. P=74.609 d | Residual=0.132010 | Window=0.014584
+ 8. P=189.784 d | Residual=0.131687 | Window=0.080015
+ 9. P=117.377 d | Residual=0.126234 | Window=0.003866
+10. P=6.269 d | Residual=0.123970 | Window=0.000777
+11. P=122.979 d | Residual=0.122392 | Window=0.045734
+12. P=66.937 d | Residual=0.122265 | Window=0.023545
+13. P=72.680 d | Residual=0.119983 | Window=0.015009
+14. P=105.376 d | Residual=0.118025 | Window=0.028286
+15. P=147.644 d | Residual=0.116657 | Window=0.017848

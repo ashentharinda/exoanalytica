@@ -1,0 +1,48 @@
+PI MEN CORRELATED-NOISE GP COMPARISON
+=================================================================
+Observations: 548
+Fixed c period: 6.267852 days
+Covariance: independent exponential OU kernels by epoch
+Global BJD reference retained.
+
+MODEL A
+----------------------------------------
+NLL: 1228.4226969909
+Optimizer success: True
+Optimizer message: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+HARPS_PRE: GP amplitude=2.440069 m/s, timescale=6.536430 days
+HARPS_POST: GP amplitude=1.592108 m/s, timescale=19.111933 days
+
+MODEL B
+----------------------------------------
+NLL: 1206.7517334200
+Optimizer success: True
+Optimizer message: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+HARPS_PRE: GP amplitude=2.166657 m/s, timescale=7.872672 days
+HARPS_POST: GP amplitude=1.462650 m/s, timescale=30.547261 days
+
+MODEL COMPARISON
+----------------------------------------
+2 delta NLL (A-B): 43.34192714
+AIC Model A: 2464.84539398
+AIC Model B: 2425.50346684
+Delta AIC (B-A): -39.34192714
+BIC Model A: 2482.07049513
+BIC Model B: 2451.34111856
+Delta BIC (B-A): -30.72937657
+
+MODEL B C-SIGNAL
+----------------------------------------
+Sine coefficient: 0.83474125 m/s
+Cosine coefficient: 0.85041123 m/s
+Amplitude: 1.19163427 m/s
+Phase: 0.79469674 rad
+
+LIMITATIONS
+----------------------------------------
+This is a conditional comparison with the b baseline fixed.
+The c period is fixed; no period-search trial factor is included.
+An exponential OU kernel is only one correlated-noise model.
+Activity indicators are not jointly modelled here.
+This comparison does not independently confirm planet c.
+Optimizer convergence and boundary solutions must be inspected.

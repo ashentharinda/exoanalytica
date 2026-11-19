@@ -1,0 +1,21 @@
+
+======================================================================
+FULL | N=548 | Baseline=6183.89 days
+======================================================================
+drs_bis_rv: Best P=211.715 d | Best DeltaBIC=105.648 | Amplitude=0.07266 | 184d DeltaBIC=3.795
+drs_ccf_fwhm: Best P=210.992 d | Best DeltaBIC=49.681 | Amplitude=0.00215 | 184d DeltaBIC=4.212
+drs_ccf_contrast: Best P=220.000 d | Best DeltaBIC=23.848 | Amplitude=0.01048 | 184d DeltaBIC=2.226
+
+======================================================================
+HARPS_PRE | N=129 | Baseline=4031.81 days
+======================================================================
+drs_bis_rv: Best P=171.374 d | Best DeltaBIC=144.203 | Amplitude=0.05179 | 184d DeltaBIC=-6.442
+drs_ccf_fwhm: Best P=160.461 d | Best DeltaBIC=11.111 | Amplitude=0.00247 | 184d DeltaBIC=-9.111
+drs_ccf_contrast: Best P=167.112 d | Best DeltaBIC=7.932 | Amplitude=0.02449 | 184d DeltaBIC=-9.429
+
+======================================================================
+HARPS_POST | N=419 | Baseline=1886.86 days
+======================================================================
+drs_bis_rv: Best P=217.464 d | Best DeltaBIC=46.006 | Amplitude=0.05817 | 184d DeltaBIC=-2.198
+drs_ccf_fwhm: Best P=205.616 d | Best DeltaBIC=41.395 | Amplitude=0.00198 | 184d DeltaBIC=31.921
+drs_ccf_contrast: Best P=220.000 d | Best DeltaBIC=148.436 | Amplitude=0.01228 | 184d DeltaBIC=-11.033

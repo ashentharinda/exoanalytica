@@ -1,0 +1,75 @@
+PI MEN RESIDUAL SIGNAL VERIFICATION
+=================================================================
+Observations: 548
+HARPS PRE observations: 129
+HARPS POST observations: 419
+Baseline days: 6183.885260
+Frequency grid points: 4000
+
+FULL DATA RESIDUAL PERIODOGRAM
+Period: 178.034013 d | Power: 0.15950176
+Period: 125.191748 d | Power: 0.15705345
+Period: 105.428278 d | Power: 0.11784537
+Period: 421.479764 d | Power: 0.11309816
+Period: 81.764092 d | Power: 0.11039740
+Period: 62.117494 d | Power: 0.10917906
+Period: 267.009414 d | Power: 0.10607349
+Period: 72.845511 d | Power: 0.09456132
+Period: 889.061805 d | Power: 0.09429438
+Period: 66.775761 d | Power: 0.09004009
+
+HARPS PRE PERIODOGRAM
+Period: 81.764092 d | Power: 0.30105656
+Period: 49.161585 d | Power: 0.29572299
+Period: 66.775761 d | Power: 0.29229795
+Period: 37.099572 d | Power: 0.28020594
+Period: 3.106196 d | Power: 0.27990494
+Period: 2.994763 d | Power: 0.27731781
+Period: 2.199231 d | Power: 0.27492088
+Period: 11.648059 d | Power: 0.26981271
+Period: 62.117494 d | Power: 0.26693053
+Period: 2.012051 d | Power: 0.25784009
+
+HARPS POST PERIODOGRAM
+Period: 123.266136 d | Power: 0.21703692
+Period: 182.078951 d | Power: 0.18121759
+Period: 250.328638 d | Power: 0.13747231
+Period: 73.513732 d | Power: 0.13554522
+Period: 381.365630 d | Power: 0.12115954
+Period: 104.059329 d | Power: 0.11201964
+Period: 145.672446 d | Power: 0.10788567
+Period: 6.270689 d | Power: 0.09991977
+Period: 92.100415 d | Power: 0.09082339
+Period: 61.639718 d | Power: 0.08334898
+
+SAMPLING WINDOW PEAKS
+Period: 364.041875 d | Power: 0.50217724
+Period: 889.061805 d | Power: 0.23391012
+Period: 95.389166 d | Power: 0.17808468
+Period: 182.078951 d | Power: 0.17510552
+Period: 41.736680 d | Power: 0.17099580
+Period: 125.191748 d | Power: 0.15430971
+Period: 106.833725 d | Power: 0.15349214
+Period: 62.602733 d | Power: 0.14555879
+Period: 235.609497 d | Power: 0.12529398
+Period: 33.955728 d | Power: 0.12521873
+
+PERMUTATION FALSE ALARM PROBABILITY
+Observed maximum power: 0.15950176
+Bootstrap iterations: 300
+Exceedances: 0
+Estimated permutation FAP: 0.00332226
+
+ACTIVITY INDICATOR CORRELATIONS
+drs_bis_rv: n=548, Pearson=0.016842, Spearman=0.055569
+drs_ccf_fwhm: n=548, Pearson=-0.032578, Spearman=0.143997
+drs_ccf_contrast: n=548, Pearson=-0.010473, Spearman=-0.160811
+
+SCIENTIFIC LIMITATIONS
+- Periodograms are unweighted exploratory diagnostics.
+- PRE and POST have different time coverage and sampling.
+- Permutation FAP is approximate and assumes exchangeable residuals.
+- A low FAP does not establish a planetary origin.
+- Sampling-window peaks require direct alias investigation.
+- Activity correlations do not establish causation.
+- No additional planet detection is claimed.

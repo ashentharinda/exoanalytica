@@ -1,0 +1,72 @@
+PHASE 2.6 — CORRECTED SAMPLING WINDOW & ALIAS ANALYSIS
+=================================================================
+Input: phase2_6_pi_men_model_comparison_residuals.csv
+Observations: 548
+Baseline: 6183.8853 days
+Frequency grid points: 30858
+Frequency step: 0.0000161711 cycles/day
+Sampling window: complex Fourier window function
+
+CORRECTED SAMPLING WINDOW — TOP PEAKS
+-----------------------------------------------------------------
+ 1. 368.4418 days | Window power=0.333581
+ 2. 343.8570 days | Window power=0.151014
+ 3. 465.5178 days | Window power=0.144704
+ 4. 860.7996 days | Window power=0.134383
+ 5. 399.3756 days | Window power=0.131243
+ 6. 95.0141 days | Window power=0.128083
+ 7. 652.0413 days | Window power=0.127127
+ 8. 307.9028 days | Window power=0.120967
+ 9. 183.5859 days | Window power=0.116778
+10. 424.0218 days | Window power=0.108792
+11. 108.9021 days | Window power=0.102654
+12. 41.7312 days | Window power=0.101051
+13. 130.7821 days | Window power=0.098723
+14. 573.4376 days | Window power=0.096752
+15. 62.5368 days | Window power=0.089944
+16. 155.4369 days | Window power=0.089881
+17. 122.2501 days | Window power=0.089149
+18. 327.4689 days | Window power=0.088505
+19. 106.6483 days | Window power=0.088222
+20. 93.4349 days | Window power=0.085342
+
+FULL RESIDUAL PERIODOGRAM
+-----------------------------------------------------------------
+ 1. 120.3468 days | Residual power=0.184686 | Window power=0.008783
+ 2. 178.8083 days | Residual power=0.176534 | Window power=0.012814
+ 3. 125.2207 days | Residual power=0.157406 | Window power=0.084977
+ 4. 171.8515 days | Residual power=0.135778 | Window power=0.016914
+ 5. 860.7996 days | Residual power=0.134951 | Window power=0.134383
+ 6. 247.5150 days | Residual power=0.132335 | Window power=0.029696
+ 7. 74.6090 days | Residual power=0.132010 | Window power=0.014584
+ 8. 189.7835 days | Residual power=0.131687 | Window power=0.080015
+ 9. 117.3772 days | Residual power=0.126234 | Window power=0.003866
+10. 6.2686 days | Residual power=0.123970 | Window power=0.000777
+11. 122.9795 days | Residual power=0.122392 | Window power=0.045734
+12. 66.9368 days | Residual power=0.122265 | Window power=0.023545
+13. 72.6799 days | Residual power=0.119983 | Window power=0.015009
+14. 105.3762 days | Residual power=0.118025 | Window power=0.028286
+15. 147.6435 days | Residual power=0.116657 | Window power=0.017848
+
+ALIAS CANDIDATE COMPARISON
+-----------------------------------------------------------------
+Candidate=6.268 d | Window=0.001022 | Residual=0.118198
+Candidate=62.000 d | Window=0.044420 | Residual=0.099748
+Candidate=73.000 d | Window=0.003408 | Residual=0.052747
+Candidate=81.000 d | Window=0.005040 | Residual=0.009477
+Candidate=105.000 d | Window=0.047132 | Residual=0.099482
+Candidate=120.000 d | Window=0.012626 | Residual=0.174078
+Candidate=125.000 d | Window=0.081124 | Residual=0.149476
+Candidate=178.000 d | Window=0.026861 | Residual=0.148057
+Candidate=182.000 d | Window=0.080345 | Residual=0.071153
+Candidate=250.000 d | Window=0.022823 | Residual=0.089621
+Candidate=364.000 d | Window=0.260427 | Residual=0.048923
+Candidate=421.000 d | Window=0.100284 | Residual=0.113387
+Candidate=889.000 d | Window=0.112278 | Residual=0.099988
+
+SCIENTIFIC LIMITATIONS
+-----------------------------------------------------------------
+A peak near a sampling-window peak may indicate an alias, but proximity alone does not prove alias contamination.
+This diagnostic does not establish a new planet or validate a residual signal.
+The PRE and POST datasets have different time coverage; their periodograms must be interpreted cautiously.
+No false-alarm probability is calculated in this script.

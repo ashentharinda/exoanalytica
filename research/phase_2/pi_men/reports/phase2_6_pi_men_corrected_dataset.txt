@@ -1,0 +1,39 @@
+PI MEN CORRECTED DATASET PREPARATION
+=================================================================
+Source rows: 557
+Published wavelength-solution exclusions: 7
+Published guiding-failure exclusions: 2
+Total exclusions: 9
+Retained valid observations: 548
+
+Reference BJD: 2453001.82961663
+Secular acceleration: 0.4800 m/s/year
+Time baseline (years): 16.930555
+Maximum applied correction (m/s): 8.126666
+
+INSTRUMENT EPOCH COUNTS
+-----------------------------------------------------------------
+instrument_epoch
+HARPS_POST    419
+HARPS_PRE     129
+
+CORRECTED RV SUMMARY
+-----------------------------------------------------------------
+count    548.000000
+mean      37.860258
+std      134.651012
+min     -134.963924
+25%      -75.356127
+50%      -10.759436
+75%      158.842709
+max      263.312878
+
+IMPORTANT LIMITATIONS
+-----------------------------------------------------------------
+1. Original source CSV was not modified.
+2. PRE and POST zero-point offsets have not yet been fitted.
+3. Secular acceleration is an approximate published correction.
+4. ESO DRS RVs are not identical to HARPS-TERRA RVs.
+5. This is data preparation, not an orbital validation.
+
+Output CSV: D:\exoanalytica\phase2_6_pi_men_corrected_dataset.csv
