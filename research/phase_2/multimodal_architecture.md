@@ -99,7 +99,8 @@ Retrieve observations and relevant metadata from supported astronomical archives
 **Microlensing:**
 - OGLE
 - Published microlensing event datasets
-- Roman Microlensing Data Challenge 2026 (RMDC26) simulated products\n- Future public Roman Galactic Bulge Time-Domain Survey (GBTDS) observations
+- Roman Microlensing Data Challenge 2026 (RMDC26) simulated products
+- Future public Roman Galactic Bulge Time-Domain Survey (GBTDS) observations
 
 **Reference information:**
 - NASA Exoplanet Archive
@@ -591,7 +592,19 @@ Test:
 - Uncertain stellar parameters
 - Alternative physical solutions
 
-### 13.3 Roman microlensing simulation and future observation validation\n\nFor RMDC26-based prototype evaluation:\n- Record the exact tier, release, event identifiers, and simulation provenance.\n- Use event-level partitions to prevent observations from the same event leaking across development and evaluation sets.\n- Compare recovered parameters and posterior coverage with the supplied simulation truth where appropriate.\n- Evaluate photometric-only and photometric-plus-astrometric analyses separately.\n- Account for the Experienced tier's selection for likely anomalous events; do not interpret it as a representative survey population.\n- Keep the large machine-learning observations table out of the initial full-download workflow; use selected or remotely queried subsets.\n\nFor future actual Roman observations, repeat validation using released observational products and their calibration, quality, and provenance information. Simulation-based performance must not be reported as real-observation validation.\n\n### 13.4 Uncertainty validation
+### 13.3 Roman microlensing simulation and future observation validation
+
+For RMDC26-based prototype evaluation:
+- Record the exact tier, release, event identifiers, and simulation provenance.
+- Use event-level partitions to prevent observations from the same event leaking across development and evaluation sets.
+- Compare recovered parameters and posterior coverage with the supplied simulation truth where appropriate.
+- Evaluate photometric-only and photometric-plus-astrometric analyses separately.
+- Account for the Experienced tier's selection for likely anomalous events; do not interpret it as a representative survey population.
+- Keep the large machine-learning observations table out of the initial full-download workflow; use selected or remotely queried subsets.
+
+For future actual Roman observations, repeat validation using released observational products and their calibration, quality, and provenance information. Simulation-based performance must not be reported as real-observation validation.
+
+### 13.4 Uncertainty validation
 
 Evaluate:
 - Parameter coverage
