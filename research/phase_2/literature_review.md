@@ -214,7 +214,7 @@ The machine-learning observations table is approximately 172 GB. It should not b
 
 **Important scientific distinction:** RMDC26 datasets are simulations, not observations collected by the Roman telescope. Results obtained from these datasets must be reported as simulation-based validation. They do not establish performance on real Roman observations.
 
-As of 19 November 2026, NASA reports that Roman is in science commissioning. Actual GBTDS survey observations should be treated as a future validation source until suitable public survey data products are released. The first available observing window after commissioning is the planned start point for the GBTDS.
+As of 19 November 2026, NASA reports that Roman is in science commissioning. Actual GBTDS survey observations should be treated as a future validation source until suitable public survey data products are released. The actual start of the GBTDS and public release schedule must be checked against current NASA and STScI mission updates; commissioning status alone does not establish that survey observations are already publicly available.
 
 **Important modelling consideration:** Roman's astrometric microlensing measurements can provide information complementary to photometric light curves. The analysis must preserve the distinction between the background source star and the foreground lens/host system. Astrometric and photometric constraints should be combined only through an appropriate physical model.
 
@@ -329,7 +329,8 @@ The following limitations must be addressed during subsequent research:
 
 - Identify suitable Kepler and TESS datasets.
 - Investigate Gaia and HARPS RV data access.
-- Investigate OGLE event-level data and the Roman Microlensing Data Challenge 2026 (RMDC26) simulated datasets.\n- Monitor the release of suitable public Roman GBTDS observations for later real-data validation.
+- Investigate OGLE event-level data and the Roman Microlensing Data Challenge 2026 (RMDC26) simulated datasets.
+- Monitor the release of suitable public Roman GBTDS observations for later real-data validation.
 - Define data-quality and cross-matching requirements.
 
 ### WP4 – Architecture Planning
@@ -357,6 +358,24 @@ The following limitations must be addressed during subsequent research:
 
 5. Giannini, E. and Lunine, J. I. (2013). Microlensing Detection of Extrasolar Planets. Reports on Progress in Physics, 76, 056901.  
    https://doi.org/10.1088/0034-4885/76/5/056901
+
+6. Espinoza, N. et al. (2019). juliet: A versatile modelling tool for transiting and non-transiting exoplanetary systems. Monthly Notices of the Royal Astronomical Society, 490, 2262-2283.  
+   https://doi.org/10.1093/mnras/stz2688
+
+7. Kumar Dubey et al. (2026). PlanetNet-MMG: A Robust Multi-Modal Graph-Based Deep Learning Model for Exoplanet Candidate Classification. Expert Systems with Applications, 324, 132396.  
+   https://doi.org/10.1016/j.eswa.2026.132396
+
+8. NASA. Galactic Bulge Time-Domain Survey - Technical Overview.  
+   https://science.nasa.gov/mission/roman-space-telescope/galactic-bulge-time-domain-survey-technical/
+
+9. Space Telescope Science Institute. Roman Galactic Bulge Time-Domain Survey User Documentation.  
+   https://roman-docs.stsci.edu/roman-community-defined-surveys/galactic-bulge-time-domain-survey
+
+10. RGES PIT. Roman Microlensing Data Challenge 2026 - Data Documentation.  
+    https://rges-pit.org/data-challenge/data/
+
+11. NASA. NASA's Roman Space Telescope Enters Final Commissioning Phase (22 October 2026).  
+    https://science.nasa.gov/blogs/roman/2026/10/22/nasas-roman-space-telescope-enters-final-commissioning-phase/
 
 ---
 
