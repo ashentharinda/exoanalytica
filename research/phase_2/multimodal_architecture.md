@@ -99,7 +99,7 @@ Retrieve observations and relevant metadata from supported astronomical archives
 **Microlensing:**
 - OGLE
 - Published microlensing event datasets
-- Future suitable Roman mission products
+- Roman Microlensing Data Challenge 2026 (RMDC26) simulated products\n- Future public Roman Galactic Bulge Time-Domain Survey (GBTDS) observations
 
 **Reference information:**
 - NASA Exoplanet Archive
@@ -285,6 +285,33 @@ Microlensing parameters can be degenerate.
 Lens mass, distance, and physical planetary properties may require additional information.
 
 The module must preserve alternative solutions and avoid reporting unsupported physical parameters.
+
+
+
+**Roman-specific research inputs:**
+
+The microlensing module should be prepared to analyse Roman-like simulated data from RMDC26 and, later, suitable public GBTDS observations.
+
+Potential input categories include:
+- High-cadence photometric time series.
+- Photometric measurement uncertainties and quality information.
+- Astrometric time-series measurements and their uncertainty information where available.
+- Event identifiers and simulation/observation provenance.
+- Lens/source configuration metadata and reference or truth parameters for simulated validation.
+
+The Roman GBTDS design includes high-cadence F146 observations at approximately 12.1-minute cadence during six seasons, lower-cadence monitoring during four middle seasons, and additional photometric and grism-spectroscopic snapshots. These planned survey characteristics should guide test design, but the pipeline must use the actual cadence and metadata present in each data product rather than hard-coding an assumed schedule.
+
+**Roman-specific processing considerations:**
+- Validate photometric and astrometric measurements independently before joint modelling.
+- Preserve coordinate reference frames, time standards, units, and astrometric uncertainty/covariance information.
+- Distinguish the background source star from the foreground lens and planetary host.
+- Preserve alternative lens solutions and posterior distributions.
+- Compare photometry-only results with joint photometric/astrometric results where the data support both.
+- Record whether each result comes from simulation or actual observation.
+
+RMDC26 simulations can support prototype development and recovery tests against supplied simulation parameters. Such tests are simulation-based validation only. They do not establish performance on real Roman observations.
+
+Roman grism snapshots may provide stellar characterization information, but they must not be treated as equivalent to a dedicated, high-precision exoplanet RV time series without a separate scientific suitability assessment.
 
 ## 7. Layer 4 - Evidence Integration and Association
 
@@ -564,7 +591,7 @@ Test:
 - Uncertain stellar parameters
 - Alternative physical solutions
 
-### 13.3 Uncertainty validation
+### 13.3 Roman microlensing simulation and future observation validation\n\nFor RMDC26-based prototype evaluation:\n- Record the exact tier, release, event identifiers, and simulation provenance.\n- Use event-level partitions to prevent observations from the same event leaking across development and evaluation sets.\n- Compare recovered parameters and posterior coverage with the supplied simulation truth where appropriate.\n- Evaluate photometric-only and photometric-plus-astrometric analyses separately.\n- Account for the Experienced tier's selection for likely anomalous events; do not interpret it as a representative survey population.\n- Keep the large machine-learning observations table out of the initial full-download workflow; use selected or remotely queried subsets.\n\nFor future actual Roman observations, repeat validation using released observational products and their calibration, quality, and provenance information. Simulation-based performance must not be reported as real-observation validation.\n\n### 13.4 Uncertainty validation
 
 Evaluate:
 - Parameter coverage
@@ -671,7 +698,7 @@ Scientific traceability, uncertainty, data provenance, and transparent limitatio
 
 **UI changes:** None authorized.
 
-**Next action:** Review all Phase 2 research documents together and prepare the Phase 2 consolidated research plan.
+**Next action:** Consolidate the Phase 2 research plan, including an OGLE archival pilot, an RMDC26 simulation pilot, and a separate future validation plan for actual Roman GBTDS observations.
 
 ---
 
