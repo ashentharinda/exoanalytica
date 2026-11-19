@@ -75,9 +75,28 @@ def detrend(t, f, window_days=1.0, gap_days=0.5):
     if ok.sum() < 200:
         raise DataError("Too little continuous data to detrend.")
     t, flat = t[ok], flat[ok]
-    sig = 1.4826 * float(np.median(np.abs(flat - 1)))
-    if sig <= 0:
+    # Robust noise estimation.
+    # A zero MAD does not necessarily mean that the light curve is constant.
+    center = float(np.median(flat))
+    deviations = np.abs(flat - center)
+
+    sig = 1.4826 * float(np.median(deviations))
+    eps = np.finfo(float).eps * max(1.0, abs(center)) * 10.0
+
+    if not np.isfinite(sig) or sig <= eps:
+        # Fallback: estimate scale from non-zero deviations.
+        # The 75th percentile is less sensitive to extreme outliers
+        # than using the standard deviation.
+        nonzero = deviations[deviations > eps]
+
+        if nonzero.size:
+            sig = float(np.percentile(nonzero, 75)) / 1.150349380376008
+        else:
+            raise DataError("Flux is constant; nothing to analyse.")
+
+    if not np.isfinite(sig) or sig <= eps:
         raise DataError("Flux is constant; nothing to analyse.")
+
     keep = flat < 1 + 5 * sig  # clip upward outliers only, so transits survive
     return t[keep], flat[keep]
 
