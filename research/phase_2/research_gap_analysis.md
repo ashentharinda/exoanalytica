@@ -69,6 +69,12 @@ However, microlensing observations have distinct characteristics:
 
 Microlensing should therefore be treated as a physically distinct analysis modality rather than another ordinary time-series input.
 
+Roman's Galactic Bulge Time-Domain Survey (GBTDS) is designed as a dedicated space-based microlensing survey. Its planned observing strategy includes high-cadence photometry and additional lower-cadence observations. The RMDC26 challenge provides semi-realistic simulated Roman-like photometric and astrometric event data.
+
+This creates a practical opportunity to investigate microlensing analysis before public GBTDS survey observations become available. However, performance on RMDC26 simulations must not be presented as validation on real Roman observations. The simulated Experienced tier also has a deliberately selected event sample and should not be treated as a representative survey population without accounting for its selection.
+
+
+
 ### 2.4 Existing data infrastructure
 
 The NASA Exoplanet Archive provides access to multiple categories of astronomical information, including:
@@ -224,6 +230,31 @@ The framework should distinguish confirmed associations from possible associatio
 
 How can observations from different detection methods be associated without introducing unsupported assumptions about planetary identity?
 
+
+
+### G6. Simulation-to-observation transfer and astrometric microlensing evidence
+
+**Problem:**
+
+Roman-like simulated microlensing datasets provide an opportunity to develop and test methods before suitable public survey observations are available. However, simulated data cannot fully represent all properties of real observations, including calibration effects, crowding, instrumental behaviour, and unmodelled astrophysical systematics.
+
+Photometric and astrometric microlensing measurements also constrain lens systems in different ways. Combining them requires an appropriate physical model and careful distinction between the background source and foreground lens/host.
+
+**Research opportunity:**
+
+Investigate:
+- Event and parameter recovery using RMDC26 simulated data.
+- Joint photometric and astrometric modelling where both data types are supplied.
+- Sensitivity to event complexity, cadence, noise, and missing measurements.
+- Simulation-to-observation domain shift and the limits of simulation-based validation.
+- A reproducible transition from simulation benchmarks to future public Roman observations.
+
+**Research question:**
+
+How reliably can microlensing models recover event and planetary parameters from Roman-like simulated photometric and astrometric data, and what additional validation is required before transferring those methods to real Roman observations?
+
+This is a candidate research gap for investigation, not an established novel contribution.
+
 ## 4. Prioritization
 
 | Gap | Research priority | Reason |
@@ -232,7 +263,7 @@ How can observations from different detection methods be associated without intr
 | G2 - Missing modalities | High | Realistic observational data are incomplete |
 | G3 - Detection bias | High | Important for scientifically valid comparisons |
 | G4 - Uncertainty-aware characterization | Very high | Necessary for reliable scientific interpretation |
-| G5 - Cross-method association | Very high | Prevents incorrect planetary identification |
+| G5 - Cross-method association | Very high | Prevents incorrect planetary identification |\n| G6 - Roman simulation-to-observation validation | High | Enables a controlled microlensing prototype while guarding against overclaiming real-data performance |
 
 These priorities are preliminary and may change after further literature review.
 
@@ -250,7 +281,7 @@ The framework should investigate:
 4. Uncertainty-aware planetary characterization.
 5. Detection-bias awareness.
 6. Reliable cross-identification and data provenance.
-7. Transparent reporting of evidence and limitations.
+7. Transparent reporting of evidence and limitations.\n8. Simulation-to-observation validation for Roman-like microlensing data, including photometric and astrometric evidence where available.
 
 The proposed framework should not assume that all three methods observe the same planet.
 
@@ -274,7 +305,7 @@ Candidates detected by different methods are analysed separately and compared at
 
 **RQ4:** How can cross-method associations be established and documented reliably?
 
-**RQ5:** How do method-specific selection effects influence the interpretation of combined exoplanet candidate populations?
+**RQ5:** How do method-specific selection effects influence the interpretation of combined exoplanet candidate populations?\n\n**RQ6:** How reliably can microlensing parameters be recovered from Roman-like simulated photometric and astrometric data, and how should simulation-to-observation limitations be evaluated?
 
 ## 7. Preliminary Objectives
 
@@ -312,7 +343,7 @@ There may be limited public data where the same planetary system has useful obse
 
 A three-method architecture must not depend on an unrealistic assumption of complete observational overlap.
 
-### 8.5 Model validation
+### 8.5 Simulation-to-observation limitations\n\nRMDC26 is a semi-realistic simulation resource, not a substitute for real Roman survey observations. The Experienced tier is filtered for likely anomalous events and is not representative of the full expected event population. Any performance result must identify the dataset tier, selection process, simulated observing assumptions, and evaluation split. Real-observation validation remains a separate future requirement.\n\n### 8.6 Model validation
 
 High classification accuracy alone is insufficient.
 
