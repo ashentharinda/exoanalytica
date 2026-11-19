@@ -263,7 +263,8 @@ This is a candidate research gap for investigation, not an established novel con
 | G2 - Missing modalities | High | Realistic observational data are incomplete |
 | G3 - Detection bias | High | Important for scientifically valid comparisons |
 | G4 - Uncertainty-aware characterization | Very high | Necessary for reliable scientific interpretation |
-| G5 - Cross-method association | Very high | Prevents incorrect planetary identification |\n| G6 - Roman simulation-to-observation validation | High | Enables a controlled microlensing prototype while guarding against overclaiming real-data performance |
+| G5 - Cross-method association | Very high | Prevents incorrect planetary identification |
+| G6 - Roman simulation-to-observation validation | High | Enables a controlled microlensing prototype while guarding against overclaiming real-data performance |
 
 These priorities are preliminary and may change after further literature review.
 
@@ -281,7 +282,8 @@ The framework should investigate:
 4. Uncertainty-aware planetary characterization.
 5. Detection-bias awareness.
 6. Reliable cross-identification and data provenance.
-7. Transparent reporting of evidence and limitations.\n8. Simulation-to-observation validation for Roman-like microlensing data, including photometric and astrometric evidence where available.
+7. Transparent reporting of evidence and limitations.
+8. Simulation-to-observation validation for Roman-like microlensing data, including photometric and astrometric evidence where available.
 
 The proposed framework should not assume that all three methods observe the same planet.
 
@@ -305,7 +307,9 @@ Candidates detected by different methods are analysed separately and compared at
 
 **RQ4:** How can cross-method associations be established and documented reliably?
 
-**RQ5:** How do method-specific selection effects influence the interpretation of combined exoplanet candidate populations?\n\n**RQ6:** How reliably can microlensing parameters be recovered from Roman-like simulated photometric and astrometric data, and how should simulation-to-observation limitations be evaluated?
+**RQ5:** How do method-specific selection effects influence the interpretation of combined exoplanet candidate populations?
+
+**RQ6:** How reliably can microlensing parameters be recovered from Roman-like simulated photometric and astrometric data, and how should simulation-to-observation limitations be evaluated?
 
 ## 7. Preliminary Objectives
 
@@ -343,7 +347,11 @@ There may be limited public data where the same planetary system has useful obse
 
 A three-method architecture must not depend on an unrealistic assumption of complete observational overlap.
 
-### 8.5 Simulation-to-observation limitations\n\nRMDC26 is a semi-realistic simulation resource, not a substitute for real Roman survey observations. The Experienced tier is filtered for likely anomalous events and is not representative of the full expected event population. Any performance result must identify the dataset tier, selection process, simulated observing assumptions, and evaluation split. Real-observation validation remains a separate future requirement.\n\n### 8.6 Model validation
+### 8.5 Simulation-to-observation limitations
+
+RMDC26 is a semi-realistic simulation resource, not a substitute for real Roman survey observations. The Experienced tier is filtered for likely anomalous events and is not representative of the full expected event population. Any performance result must identify the dataset tier, selection process, simulated observing assumptions, and evaluation split. Real-observation validation remains a separate future requirement.
+
+### 8.6 Model validation
 
 High classification accuracy alone is insufficient.
 
@@ -394,6 +402,18 @@ Before finalizing the research gap, the following investigations are required:
 
 8. NASA Science. How Do You Find - and Confirm - a Planet?  
    https://science.nasa.gov/universe/exoplanets/how-do-you-find-and-confirm-a-planet-10-things-about-the-search-for-exoplanets/
+
+9. NASA. Galactic Bulge Time-Domain Survey - Technical Overview.  
+   https://science.nasa.gov/mission/roman-space-telescope/galactic-bulge-time-domain-survey-technical/
+
+10. Space Telescope Science Institute. Roman Galactic Bulge Time-Domain Survey User Documentation.  
+    https://roman-docs.stsci.edu/roman-community-defined-surveys/galactic-bulge-time-domain-survey
+
+11. RGES PIT. Roman Microlensing Data Challenge 2026 - Data Documentation.  
+    https://rges-pit.org/data-challenge/data/
+
+12. NASA. NASA's Roman Space Telescope Enters Final Commissioning Phase (22 October 2026).  
+    https://science.nasa.gov/blogs/roman/2026/10/22/nasas-roman-space-telescope-enters-final-commissioning-phase/
 
 ---
 
