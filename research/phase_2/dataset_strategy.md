@@ -170,7 +170,79 @@ A microlensing event is not automatically equivalent to a confirmed planet or a 
 
 Do not convert event-level model parameters into definitive planet properties unless supported by the published analysis.
 
-Roman mission data may be considered as a future expansion after suitable public data products become available.
+Roman microlensing resources are now included in this strategy through the RMDC26 simulated datasets. These are suitable for a controlled prototype and simulation-based validation. Actual Roman GBTDS observations remain a separate future validation source and must not be conflated with the simulations.
+
+
+
+### 3.4 Nancy Grace Roman Space Telescope - Microlensing
+
+**Survey:** Galactic Bulge Time-Domain Survey (GBTDS)
+
+**Status as of 19 November 2026:** NASA reported that Roman entered science commissioning in October 2026. The GBTDS is planned to begin in the first available observing window after commissioning. Therefore, the data strategy below separates currently available simulated datasets from future public Roman survey observations.
+
+**A. Current pilot source - Roman Microlensing Data Challenge 2026 (RMDC26)**
+
+Official data documentation:
+https://rges-pit.org/data-challenge/data/
+
+RMDC26 provides semi-realistic simulated data intended to represent the type and scale of data expected from the Roman GBTDS.
+
+Available tiers:
+
+| Dataset | Events | Observations | Data characteristics |
+|---|---:|---:|---|
+| Beginner | 188 | 9,230,048 | Photometric light curves; 14 columns |
+| Experienced | 2,087 | 103,281,456 | Photometric and astrometric measurements; more complex lens/source configurations; 18 columns |
+| Machine Learning | 372,655 | 18,441,855,367 observations in the observations table | Separate observation, metadata, and epoch tables; approximately 172 GB observations table |
+
+The Beginner and Experienced test Parquet files are available through the RGES-PIT Hugging Face repositories. The two tiers are also mounted on the Roman Research Nexus for supported workflows.
+
+**Initial selection:**
+1. Start with a small subset of the Beginner tier.
+2. Inspect schema, units, cadence, uncertainty fields, event identifiers, and simulation metadata.
+3. Select a limited number of events with documented truth parameters.
+4. Keep event-level grouping intact for validation.
+5. Move to a small Experienced-tier sample only after the photometric workflow is understood.
+6. Do not download or load the approximately 172 GB Machine Learning observations table in full for the initial pilot. Use documented remote querying or small selected subsets if needed.
+
+**Potential analysis tasks:**
+- Event classification and anomaly identification.
+- Recovery of event-level microlensing parameters.
+- Planetary perturbation modelling where applicable.
+- Posterior and uncertainty calibration against simulation truth.
+- Photometric and astrometric joint modelling using suitable Experienced-tier events.
+- Comparison of alternative lens solutions and degeneracies.
+
+**Important dataset limitations:**
+- These are simulated observations, not actual Roman telescope survey data.
+- The Experienced tier is filtered for likely anomalous events and is not representative of the complete expected event population.
+- The machine-learning data product has a separate structure and should not be assumed interchangeable with the two challenge tiers.
+- Simulation-based success must not be described as real-observation performance.
+
+**B. Future validation source - actual Roman GBTDS observations**
+
+Monitor official Roman and STScI data-release documentation for public GBTDS products after science operations begin.
+
+The survey design includes approximately 12.1-minute F146 high-cadence observations during six high-cadence seasons, with lower-cadence monitoring in four middle seasons and additional photometric and grism-spectroscopic snapshots.
+
+When public data become available, verify:
+- Observation and event identifiers.
+- Time system and cadence.
+- Photometric calibration and uncertainty products.
+- Astrometric measurements and uncertainty covariance where supplied.
+- Quality flags, data-release version, and pipeline provenance.
+- Event-level modelling products and publication references.
+- Whether the data are suitable for independent validation.
+
+Do not assume that all planned survey products will be released simultaneously or in the same format as RMDC26.
+
+**C. Roman data access and analysis preparation**
+- Roman Research Nexus: https://roman.science.stsci.edu/hub/
+- Roman User Documentation: https://roman-docs.stsci.edu/
+- RMDC26 challenge: https://rges-pit.org/data-challenge/
+- RMDC26 data documentation: https://rges-pit.org/data-challenge/data/
+
+The initial pilot should use a small reproducible sample and document the exact dataset tier, file version, event identifiers, and retrieval method.
 
 ## 4. Reference and Validation Catalogues
 
@@ -254,7 +326,7 @@ For each event, verify:
 - Posterior sample availability
 - Published event interpretation
 
-Do not assume that the selected microlensing events have corresponding transit or RV observations.
+Do not assume that the selected microlensing events have corresponding transit or RV observations.\n\n### Pilot D - Roman-like microlensing simulations\n\nBegin with a small, event-level subset of the RMDC26 Beginner tier. Verify the simulation truth fields, observation uncertainties, event grouping, and parameter conventions before selecting validation metrics. After the photometric pilot is reproducible, inspect a small Experienced-tier subset for joint photometric and astrometric modelling. Keep the simulation test set separate from any model-development or tuning sample.\n\nThis pilot validates analysis against simulated truth only. It does not validate performance on actual Roman observations.
 
 ## 6. Data Identification and Cross-Matching
 
@@ -617,7 +689,7 @@ No large-scale download or application-code modification is required at this pla
 
 **Scientific algorithm changes:** None authorized.
 
-**Next work package:** Multimodal Architecture Planning.
+**Next work package:** Consolidated research plan and controlled pilot selection across Kepler, HARPS, OGLE, and RMDC26.
 
 ---
 
