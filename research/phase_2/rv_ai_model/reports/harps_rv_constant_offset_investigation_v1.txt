@@ -1,0 +1,39 @@
+﻿HARPS RV CONSTANT FIELD OFFSET INVESTIGATION
+Phase 2 - Stage 4
+Status: Confirmed pattern; physical/software root cause unresolved.
+
+Dataset:
+  Source: harps_rv_observations_18_targets.csv
+  Total observations inspected: 37,442
+
+Finding:
+  Exact offset: +2147.483648 km/s
+  Comparison: drs_ccf_rvc - drs_ccf_rv
+  Matching observations: 9
+  Matching tolerance: 0.000001 km/s
+
+Affected targets:
+  HD192310: 6 observations
+  HD215152: 1 observation
+  HD96700: 2 observations
+
+Date range:
+  2011-06-14 to 2011-06-15
+
+The nine matching observations show the same constant field
+difference while their BERV values vary. No additional matches
+were found in the 37,442-observation dataset.
+
+Interpretation:
+  This is an anomalous RV-field disagreement. The constant
+  offset is not explained by the varying BERV values.
+  The underlying cause has not been established.
+
+Quality-control treatment:
+  Preserve both original RV fields.
+  Flag the nine observations for review.
+  Do not automatically delete or replace measurements.
+  Do not use these observations for model training before
+  source-level verification.
+
+Raw observations were not modified.

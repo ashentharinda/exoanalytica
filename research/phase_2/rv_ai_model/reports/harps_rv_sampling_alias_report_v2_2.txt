@@ -1,0 +1,185 @@
+HARPS RV SAMPLING ALIAS ANALYSIS V2.2
+========================================================================
+
+Input: one median BJD timestamp per target and BJD-day.
+No RV values are used in the spectral-window calculation.
+
+Exact alias frequencies:
+solar_day: 1.0000000000 cycles/day
+sidereal_day: 1.0027379093 cycles/day
+half_solar_day: 2.0000000000 cycles/day
+half_sidereal_day: 2.0054758186 cycles/day
+two_day: 0.5000000000 cycles/day
+one_month: 0.0338631907 cycles/day
+one_year: 0.0027378508 cycles/day
+
+LOCAL PEAK SEARCH
+Frequency oversampling: 5
+Local region half-width: 0.008 cycles/day
+Minimum peak prominence: 0.001
+
+EXACT ALIAS POWER COMPARISON
+------------------------------------------------------------------------
+HD039060: solar=0.52804, sidereal=0.67850, yearly=0.14649, monthly=0.01643
+HD10180: solar=0.54867, sidereal=0.85893, yearly=0.38214, monthly=0.00216
+HD10700: solar=0.61529, sidereal=0.88093, yearly=0.55420, monthly=0.01456
+HD115617: solar=0.46703, sidereal=0.84827, yearly=0.29075, monthly=0.01221
+HD134606: solar=0.41782, sidereal=0.81384, yearly=0.18875, monthly=0.01118
+HD136352: solar=0.39604, sidereal=0.76289, yearly=0.13035, monthly=0.00450
+HD160691: solar=0.40295, sidereal=0.74912, yearly=0.16459, monthly=0.01735
+HD17051: solar=0.80893, sidereal=0.83478, yearly=0.53311, monthly=0.36779
+HD192310: solar=0.55503, sidereal=0.86683, yearly=0.46674, monthly=0.00758
+HD19994: solar=0.65170, sidereal=0.92469, yearly=0.53900, monthly=0.27872
+HD20794: solar=0.61423, sidereal=0.85208, yearly=0.42979, monthly=0.00251
+HD215152: solar=0.55740, sidereal=0.89847, yearly=0.43045, monthly=0.00309
+HD31527: solar=0.44761, sidereal=0.80111, yearly=0.17214, monthly=0.00357
+HD39091: solar=0.41464, sidereal=0.84131, yearly=0.24230, monthly=0.00746
+HD39194: solar=0.39907, sidereal=0.79320, yearly=0.11987, monthly=0.00502
+HD40307: solar=0.43655, sidereal=0.74321, yearly=0.11989, monthly=0.02835
+HD69830: solar=0.48392, sidereal=0.80790, yearly=0.19815, monthly=0.01058
+HD96700: solar=0.50966, sidereal=0.82253, yearly=0.29232, monthly=0.01817
+
+STRONGEST UNIQUE LOCAL PEAKS
+------------------------------------------------------------------------
+
+HD039060
+Rank 1: f=2.002756173 c/d, P=0.4993119 d, power=0.69596, prominence=0.69543, width=0.000258486
+Rank 2: f=1.002711168 c/d, P=0.9972962 d, power=0.68124, prominence=0.68101, width=0.000231993
+Rank 3: f=1.000010874 c/d, P=0.9999891 d, power=0.53804, prominence=0.53099, width=0.000245888
+Rank 4: f=1.001856075 c/d, P=0.9981474 d, power=0.20208, prominence=0.18746, width=0.000194955
+Rank 5: f=2.005411462 c/d, P=0.4986508 d, power=0.20051, prominence=0.18711, width=0.000183424
+
+HD10180
+Rank 1: f=1.002736709 c/d, P=0.9972708 d, power=0.85840, prominence=0.85821, width=0.000277207
+Rank 2: f=2.002736709 c/d, P=0.4993168 d, power=0.58849, prominence=0.58726, width=0.000268781
+Rank 3: f=1.000003008 c/d, P=0.9999970 d, power=0.54940, prominence=0.54886, width=0.000273586
+Rank 4: f=2.005470409 c/d, P=0.4986361 d, power=0.54115, prominence=0.53946, width=0.000289949
+Rank 5: f=0.002754463 c/d, P=363.0471695 d, power=0.37751, prominence=0.37688, width=0.000290362
+
+HD10700
+Rank 1: f=1.002744420 c/d, P=0.9972631 d, power=0.87838, prominence=0.87831, width=0.000238936
+Rank 2: f=0.999993153 c/d, P=1.0000068 d, power=0.61779, prominence=0.61772, width=0.000244477
+Rank 3: f=2.005466726 c/d, P=0.4986370 d, power=0.60208, prominence=0.60191, width=0.000241639
+Rank 4: f=0.002735424 c/d, P=365.5740719 d, power=0.55326, prominence=0.55306, width=0.000246361
+Rank 5: f=2.002715459 c/d, P=0.4993221 d, power=0.53454, prominence=0.53454, width=0.000246260
+
+HD115617
+Rank 1: f=1.002754807 c/d, P=0.9972528 d, power=0.84849, prominence=0.84844, width=0.000273066
+Rank 2: f=2.002754807 c/d, P=0.4993122 d, power=0.54099, prominence=0.54085, width=0.000280465
+Rank 3: f=2.005504156 c/d, P=0.4986277 d, power=0.51056, prominence=0.51023, width=0.000276120
+Rank 4: f=1.000005458 c/d, P=0.9999945 d, power=0.46785, prominence=0.46757, width=0.000271477
+Rank 5: f=0.002728054 c/d, P=366.5616089 d, power=0.28963, prominence=0.28961, width=0.000261756
+
+HD134606
+Rank 1: f=1.002775670 c/d, P=0.9972320 d, power=0.81496, prominence=0.81488, width=0.000358037
+Rank 2: f=2.002775670 c/d, P=0.4993070 d, power=0.56469, prominence=0.56451, width=0.000372223
+Rank 3: f=2.005512348 c/d, P=0.4986257 d, power=0.44665, prominence=0.44628, width=0.000335657
+Rank 4: f=0.999996231 c/d, P=1.0000038 d, power=0.41753, prominence=0.41739, width=0.000341536
+Rank 5: f=0.002751157 c/d, P=363.4834607 d, power=0.19140, prominence=0.19121, width=0.000295972
+
+HD136352
+Rank 1: f=1.002754000 c/d, P=0.9972536 d, power=0.76828, prominence=0.76817, width=0.000331840
+Rank 2: f=2.002754000 c/d, P=0.4993124 d, power=0.56045, prominence=0.56036, width=0.000344082
+Rank 3: f=0.999972077 c/d, P=1.0000279 d, power=0.39806, prominence=0.39781, width=0.000320865
+Rank 4: f=2.005494401 c/d, P=0.4986302 d, power=0.32608, prominence=0.32519, width=0.000320565
+Rank 5: f=0.002798880 c/d, P=357.2857386 d, power=0.13687, prominence=0.13607, width=0.000281972
+
+HD160691
+Rank 1: f=1.002744945 c/d, P=0.9972626 d, power=0.75446, prominence=0.75404, width=0.000210469
+Rank 2: f=2.002744945 c/d, P=0.4993147 d, power=0.50358, prominence=0.50320, width=0.000224706
+Rank 3: f=0.999961028 c/d, P=1.0000390 d, power=0.42114, prominence=0.41906, width=0.000205757
+Rank 4: f=2.005480022 c/d, P=0.4986337 d, power=0.31688, prominence=0.31464, width=0.000214528
+Rank 5: f=2.002403061 c/d, P=0.4994000 d, power=0.25838, prominence=0.11938, width=0.000152113
+
+HD17051
+Rank 1: f=0.007679980 c/d, P=130.2086749 d, power=0.95069, prominence=0.14323, width=0.000043398
+Rank 2: f=1.002771550 c/d, P=0.9972361 d, power=0.93435, prominence=0.92733, width=0.000181752
+Rank 3: f=0.004032471 c/d, P=247.9869197 d, power=0.92536, prominence=0.92094, width=0.000183988
+Rank 4: f=0.999978926 c/d, P=1.0000211 d, power=0.88793, prominence=0.88489, width=0.000187499
+Rank 5: f=1.003968389 c/d, P=0.9960473 d, power=0.87034, prominence=0.86321, width=0.000187754
+
+HD192310
+Rank 1: f=1.002726862 c/d, P=0.9972806 d, power=0.86335, prominence=0.86314, width=0.000284405
+Rank 2: f=2.005482775 c/d, P=0.4986331 d, power=0.56800, prominence=0.56790, width=0.000283979
+Rank 3: f=0.999970948 c/d, P=1.0000291 d, power=0.56209, prominence=0.56039, width=0.000284831
+Rank 4: f=2.002726862 c/d, P=0.4993192 d, power=0.50975, prominence=0.50852, width=0.000284486
+Rank 5: f=0.002771116 c/d, P=360.8654796 d, power=0.47075, prominence=0.46837, width=0.000283758
+
+HD19994
+Rank 1: f=1.002704673 c/d, P=0.9973026 d, power=0.88384, prominence=0.88267, width=0.000146269
+Rank 2: f=2.005459884 c/d, P=0.4986387 d, power=0.77745, prominence=0.77725, width=0.000139499
+Rank 3: f=1.000039796 c/d, P=0.9999602 d, power=0.70088, prominence=0.69694, width=0.000142298
+Rank 4: f=2.002749840 c/d, P=0.4993135 d, power=0.69581, prominence=0.69567, width=0.000139158
+Rank 5: f=0.002719709 c/d, P=367.6864008 d, power=0.61660, prominence=0.61518, width=0.000148838
+
+HD20794
+Rank 1: f=1.002726808 c/d, P=0.9972806 d, power=0.85013, prominence=0.85007, width=0.000230564
+Rank 2: f=2.002726808 c/d, P=0.4993192 d, power=0.63547, prominence=0.63543, width=0.000230647
+Rank 3: f=1.000002539 c/d, P=0.9999975 d, power=0.61287, prominence=0.61263, width=0.000231226
+Rank 4: f=2.005479455 c/d, P=0.4986339 d, power=0.51635, prominence=0.51623, width=0.000248535
+Rank 5: f=0.002739135 c/d, P=365.0787110 d, power=0.42998, prominence=0.42993, width=0.000238114
+
+HD215152
+Rank 1: f=1.002746915 c/d, P=0.9972606 d, power=0.89970, prominence=0.89930, width=0.000278885
+Rank 2: f=2.005487164 c/d, P=0.4986320 d, power=0.66064, prominence=0.66022, width=0.000283443
+Rank 3: f=2.002704099 c/d, P=0.4993249 d, power=0.59970, prominence=0.59969, width=0.000269501
+Rank 4: f=0.999963849 c/d, P=1.0000362 d, power=0.57038, prominence=0.56940, width=0.000266798
+Rank 5: f=0.002754616 c/d, P=363.0269492 d, power=0.44459, prominence=0.44451, width=0.000269886
+
+HD31527
+Rank 1: f=1.002725986 c/d, P=0.9972814 d, power=0.80400, prominence=0.80397, width=0.000365530
+Rank 2: f=2.002725986 c/d, P=0.4993194 d, power=0.64775, prominence=0.64765, width=0.000366426
+Rank 3: f=0.999995015 c/d, P=1.0000050 d, power=0.44584, prominence=0.44578, width=0.000363075
+Rank 4: f=2.005456957 c/d, P=0.4986395 d, power=0.39941, prominence=0.39841, width=0.000375214
+Rank 5: f=0.002712233 c/d, P=368.6999175 d, power=0.17626, prominence=0.17604, width=0.000367471
+
+HD39091
+Rank 1: f=1.002737589 c/d, P=0.9972699 d, power=0.84159, prominence=0.84152, width=0.000205870
+Rank 2: f=2.002769931 c/d, P=0.4993085 d, power=0.54885, prominence=0.54775, width=0.000217201
+Rank 3: f=2.005454329 c/d, P=0.4986401 d, power=0.51142, prominence=0.50555, width=0.000189359
+Rank 4: f=0.000197026 c/d, P=5075.4617260 d, power=0.49340, prominence=0.05208, width=0.000072362
+Rank 5: f=1.000020850 c/d, P=0.9999792 d, power=0.45287, prominence=0.44594, width=0.000176560
+
+HD39194
+Rank 1: f=1.002732486 c/d, P=0.9972750 d, power=0.79182, prominence=0.79168, width=0.000303386
+Rank 2: f=2.002732486 c/d, P=0.4993178 d, power=0.63527, prominence=0.63505, width=0.000299564
+Rank 3: f=0.999960257 c/d, P=1.0000397 d, power=0.40335, prominence=0.40275, width=0.000298117
+Rank 4: f=2.005465111 c/d, P=0.4986374 d, power=0.36737, prominence=0.36705, width=0.000307522
+Rank 5: f=0.005446441 c/d, P=183.6061338 d, power=0.12647, prominence=0.12609, width=0.000345777
+
+HD40307
+Rank 1: f=1.002745209 c/d, P=0.9972623 d, power=0.74265, prominence=0.74256, width=0.000196284
+Rank 2: f=2.002709746 c/d, P=0.4993235 d, power=0.68647, prominence=0.68636, width=0.000198381
+Rank 3: f=0.999979116 c/d, P=1.0000209 d, power=0.45219, prominence=0.45207, width=0.000193913
+Rank 4: f=2.005475840 c/d, P=0.4986348 d, power=0.28217, prominence=0.28191, width=0.000196019
+Rank 5: f=0.002759705 c/d, P=362.3575457 d, power=0.13309, prominence=0.13293, width=0.000181088
+
+HD69830
+Rank 1: f=1.002733083 c/d, P=0.9972744 d, power=0.80366, prominence=0.80353, width=0.000185224
+Rank 2: f=2.002733083 c/d, P=0.4993177 d, power=0.67104, prominence=0.67092, width=0.000186315
+Rank 3: f=0.999990560 c/d, P=1.0000094 d, power=0.49461, prominence=0.48721, width=0.000176254
+Rank 4: f=2.005475606 c/d, P=0.4986348 d, power=0.40659, prominence=0.40140, width=0.000181717
+Rank 5: f=0.002774806 c/d, P=360.3855369 d, power=0.20283, prominence=0.20173, width=0.000166165
+
+HD96700
+Rank 1: f=1.002759967 c/d, P=0.9972476 d, power=0.81824, prominence=0.81816, width=0.000335749
+Rank 2: f=2.002719363 c/d, P=0.4993211 d, power=0.59095, prominence=0.59081, width=0.000339969
+Rank 3: f=0.999998919 c/d, P=1.0000011 d, power=0.51010, prominence=0.50937, width=0.000338757
+Rank 4: f=2.005480411 c/d, P=0.4986336 d, power=0.45667, prominence=0.45642, width=0.000348850
+Rank 5: f=0.002779841 c/d, P=359.7328265 d, power=0.29412, prominence=0.29376, width=0.000339770
+
+INTERPRETATION LIMITATIONS
+- Sampling-window peaks are not planetary detections.
+- Peak width is measured at half prominence, not absolute half power.
+- Frequency-grid resolution depends on the target baseline.
+- Exact solar and sidereal aliases are evaluated separately.
+- No RV outlier removal or periodogram analysis was performed.
+- No raw observations or previous outputs were modified.
+
+OUTPUT FILES
+D:\exoanalytica\research\phase_2\rv_ai_model\reports\harps_rv_precise_alias_powers_v2_2.csv
+D:\exoanalytica\research\phase_2\rv_ai_model\reports\harps_rv_local_sampling_peaks_v2_2.csv
+D:\exoanalytica\research\phase_2\rv_ai_model\reports\harps_rv_sampling_alias_report_v2_2.txt
+D:\exoanalytica\research\phase_2\rv_ai_model\data\manifests\harps_rv_sampling_v2_2.json
+
+COMPLETED - INPUT DATA UNCHANGED

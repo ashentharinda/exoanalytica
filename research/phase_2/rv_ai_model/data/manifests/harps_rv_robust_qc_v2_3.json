@@ -1,0 +1,16 @@
+{
+  "version": "2.3",
+  "input": "data\\interim\\harps_rv_observations_18_targets.csv",
+  "outputs": [
+    "reports\\harps_rv_robust_qc_summary_v2_3.csv",
+    "reports\\harps_rv_robust_qc_flagged_v2_3.csv",
+    "reports\\harps_rv_robust_qc_report_v2_3.txt"
+  ],
+  "observations": 37442,
+  "targets": 18,
+  "flagged_observations": 2926,
+  "rv_conversion_max_error_mps": 4.656612873077393e-10,
+  "raw_input_modified": false,
+  "automatic_observation_rejection": false,
+  "purpose": "Exploratory target-centred RV robust quality control"
+}

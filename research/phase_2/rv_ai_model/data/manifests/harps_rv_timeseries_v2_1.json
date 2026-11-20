@@ -1,0 +1,25 @@
+{
+  "dataset": "harps_rv_timeseries_characterization_v2_1",
+  "version": "2.1.0",
+  "input": "data\\interim\\harps_rv_observations_18_targets.csv",
+  "raw_observations": 37442,
+  "target_count": 18,
+  "bjd_day_count": 4672,
+  "session_count": 4671,
+  "bjd_day_grouping": "tel_object + floor(drs_bjd)",
+  "representative_timestamp": "median(drs_bjd)",
+  "session_gap_threshold_days": 0.5,
+  "session_threshold_is_exploratory": true,
+  "spectral_window_uses_rv_values": false,
+  "frequency_oversampling": 5,
+  "maximum_frequency_cycles_per_day": 5.0,
+  "outputs": [
+    "reports\\harps_rv_bjd_day_sampling_v2_1.csv",
+    "reports\\harps_rv_cadence_summary_v2_1.csv",
+    "reports\\harps_rv_observing_sessions_v2_1.csv",
+    "reports\\harps_rv_spectral_window_v2_1.csv",
+    "reports\\harps_rv_timeseries_characterization_v2_1.txt"
+  ],
+  "raw_data_modified": false,
+  "planet_detection_performed": false
+}

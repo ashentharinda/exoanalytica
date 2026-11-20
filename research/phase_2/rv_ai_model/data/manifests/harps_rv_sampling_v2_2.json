@@ -1,0 +1,26 @@
+{
+  "dataset": "harps_rv_sampling_alias_analysis",
+  "version": "2.2.0",
+  "input": "reports\\harps_rv_bjd_day_sampling_v2_1.csv",
+  "targets": 18,
+  "sampling_points": 4672,
+  "oversampling": 5,
+  "local_region_half_width": 0.008,
+  "minimum_peak_prominence": 0.001,
+  "exact_aliases": {
+    "solar_day": 1.0,
+    "sidereal_day": 1.0027379093,
+    "half_solar_day": 2.0,
+    "half_sidereal_day": 2.0054758186,
+    "two_day": 0.5,
+    "one_month": 0.03386319067786996,
+    "one_year": 0.0027378507871321013
+  },
+  "outputs": [
+    "reports\\harps_rv_precise_alias_powers_v2_2.csv",
+    "reports\\harps_rv_local_sampling_peaks_v2_2.csv",
+    "reports\\harps_rv_sampling_alias_report_v2_2.txt"
+  ],
+  "raw_observations_modified": false,
+  "planet_detection_performed": false
+}

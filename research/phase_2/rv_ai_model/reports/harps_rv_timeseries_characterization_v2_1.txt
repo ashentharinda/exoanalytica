@@ -1,0 +1,63 @@
+PHASE 2 - STAGE 4: RV TIME-SERIES CHARACTERIZATION V2.1
+========================================================================
+
+Raw observations: 37442
+Targets processed: 18
+BJD-day representatives: 4672
+Observing sessions: 4671
+
+BJD-DAY REPRESENTATIVE METHOD
+- Group key: tel_object + floor(drs_bjd).
+- One representative timestamp per BJD-day: median(drs_bjd).
+- BJD-day is a numerical grouping unit, not a confirmed UTC night.
+- Multiple exposures on one BJD-day do not increase window sample count.
+
+SESSION METHOD
+- Session boundary: gap > 0.5 days.
+- This is an exploratory observing-block definition.
+- It is not a universal astronomical night definition.
+
+SPECTRAL WINDOW
+- Uses sampling timestamps only; RV values are not used.
+- W(f) = |mean(exp(2*pi*i*f*t))|^2.
+- Alias frequencies include daily, half-daily, monthly and yearly.
+- Grid range: 5.0 cycles/day maximum.
+- Frequency oversampling factor: 5.
+- Strong peaks indicate sampling structure, not planets.
+
+LIMITATIONS
+- No RV outlier removal.
+- No planet period detection.
+- No activity or instrumental correction.
+- BJD-day grouping can combine/split calendar observing dates.
+- The session threshold is exploratory and must be sensitivity-tested.
+
+TARGET SUMMARY
+
+HD039060: Nraw=7532, BJD-days=78, sessions=78, baseline=4444.0d, median gap=2.009d, max gap=846.4d
+HD10180: Nraw=336, BJD-days=269, sessions=269, baseline=5048.1d, median gap=2.020d, max gap=281.2d
+HD10700: Nraw=9420, BJD-days=510, sessions=510, baseline=6905.9d, median gap=1.034d, max gap=702.2d
+HD115617: Nraw=1213, BJD-days=223, sessions=223, baseline=4946.6d, median gap=3.057d, max gap=357.0d
+HD134606: Nraw=290, BJD-days=219, sessions=219, baseline=4677.2d, median gap=3.034d, max gap=684.1d
+HD136352: Nraw=685, BJD-days=249, sessions=249, baseline=4816.8d, median gap=3.031d, max gap=612.3d
+HD160691: Nraw=2450, BJD-days=160, sessions=160, baseline=4094.9d, median gap=4.029d, max gap=308.1d
+HD17051: Nraw=1900, BJD-days=20, sessions=20, baseline=3509.2d, median gap=1.096d, max gap=2465.2d
+HD192310: Nraw=1835, BJD-days=433, sessions=433, baseline=4717.1d, median gap=1.024d, max gap=805.0d
+HD19994: Nraw=1736, BJD-days=43, sessions=43, baseline=4428.0d, median gap=3.008d, max gap=2201.0d
+HD20794: Nraw=7042, BJD-days=626, sessions=625, baseline=7047.8d, median gap=1.020d, max gap=1382.1d
+HD215152: Nraw=375, BJD-days=331, sessions=331, baseline=4671.1d, median gap=1.994d, max gap=651.2d
+HD31527: Nraw=268, BJD-days=256, sessions=256, baseline=5053.1d, median gap=2.980d, max gap=798.8d
+HD39091: Nraw=557, BJD-days=214, sessions=214, baseline=6183.9d, median gap=1.996d, max gap=1340.2d
+HD39194: Nraw=277, BJD-days=275, sessions=275, baseline=5050.1d, median gap=2.966d, max gap=529.4d
+HD40307: Nraw=478, BJD-days=260, sessions=260, baseline=5639.7d, median gap=2.049d, max gap=638.1d
+HD69830: Nraw=682, BJD-days=269, sessions=269, baseline=5907.0d, median gap=2.025d, max gap=654.1d
+HD96700: Nraw=366, BJD-days=237, sessions=237, baseline=4925.7d, median gap=2.983d, max gap=756.9d
+
+OUTPUT FILES
+D:\exoanalytica\research\phase_2\rv_ai_model\reports\harps_rv_bjd_day_sampling_v2_1.csv
+D:\exoanalytica\research\phase_2\rv_ai_model\reports\harps_rv_cadence_summary_v2_1.csv
+D:\exoanalytica\research\phase_2\rv_ai_model\reports\harps_rv_observing_sessions_v2_1.csv
+D:\exoanalytica\research\phase_2\rv_ai_model\reports\harps_rv_spectral_window_v2_1.csv
+D:\exoanalytica\research\phase_2\rv_ai_model\data\manifests\harps_rv_timeseries_v2_1.json
+
+RAW INPUT DATA UNCHANGED
