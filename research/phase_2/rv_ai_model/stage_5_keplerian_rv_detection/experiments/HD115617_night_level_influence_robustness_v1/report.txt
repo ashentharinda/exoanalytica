@@ -1,0 +1,85 @@
+NIGHT-LEVEL INFLUENCE & ROBUSTNESS AUDIT V1
+=================================================================
+Target: HD115617
+UTC nights: 229
+
+FULL-SAMPLE ASSOCIATIONS
+-----------------------------------------------------------------
+BIS mean: N=229, Pearson=0.41923835871977705, Spearman=-0.1025261559061885, Theil-Sen slope=-45.50853472637793
+BIS median: N=229, Pearson=0.380640808014098, Spearman=-0.1252125948057918, Theil-Sen slope=-61.63220811568226
+FWHM mean: N=229, Pearson=-0.19093155886123012, Spearman=0.29422021923995484, Theil-Sen slope=12.792190773935902
+FWHM median: N=229, Pearson=-0.21364087301249762, Spearman=0.2680403305586922, Theil-Sen slope=13.935829726466315
+
+EXTREME NIGHT FLAGS
+-----------------------------------------------------------------
+Flagged nights: 16
+Flag rule: absolute robust MAD z-score > 3.5 for at least one selected nightly variable.
+2007-03-07: innovation=-0.5354342859363396, BIS=-0.0426312272794886, FWHM=6.758255520814678
+2008-05-31: innovation=-1.5976468256176275, BIS=-0.0395321782254534, FWHM=6.846040232605402
+2009-03-30: innovation=-0.1278195093580151, BIS=-0.0377014090476728, FWHM=6.855548666685063
+2009-05-02: innovation=-0.5184993820396273, BIS=-0.0381524332498638, FWHM=6.853080284398346
+2009-08-11: innovation=-2.841837741748237, BIS=-0.0517063355781575, FWHM=6.85808156640688
+2010-04-21: innovation=-0.0176548587588656, BIS=-0.0416497023233677, FWHM=6.791951097015955
+2013-02-10: innovation=-0.3444287614389824, BIS=-0.042099348108974, FWHM=6.7536211247209
+2013-03-18: innovation=-1.7779825256217334, BIS=-0.0405856789582562, FWHM=6.862340897714801
+2013-06-09: innovation=2.669850821159259, BIS=-0.0444877036731626, FWHM=6.40882444088417
+2013-06-15: innovation=0.7838235840336353, BIS=-0.0421591705384703, FWHM=6.728752313948
+2015-06-01: innovation=0.0770817935489776, BIS=-0.0292606620389264, FWHM=6.872814806532428
+2015-06-09: innovation=1.003179213090913, BIS=-0.0294102727905981, FWHM=6.879871352567257
+2016-02-02: innovation=2.04653564150424, BIS=-0.0290610389022925, FWHM=6.83064169937354
+2016-03-17: innovation=1.799861271374199, BIS=-0.0286283475316336, FWHM=6.878821985383622
+2017-02-26: innovation=2.319593273545395, BIS=-0.0288732797665778, FWHM=6.8813821902777
+2017-08-08: innovation=2.7517512016546326, BIS=-0.0284482918216761, FWHM=6.880631029429387
+
+MOST INFLUENTIAL NIGHTS
+-----------------------------------------------------------------
+BIS mean | 2017-08-08 | Pearson delta=-0.07544831391762719 | Spearman delta=-0.014570830254266781
+BIS mean | 2009-08-11 | Pearson delta=-0.062415351728528023 | Spearman delta=-0.014570830254266781
+BIS mean | 2017-02-26 | Pearson delta=-0.05892581623326126 | Spearman delta=-0.01433998555503821
+BIS mean | 2013-06-09 | Pearson delta=0.053703257604439836 | Spearman delta=0.011400210885701048
+BIS mean | 2016-02-02 | Pearson delta=-0.049222998742095736 | Spearman delta=-0.01433998555503821
+BIS mean | 2016-03-17 | Pearson delta=-0.04190711720919321 | Spearman delta=-0.014338973078287187
+BIS mean | 2015-06-01 | Pearson delta=0.022990234451688962 | Spearman delta=-0.002986071269294982
+BIS mean | 2008-05-31 | Pearson delta=0.016696072210983626 | Spearman delta=0.009758986072325823
+BIS mean | 2015-06-09 | Pearson delta=-0.012987813564611483 | Spearman delta=-0.013903608075356066
+BIS mean | 2013-03-18 | Pearson delta=0.012872240529070766 | Spearman delta=0.00796386479279819
+BIS median | 2009-08-11 | Pearson delta=-0.06519360621364229 | Spearman delta=-0.014870651032675625
+BIS median | 2017-08-08 | Pearson delta=-0.0636009298839127 | Spearman delta=-0.014636768903194042
+BIS median | 2017-02-26 | Pearson delta=-0.0632045674835357 | Spearman delta=-0.014636768903194042
+BIS median | 2016-02-02 | Pearson delta=-0.05317040722466465 | Spearman delta=-0.014637781379945036
+BIS median | 2013-06-09 | Pearson delta=0.05152619104844536 | Spearman delta=0.011330222329769782
+BIS median | 2016-03-17 | Pearson delta=-0.03329135798121574 | Spearman delta=-0.014634743949692025
+BIS median | 2015-06-01 | Pearson delta=0.019472812826128116 | Spearman delta=-0.0038943905750564167
+BIS median | 2008-05-31 | Pearson delta=0.016855696131589715 | Spearman delta=0.00945511538691296
+BIS median | 2015-06-09 | Pearson delta=-0.015169747245586562 | Spearman delta=-0.014290501854351156
+BIS median | 2013-03-18 | Pearson delta=0.010595205165418398 | Spearman delta=0.006765977136250045
+FWHM mean | 2013-06-09 | Pearson delta=0.37123168956113206 | Spearman delta=0.01687439974985666
+FWHM mean | 2017-08-08 | Pearson delta=-0.030589214139274817 | Spearman delta=-0.00932546113583782
+FWHM mean | 2017-02-26 | Pearson delta=-0.024461644875023947 | Spearman delta=-0.009095628913360243
+FWHM mean | 2016-03-17 | Pearson delta=-0.016367823198135206 | Spearman delta=-0.008871871551388577
+FWHM mean | 2013-06-15 | Pearson delta=0.01630112783256374 | Spearman delta=0.015665502509159546
+FWHM mean | 2007-03-07 | Pearson delta=-0.015169952416714177 | Spearman delta=-0.006557349698596671
+FWHM mean | 2013-02-10 | Pearson delta=-0.011525123093800438 | Spearman delta=-0.004795640151852076
+FWHM mean | 2015-06-09 | Pearson delta=-0.008363591387331892 | Spearman delta=-0.008804035609071448
+FWHM mean | 2009-08-11 | Pearson delta=-0.006329193141630496 | Spearman delta=0.006127971514714947
+FWHM mean | 2013-08-15 | Pearson delta=-0.0057257325364705736 | Spearman delta=-0.008301847140574192
+FWHM median | 2013-06-09 | Pearson delta=0.3779425582036126 | Spearman delta=0.01675824225407957
+FWHM median | 2017-02-26 | Pearson delta=-0.0256381615611343 | Spearman delta=-0.009442631108365795
+FWHM median | 2017-08-08 | Pearson delta=-0.024183079454208167 | Spearman delta=-0.009442631108365795
+FWHM median | 2013-06-15 | Pearson delta=0.01633120138812641 | Spearman delta=0.015139291929226417
+FWHM median | 2016-03-17 | Pearson delta=-0.012986214184412148 | Spearman delta=-0.009214823839390263
+FWHM median | 2013-02-10 | Pearson delta=-0.011938055445960188 | Spearman delta=-0.004656653506376507
+FWHM median | 2015-06-09 | Pearson delta=-0.008445991496395772 | Spearman delta=-0.009150025327326061
+FWHM median | 2009-08-11 | Pearson delta=-0.007714153344781233 | Spearman delta=0.005814381052492434
+FWHM median | 2013-08-15 | Pearson delta=-0.005981900281014585 | Spearman delta=-0.008741997196672013
+FWHM median | 2008-05-31 | Pearson delta=-0.005714517077246017 | Spearman delta=-0.005328938069042166
+
+SCIENTIFIC LIMITATIONS
+-----------------------------------------------------------------
+1. Leave-one-night-out analysis is an influence diagnostic, not a significance test.
+2. Robust MAD flags identify unusual values, not bad observations.
+3. Excluding flagged nights is sensitivity analysis only; no observations are deleted from the source data.
+4. Theil-Sen slope is a robust descriptive association, not a causal model.
+5. Time-trend correlation does not establish instrumental drift or stellar activity.
+6. No Keplerian or OU model was refitted.
+7. No planet confirmation or rejection is made.

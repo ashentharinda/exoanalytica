@@ -1,0 +1,9 @@
+indicator,innovation_measure,pearson,spearman,valid_nights
+BIS mean,Nightly mean innovation,0.4192383587197768,-0.1025261559061885,229
+BIS mean,Nightly median innovation,0.38073130398222554,-0.11116684820081343,229
+BIS median,Nightly mean innovation,0.42088690104600884,-0.10880757047355433,229
+BIS median,Nightly median innovation,0.38064080801409783,-0.1252125948057918,229
+FWHM mean,Nightly mean innovation,-0.19093155886123025,0.29422021923995484,229
+FWHM mean,Nightly median innovation,-0.19061629626432597,0.2709412129145724,229
+FWHM median,Nightly mean innovation,-0.2056600042590359,0.29880487244311654,229
+FWHM median,Nightly median innovation,-0.2136408730124975,0.2680403305586922,229

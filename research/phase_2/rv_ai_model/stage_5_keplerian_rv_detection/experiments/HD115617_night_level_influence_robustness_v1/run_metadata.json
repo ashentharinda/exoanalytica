@@ -1,0 +1,13 @@
+{
+  "experiment": "Night-Level Influence & Robustness Audit V1",
+  "target": "HD115617",
+  "utc_nights": 229,
+  "flagged_nights": 16,
+  "robust_flag_threshold": 3.5,
+  "source_observations_modified": false,
+  "observations_deleted": 0,
+  "model_refitted": false,
+  "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "numpy_version": "1.26.4",
+  "pandas_version": "2.2.3"
+}

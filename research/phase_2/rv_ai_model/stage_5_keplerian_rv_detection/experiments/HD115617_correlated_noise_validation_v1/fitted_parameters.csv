@@ -1,0 +1,5 @@
+model,parameter,value,unit
+WHITE_GAUSSIAN,mean_mps,2.3148284098694568e-06,m/s
+OU_CONTINUOUS_TIME_AR1,mean_mps,0.1943470850640914,m/s
+OU_CONTINUOUS_TIME_AR1,correlated_amplitude_mps,1.434230748810819,m/s
+OU_CONTINUOUS_TIME_AR1,correlation_timescale_days,3.9327831887915745,days

@@ -1,0 +1,47 @@
+HD115617 TIME-DEPENDENT INSTRUMENTAL / ACTIVITY INVESTIGATION V1
+====================================================================
+Raw target observations: 1213
+Residual observations: 1213
+Exact BJD matches: 1213
+UTC observing nights: 229
+
+LONG-TERM TRENDS
+                     measure   n   pearson  spearman  theil_sen_slope
+                   mean_FWHM 229  0.160124  0.848379         0.003218
+                 median_FWHM 229  0.147961  0.852033         0.003214
+               mean_BIS_span 229  0.219643 -0.139582        -0.000053
+             median_BIS_span 229  0.225627 -0.123175        -0.000045
+             mean_innovation 229  0.323393  0.403843         0.139577
+           median_innovation 229  0.306868  0.365955         0.138803
+mean_standardized_innovation 229  0.433764  0.398423         0.064966
+                  median_SNR 229  0.274477  0.240121         8.047880
+           observation_count 229 -0.176244 -0.370261        -0.358678
+
+CHRONOLOGICAL TIME BINS
+time_bin  nights  observations  FWHM_median  FWHM_mean  BIS_median  BIS_mean  innovation_median  innovation_mean  standardized_innovation_median  SNR_median
+      T1      18           111     6.840225   6.840203   -0.041489 -0.041557          -0.716446        -0.803623                       -0.364375    226.4375
+      T2      66           417     6.847426   6.847082   -0.041429 -0.041075          -0.143461        -0.299489                       -0.070127    224.6125
+      T3      60           320     6.855056   6.853649   -0.041667 -0.041657          -0.061419        -0.407253                       -0.025616    221.1250
+      T4      73           279     6.862449   6.852379   -0.041888 -0.041863           0.140603         0.232961                        0.070512    267.2750
+      T5      12            86     6.870630   6.869742   -0.035419 -0.035521           1.152959         2.142758                        0.543468    256.0375
+
+FOCUS NIGHT SUMMARY
+ utc_night  observation_count     mean_BJD  mean_FWHM  median_FWHM  std_FWHM  mean_BIS_span  median_BIS_span  std_BIS_span  median_SNR  mean_RV_residual  median_RV_residual  mean_innovation  median_innovation  mean_standardized_innovation  median_standardized_innovation  elapsed_years  mean_FWHM_robust_z  median_FWHM_robust_z  mean_BIS_span_robust_z  median_BIS_span_robust_z  mean_innovation_robust_z  median_innovation_robust_z  mean_standardized_innovation_robust_z time_bin
+2008-05-31                  5 2.454618e+06   6.846040     6.846075  0.001692      -0.039532        -0.039323      0.000723      133.70         -3.170071           -3.047357        -3.174599          -3.215768                     -1.597647                       -1.602207       4.355077           -0.847009             -0.856242                2.111520                  2.448587                 -4.071220                   -4.205280                              -4.416640       T2
+2009-08-11                  1 2.455055e+06   6.858082     6.858082       NaN      -0.051706        -0.051706           NaN        5.30        -20.523196          -20.523196       -19.959194         -19.959194                     -2.841838                       -2.841838       5.554032            0.340048              0.331947              -10.389969                -10.581891                -25.693150                  -26.170123                              -7.887647       T3
+2013-06-09                  1 2.456453e+06   6.408824     6.408824       NaN      -0.044488        -0.044488           NaN      601.05          6.357286            6.357286         6.158285           6.158285                      2.669851                        2.669851       9.378921          -43.948559            -44.126464               -2.977246                 -2.985880                  7.951409                    8.092060                               7.488702       T4
+2013-06-15                  2 2.456459e+06   6.728752     6.728752  0.014827      -0.042159        -0.042159      0.000628      539.15          2.600805            2.600805         1.738261           1.738261                      0.783824                        0.783824       9.397982          -12.409471            -12.466454               -0.586105                 -0.535614                  2.257531                    2.293658                               2.227118       T4
+2015-06-09                  6 2.457183e+06   6.879871     6.879880  0.000392      -0.029410        -0.029409      0.000552      259.60          4.188619            4.106778         2.110853           1.989534                      1.003179                        0.971208      11.377839            2.488126              2.489089               12.505578                 12.880892                  2.737504                    2.623290                               2.839070       T5
+2016-03-17                  5 2.457465e+06   6.878822     6.878992  0.000978      -0.028628        -0.028016      0.001010      186.40          7.185141            6.786529         3.864364           2.845256                      1.799861                        1.439123      12.150484            2.384677              2.401191               13.308527                 14.347125                  4.996379                    3.745867                               5.061630       T5
+2017-02-26                  1 2.457811e+06   6.881382     6.881382       NaN      -0.028873        -0.028873           NaN      413.05          5.547043            5.547043         5.352696           5.352696                      2.319593                        2.319593      13.097953            2.637067              2.637773               13.057009                 13.444844                  6.913648                    7.035249                               6.511564       T5
+2017-08-08                  3 2.457974e+06   6.880631     6.880671  0.000328      -0.028448        -0.028269      0.000318      204.55          8.969934            9.208032         6.062279           4.631814                      2.751751                        2.250640      13.543122            2.563016              2.567416               13.493424                 14.080353                  7.827735                    6.089562                               7.717186       T5
+
+UNUSUAL NIGHT COUNT
+17
+
+LIMITATIONS
+- No instrument configuration or calibration-event metadata in supplied CSV.
+- Correlation does not establish causation.
+- Robust outlier flags do not justify removing observations.
+- OU innovations are conditional on the existing fitted OU model.
+- No Keplerian refit or planet confirmation is performed.

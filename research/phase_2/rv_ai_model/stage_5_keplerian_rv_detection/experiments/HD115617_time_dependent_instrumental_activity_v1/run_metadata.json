@@ -1,0 +1,27 @@
+{
+  "target": "HD115617",
+  "raw_target_observations": 1213,
+  "residual_observations": 1213,
+  "exact_bjd_matches": 1213,
+  "utc_nights": 229,
+  "focus_dates": [
+    "2013-06-09",
+    "2013-06-15",
+    "2017-02-26",
+    "2017-08-08",
+    "2009-08-11",
+    "2015-06-09",
+    "2016-03-17",
+    "2008-05-31"
+  ],
+  "input_raw": "D:\\exoanalytica\\research\\phase_2\\rv_ai_model\\stage_5_keplerian_rv_detection\\data\\input\\harps_rv_observations_18_targets.csv",
+  "input_residual_diagnostics": "D:\\exoanalytica\\research\\phase_2\\rv_ai_model\\stage_5_keplerian_rv_detection\\experiments\\HD115617_correlated_noise_validation_v1\\residual_diagnostics.csv",
+  "method": "Descriptive time-trend, chronological-bin and association analysis",
+  "limitations": [
+    "No instrument configuration or calibration-event metadata in supplied CSV.",
+    "Correlation does not establish causation.",
+    "Robust outlier flags do not justify removing observations.",
+    "OU innovations are conditional on the existing fitted OU model.",
+    "No Keplerian refit or planet confirmation is performed."
+  ]
+}

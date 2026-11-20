@@ -1,0 +1,33 @@
+HD115617 CORRELATED-NOISE VALIDATION V1
+=======================================================
+Target: HD115617
+Residual model: PLUS_BOTH
+Observations: 1213
+Unique original UTC dates: 1213
+BJD baseline: 4946.644917 days
+
+MODEL COMPARISON
+                    model               implementation  log_likelihood  parameter_count         AIC         BIC  delta_BIC_vs_white
+           WHITE_GAUSSIAN         Independent Gaussian    -2456.994920                1 4915.989841 4921.090692            0.000000
+   OU_CONTINUOUS_TIME_AR1 Irregular-time Kalman filter    -2293.156658                3 4592.313316 4607.615871         -313.474821
+EXPONENTIAL_GP_CROSSCHECK    Dense covariance Cholesky    -2293.156658                3 4592.313316 4607.615871         -313.474821
+
+FITTED OU PARAMETERS
+Mean: 0.19434709 m/s
+Amplitude: 1.43423075 m/s
+Timescale: 3.93278319 days
+
+IMPLEMENTATION CROSS-CHECK
+OU Kalman log-likelihood: -2293.156657800589
+Dense GP log-likelihood: -2293.156657800589
+Absolute difference: 4.54747350886e-13
+
+INTERPRETATION GUIDANCE
+A lower BIC indicates a preferred model among the compared likelihood models, subject to the assumptions and limitations.
+The OU process and exponential-kernel GP are the same covariance model in this experiment. Their likelihoods should agree within numerical tolerance.
+A correlated-noise preference is evidence of residual temporal structure, not proof that the structure is stellar activity, instrumental noise, or a planet.
+The comparison is conditional on residuals from the existing PLUS_BOTH Keplerian fit. It is not a joint Keplerian-plus-GP refit.
+
+Optimizer success: True
+Optimizer message: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+Runtime: 3.05 seconds

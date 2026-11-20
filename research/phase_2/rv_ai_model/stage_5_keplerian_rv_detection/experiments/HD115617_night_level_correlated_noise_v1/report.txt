@@ -1,0 +1,55 @@
+NIGHT-LEVEL CORRELATED NOISE INVESTIGATION V1
+============================================================
+Target: HD115617
+Matched observations: 1213
+UTC observing nights: 229
+Median observations per night: 5.000
+Maximum observations per night: 48
+
+EXACT MATCH VALIDATION
+------------------------------------------------------------
+Raw drs_bjd matched to residual BJD: one-to-one
+Raw and residual UTC calendar dates: matched
+
+WITHIN-NIGHT PAIRWISE INNOVATION CORRELATION
+------------------------------------------------------------
+Pairs: 4746
+Pearson: 0.09687024324808922
+Spearman: 0.08596817044289548
+
+ADJACENT UTC-NIGHT CORRELATION
+------------------------------------------------------------
+Adjacent night pairs: 228
+Median BJD gap days: 3.038662
+Mean innovation Pearson: 0.23103103673989467
+Mean innovation Spearman: 0.09407832722641107
+Median innovation Pearson: 0.18629363053931675
+Median innovation Spearman: 0.06474282584286158
+
+NIGHTLY ACTIVITY INDICATOR ASSOCIATIONS
+------------------------------------------------------------
+BIS mean vs Nightly mean innovation: Pearson=0.4192383587197768, Spearman=-0.1025261559061885, N=229
+BIS mean vs Nightly median innovation: Pearson=0.38073130398222554, Spearman=-0.11116684820081343, N=229
+BIS median vs Nightly mean innovation: Pearson=0.42088690104600884, Spearman=-0.10880757047355433, N=229
+BIS median vs Nightly median innovation: Pearson=0.38064080801409783, Spearman=-0.1252125948057918, N=229
+FWHM mean vs Nightly mean innovation: Pearson=-0.19093155886123025, Spearman=0.29422021923995484, N=229
+FWHM mean vs Nightly median innovation: Pearson=-0.19061629626432597, Spearman=0.2709412129145724, N=229
+FWHM median vs Nightly mean innovation: Pearson=-0.2056600042590359, Spearman=0.29880487244311654, N=229
+FWHM median vs Nightly median innovation: Pearson=-0.2136408730124975, Spearman=0.2680403305586922, N=229
+
+DESCRIPTIVE BLOCK-LENGTH SENSITIVITY
+------------------------------------------------------------
+Block length 1 nights: blocks=229, pairs=228, Pearson=0.23103103673989467, Spearman=0.09407832722641107
+Block length 3 nights: blocks=76, pairs=75, Pearson=0.2441897118980755, Spearman=0.2792318634423897
+Block length 5 nights: blocks=45, pairs=44, Pearson=0.5251311020552634, Spearman=0.5088090204369273
+Block length 10 nights: blocks=22, pairs=21, Pearson=0.5765876136970014, Spearman=0.39350649350649347
+
+SCIENTIFIC LIMITATIONS
+------------------------------------------------------------
+1. These are descriptive diagnostics, not formal significance tests.
+2. Pairwise observations and adjacent-night pairs are not independent.
+3. Block-length sensitivity uses consecutive non-overlapping groups of observing nights; it is not a bootstrap.
+4. BIS/FWHM associations do not establish a causal activity origin.
+5. No observations were removed and no RV model was refitted.
+6. OU innovations are conditional on the existing OU fit and Keplerian residuals.
+7. This experiment does not confirm or reject any planet candidate.
