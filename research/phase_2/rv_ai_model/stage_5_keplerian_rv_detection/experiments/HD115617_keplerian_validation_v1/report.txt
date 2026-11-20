@@ -1,0 +1,27 @@
+HD115617 KEPLERIAN MODEL VALIDATION V1
+================================================
+Valid observations: 1213
+Baseline: 4946.644917 days
+Reference BJD: 2455056.48916551
+
+MODEL COMPARISON (sorted by BIC)
+    model                                  signals  n_observations  n_parameters  optimizer_success                               optimizer_message  negative_log_likelihood  log_likelihood         BIC         AIC  chi2_with_jitter  reduced_chi2_with_jitter  residual_rms_mps  weighted_residual_rms_mps  fitted_jitter_mps  BIS_coefficient_mps_per_std  fit_iterations  delta_BIC
+PLUS_BOTH P_4.214d;P_38.051d;P_123.666d;P_184.576d            1213            19               True CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH              2456.994920    -2456.994920 5048.906027 4951.989841       1218.667499                  1.020660          1.918430                   1.002333           1.802969                     2.448105              52   0.000000
+ PLUS_185            P_4.214d;P_38.051d;P_184.576d            1213            15               True CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH              2500.674289    -2500.674289 5107.861356 5031.348578       1219.829481                  1.018222          1.988164                   1.002811           1.869916                     2.382612              83  58.955329
+ PLUS_123            P_4.214d;P_38.051d;P_123.666d            1213            15               True CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH              2502.446951    -2502.446951 5111.406680 5034.893902       1220.141855                  1.018482          1.989240                   1.002940           1.872472                     2.577189              48  62.500654
+   BASE_2                       P_4.214d;P_38.051d            1213            11               True CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH              2604.960187    -2604.960187 5288.029744 5231.920373       1220.443504                  1.015344          2.143986                   1.003064           2.041361                     2.793937              36 239.123717
+
+Lowest-BIC model: PLUS_BOTH
+This is a relative comparison among the tested conditional models.
+
+SCIENTIFIC LIMITATIONS
+- Candidate periods were selected using this same dataset.
+- Periods were held fixed; period-search uncertainty is not included.
+- BIS span is a linear activity proxy, not a physical stellar activity model.
+- A fitted jitter term absorbs excess scatter but does not identify its cause.
+- Eccentric Keplerian fits can overfit; eccentricity estimates need uncertainty analysis.
+- BIC does not account for the prior search over candidate periods.
+- No formal parameter uncertainties or independent blind validation are produced.
+- These results do not confirm any candidate as a planet.
+
+Next: inspect parameter stability, residual structure and independent validation.

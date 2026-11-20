@@ -1,0 +1,31 @@
+{
+  "target": "HD115617",
+  "input_file": "research\\phase_2\\rv_ai_model\\stage_5_keplerian_rv_detection\\data\\input\\harps_rv_observations_18_targets.csv",
+  "observations_valid": 1213,
+  "observations_original": 1213,
+  "gap_threshold_days": 100.0,
+  "eligible_season_ids": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "periods_days": {
+    "p_4_214": 4.21421445,
+    "p_38_051": 38.0511147476,
+    "p_123_666": 123.666123,
+    "p_184_576": 184.576303
+  },
+  "models": {
+    "A": "constant + 4.214d + 38.051d",
+    "B": "Model A + standardized BIS Span",
+    "C": "Model B + 123.666d + 184.576d"
+  },
+  "method": "Leave-One-Eligible-Season-Out weighted least squares"
+}

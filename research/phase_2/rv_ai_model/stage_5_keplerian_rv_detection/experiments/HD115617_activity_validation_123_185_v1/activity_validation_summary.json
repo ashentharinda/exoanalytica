@@ -1,0 +1,19 @@
+{
+  "target": "HD115617",
+  "rv_observations": 1213,
+  "baseline_days": 4946.644917190075,
+  "activity_indicators_analyzed": [
+    "drs_bis_span",
+    "drs_ccf_fwhm",
+    "drs_ccf_contrast",
+    "drs_ccf_noise"
+  ],
+  "periods_checked_days": [
+    123.358,
+    123.666123,
+    184.576303,
+    185.964095
+  ],
+  "model": "4.21421445d_and_38.05111475d_fixed_period_sinusoids",
+  "warning": "Activity-indicator correlations and periodogram peaks are diagnostic, not proof of a stellar or planetary origin. Multiple testing, temporal evolution, sampling aliases and indicator uncertainties must be considered."
+}

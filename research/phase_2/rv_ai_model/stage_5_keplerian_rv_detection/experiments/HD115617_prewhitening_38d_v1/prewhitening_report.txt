@@ -1,0 +1,45 @@
+HD115617 — 38-day RV pre-whitening experiment
+=======================================================
+Observations: 1213
+Baseline: 4946.644917 days
+Fixed period: 38.05111475 days
+Fitted semi-amplitude: 4.312697 m/s
+Residual RMS: 3.876390 m/s
+Weighted chi-square before: 611746.422650
+Weighted chi-square after: 349819.964608
+
+PERIOD COMPARISON
+ requested_period_days  nearest_grid_period_days  original_power  residual_power  power_ratio_residual_to_original  power_reduction_percent
+             38.051115                 38.051115        0.428162    8.892126e-17                      2.076813e-16               100.000000
+             34.423416                 34.423416        0.200629    2.293140e-02                      1.142975e-01                88.570252
+             42.533490                 42.533490        0.302900    3.689850e-02                      1.218174e-01                87.818256
+              4.214214                  4.214214        0.153196    1.972351e-01                      1.287466e+00               -28.746600
+            123.666123                123.666123        0.188951    1.735943e-01                      9.187243e-01                 8.127566
+            185.964095                185.964095        0.237765    1.874940e-01                      7.885691e-01                21.143087
+             34.786532                 34.786532        0.143168    9.559719e-02                      6.677293e-01                33.227074
+
+TOP RESIDUAL PEAKS
+ rank  frequency_per_day  period_days  residual_gls_power
+    1           0.237292     4.214214            0.197235
+    2           0.237312     4.213855            0.196511
+    3           0.005398   185.267600            0.195224
+    4           0.237272     4.214574            0.194260
+    5           0.005418   184.576303            0.193837
+    6           0.237333     4.213497            0.191089
+    7           0.237252     4.214933            0.188633
+    8           0.005377   185.964095            0.187494
+    9           0.005438   183.890146            0.184099
+   10           0.237232     4.215292            0.181145
+   11           0.237353     4.213138            0.180465
+   12           0.008086   123.666123            0.173594
+   13           0.008107   123.357729            0.172563
+   14           0.237211     4.215651            0.172167
+   15           0.005357   186.665846            0.170756
+   16           0.005458   183.209071            0.167480
+   17           0.240082     4.165245            0.166789
+   18           0.240062     4.165596            0.166338
+   19           0.008066   123.976063            0.165629
+   20           0.237373     4.212779            0.165025
+
+Interpretation caution:
+Fixed-period sinusoidal pre-whitening is diagnostic only. It does not establish a Keplerian planet or prove that nearby periodogram peaks are aliases.

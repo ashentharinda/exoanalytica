@@ -1,0 +1,14 @@
+{
+  "target": "HD115617",
+  "method": "Squared modulus of normalized complex sampling window",
+  "timestamp_column": "drs_bjd",
+  "unique_original_timestamps": 1213,
+  "time_baseline_days": 4946.644917190075,
+  "gls_frequency_samples": 24714,
+  "central_period_days": 38.05111474761596,
+  "annual_period_days_assumed": 365.25,
+  "observed_annual_window_period_days": 366.5616089,
+  "input_sha256": "02a9973cdad80aa52539bc40ba44be7c02c4b1f86622c30061e5c0ae37d6164a",
+  "gls_periodogram_sha256": "37ee28e66e79d34f5d0123609b0e66c61e0a822ecf1a6627ad95433002384cde",
+  "interpretation": "Sampling-window diagnostics only. A high window power at a frequency separation can support an alias hypothesis, but does not by itself establish that an RV peak is an alias."
+}

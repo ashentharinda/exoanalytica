@@ -1,0 +1,55 @@
+{
+  "experiment": "HD115617 Keplerian Model Validation v1",
+  "target": "HD115617",
+  "input_file": "D:\\exoanalytica\\research\\phase_2\\rv_ai_model\\stage_5_keplerian_rv_detection\\data\\input\\harps_rv_observations_18_targets.csv",
+  "input_rows_for_target": 1213,
+  "valid_rows": 1213,
+  "excluded_invalid_rows": 0,
+  "first_bjd": 2453026.86317952,
+  "last_bjd": 2457973.50809671,
+  "baseline_days": 4946.644917190075,
+  "reference_bjd": 2455056.48916551,
+  "measurement_error_column": "drs_dvrms (m/s)",
+  "activity_proxy": "drs_bis_span, standardized",
+  "periods_fixed_days": {
+    "P_4.214d": 4.21421445,
+    "P_38.051d": 38.0511147476,
+    "P_123.666d": 123.666123,
+    "P_184.576d": 184.576303
+  },
+  "models": {
+    "BASE_2": [
+      "P_4.214d",
+      "P_38.051d"
+    ],
+    "PLUS_123": [
+      "P_4.214d",
+      "P_38.051d",
+      "P_123.666d"
+    ],
+    "PLUS_185": [
+      "P_4.214d",
+      "P_38.051d",
+      "P_184.576d"
+    ],
+    "PLUS_BOTH": [
+      "P_4.214d",
+      "P_38.051d",
+      "P_123.666d",
+      "P_184.576d"
+    ]
+  },
+  "optimizer": "SciPy L-BFGS-B; three deterministic eccentricity/omega starts per model",
+  "likelihood": "Gaussian likelihood with fitted additive jitter in quadrature",
+  "eccentricity_bounds": [
+    0.0,
+    0.8
+  ],
+  "periods_were_selected_using_the_same_dataset": true,
+  "validation_status": "conditional model comparison; not blind independent validation",
+  "formal_parameter_uncertainties": "not estimated in v1",
+  "runtime_seconds": 4.51,
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "numpy": "1.26.4",
+  "pandas": "2.2.3"
+}

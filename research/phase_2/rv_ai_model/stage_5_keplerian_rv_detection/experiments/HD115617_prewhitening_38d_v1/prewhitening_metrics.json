@@ -1,0 +1,17 @@
+{
+  "target": "HD115617",
+  "model": "constant_offset_plus_fixed_period_sinusoid",
+  "period_days": 38.05111474761596,
+  "observations": 1213,
+  "baseline_days": 4946.644917190075,
+  "frequency_samples": 24714,
+  "offset_mps": -7754.26825842074,
+  "sin_coefficient_mps": -2.1301903252116348,
+  "cos_coefficient_mps": -3.7498863092840233,
+  "semi_amplitude_mps": 4.312697317709765,
+  "residual_rms_mps": 3.876390243371002,
+  "weighted_chi2_before": 611746.4226497128,
+  "weighted_chi2_after": 349819.96460818883,
+  "weighted_chi2_reduction_percent": 42.8161814019309,
+  "warning": "Fixed-period sinusoidal pre-whitening is diagnostic only. It does not establish a Keplerian planet or prove that nearby periodogram peaks are aliases."
+}

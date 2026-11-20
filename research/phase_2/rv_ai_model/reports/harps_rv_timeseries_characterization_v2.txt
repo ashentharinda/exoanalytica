@@ -1,0 +1,55 @@
+PHASE 2 - STAGE 4: RV TIME-SERIES CHARACTERIZATION V2
+====================================================================
+
+Input observations: 37442
+Targets processed: 18
+
+CADENCE METHOD
+- Original drs_bjd timestamps used.
+- Positive consecutive timestamp differences used.
+- Duplicate timestamps are not counted as positive gaps.
+
+SPECTRAL WINDOW METHOD
+- Sampling timestamps only; no RV values used.
+- W(f) = |mean(exp(2*pi*i*f*t))|^2.
+- Alias frequencies evaluated at 0.5, 1, 2 cycles/day,
+  one month and one year.
+- Exploratory frequency grid: 0.001 to 5 cycles/day,
+  with target-specific lower frequency limit.
+- Grid peaks are sampling aliases, NOT detected planets.
+
+IMPORTANT LIMITATIONS
+- No RV outlier removal was performed.
+- No planet period detection was performed.
+- No stellar activity correction was performed.
+- No instrumental offset correction was performed.
+- A strong window peak indicates sampling structure,
+  not an astrophysical signal.
+
+TARGET CADENCE SUMMARY
+
+HD039060: N=7532, baseline=4444.06 d, median gap=0.0010 d, max gap=846.33 d, >30d gaps=22
+HD10180: N=336, baseline=5048.10 d, median gap=1.9416 d, max gap=281.16 d, >30d gaps=29
+HD10700: N=9420, baseline=6905.92 d, median gap=0.0011 d, max gap=702.16 d, >30d gaps=27
+HD115617: N=1213, baseline=4946.64 d, median gap=0.0020 d, max gap=357.03 d, >30d gaps=30
+HD134606: N=290, baseline=4677.20 d, median gap=2.0126 d, max gap=684.08 d, >30d gaps=24
+HD136352: N=685, baseline=4816.81 d, median gap=0.0048 d, max gap=612.29 d, >30d gaps=31
+HD160691: N=2450, baseline=4095.17 d, median gap=0.0015 d, max gap=308.06 d, >30d gaps=31
+HD17051: N=1900, baseline=3509.34 d, median gap=0.0013 d, max gap=2464.89 d, >30d gaps=3
+HD192310: N=1835, baseline=4717.18 d, median gap=0.0038 d, max gap=804.96 d, >30d gaps=16
+HD19994: N=1736, baseline=4427.98 d, median gap=0.0015 d, max gap=2200.79 d, >30d gaps=7
+HD20794: N=7042, baseline=7047.79 d, median gap=0.0016 d, max gap=1382.06 d, >30d gaps=29
+HD215152: N=375, baseline=4671.16 d, median gap=1.9002 d, max gap=651.25 d, >30d gaps=18
+HD31527: N=268, baseline=5053.15 d, median gap=2.9544 d, max gap=798.79 d, >30d gaps=24
+HD39091: N=557, baseline=6183.89 d, median gap=0.0040 d, max gap=1340.24 d, >30d gaps=15
+HD39194: N=277, baseline=5050.09 d, median gap=2.9596 d, max gap=529.41 d, >30d gaps=27
+HD40307: N=478, baseline=5639.72 d, median gap=0.9682 d, max gap=638.12 d, >30d gaps=39
+HD69830: N=682, baseline=5906.98 d, median gap=0.0050 d, max gap=654.13 d, >30d gaps=38
+HD96700: N=366, baseline=4925.67 d, median gap=1.0506 d, max gap=756.85 d, >30d gaps=27
+
+OUTPUTS
+D:\exoanalytica\research\phase_2\rv_ai_model\reports\harps_rv_cadence_summary_v2.csv
+D:\exoanalytica\research\phase_2\rv_ai_model\reports\harps_rv_time_gaps_v2.csv
+D:\exoanalytica\research\phase_2\rv_ai_model\reports\harps_rv_spectral_window_v2.csv
+
+RAW INPUT DATA UNCHANGED

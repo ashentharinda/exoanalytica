@@ -1,0 +1,51 @@
+HD115617 — Activity validation of 123d and 185d RV residuals
+====================================================================
+RV observations: 1213
+Baseline: 4946.644917 days
+
+RV / ACTIVITY INDICATOR CORRELATIONS
+       indicator  valid_observations  spearman_raw_rv  spearman_raw_pvalue  spearman_residual_rv  spearman_residual_pvalue  pearson_raw_rv  pearson_raw_pvalue  pearson_residual_rv  pearson_residual_pvalue
+    drs_bis_span                1213         0.264191         8.082928e-21              0.333080              8.164650e-33        0.476758        7.447387e-70             0.787956            2.606922e-257
+    drs_ccf_fwhm                1213         0.341793         1.431686e-34              0.405989              2.429354e-49        0.112914        8.109565e-05             0.132698             3.528687e-06
+drs_ccf_contrast                1213        -0.409357         3.281297e-50             -0.497905              5.543080e-77       -0.149726        1.615646e-07            -0.221605             5.838380e-15
+   drs_ccf_noise                1213         0.081830         4.346556e-03              0.071585              1.263802e-02       -0.142033        6.805593e-07            -0.176868             5.553731e-10
+
+ACTIVITY INDICATOR POWER AT SELECTED PERIODS
+       indicator  valid_observations  requested_period_days  nearest_grid_period_days  indicator_gls_power  strongest_indicator_period_days  strongest_indicator_power
+    drs_bis_span                1213             123.358000                123.357729             0.136519                       183.209071                   0.148275
+    drs_bis_span                1213             123.666123                123.666123             0.132667                       183.209071                   0.148275
+    drs_bis_span                1213             184.576303                184.576303             0.137191                       183.209071                   0.148275
+    drs_bis_span                1213             185.964095                185.964095             0.108112                       183.209071                   0.148275
+    drs_ccf_fwhm                1213             123.358000                123.357729             0.004889                       392.590866                   0.050959
+    drs_ccf_fwhm                1213             123.666123                123.666123             0.004356                       392.590866                   0.050959
+    drs_ccf_fwhm                1213             184.576303                184.576303             0.005537                       392.590866                   0.050959
+    drs_ccf_fwhm                1213             185.964095                185.964095             0.004365                       392.590866                   0.050959
+drs_ccf_contrast                1213             123.358000                123.357729             0.009201                         3.588946                   0.016633
+drs_ccf_contrast                1213             123.666123                123.666123             0.010545                         3.588946                   0.016633
+drs_ccf_contrast                1213             184.576303                184.576303             0.011463                         3.588946                   0.016633
+drs_ccf_contrast                1213             185.964095                185.964095             0.010434                         3.588946                   0.016633
+   drs_ccf_noise                1213             123.358000                123.357729             0.000610                       363.723891                   0.020919
+   drs_ccf_noise                1213             123.666123                123.666123             0.000663                       363.723891                   0.020919
+   drs_ccf_noise                1213             184.576303                184.576303             0.004118                       363.723891                   0.020919
+   drs_ccf_noise                1213             185.964095                185.964095             0.002851                       363.723891                   0.020919
+
+TOP JOINT RESIDUAL RV PEAKS
+ rank  period_days  gls_power
+    1   184.576303   0.219870
+    2   185.267600   0.218214
+    3   183.890146   0.212523
+    4   185.964095   0.207189
+    5   123.357729   0.206973
+    6   123.666123   0.202477
+    7   123.050869   0.200863
+    8   183.209071   0.197261
+    9   123.976063   0.187871
+   10   186.665846   0.187243
+   11   122.745531   0.184786
+   12   182.533023   0.175786
+   13   124.287561   0.164695
+   14   122.441706   0.160476
+   15   187.372914   0.159850
+
+CAUTION
+Activity-indicator correlations and periodogram peaks are diagnostic, not proof of a stellar or planetary origin. Multiple testing, temporal evolution, sampling aliases and indicator uncertainties must be considered.

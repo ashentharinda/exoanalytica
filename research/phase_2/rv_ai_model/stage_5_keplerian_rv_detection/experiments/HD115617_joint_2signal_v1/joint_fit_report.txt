@@ -1,0 +1,57 @@
+HD115617 — Joint two-signal fitting experiment
+============================================================
+Observations: 1213
+Baseline: 4946.644917 days
+
+SIMULTANEOUS SIGNAL MODEL
+Signal B period: 4.21421445 days
+Signal B semi-amplitude: 2.319791 m/s
+Signal C period: 38.05111475 days
+Signal C semi-amplitude: 4.125237 m/s
+Constant offset: -7754.216910 m/s
+
+Residual RMS: 3.682235 m/s
+Weighted chi-square before: 611746.422650
+Weighted chi-square after: 280610.429995
+Weighted chi-square reduction: 54.130%
+
+PERIOD COMPARISON
+ requested_period_days  nearest_grid_period_days  original_power  joint_residual_power  power_ratio  power_reduction_percent
+              4.214214                  4.214214        0.153196          7.681595e-09 5.014215e-08                99.999995
+             38.051115                 38.051115        0.428162          1.560695e-16 3.645103e-16               100.000000
+             34.423416                 34.423416        0.200629          2.653265e-02 1.322473e-01                86.775274
+             42.533490                 42.533490        0.302900          5.358369e-02 1.769022e-01                82.309776
+            123.666123                123.666123        0.188951          2.024767e-01 1.071581e+00                -7.158079
+            185.964095                185.964095        0.237765          2.071886e-01 8.714015e-01                12.859848
+             34.786532                 34.786532        0.143168          1.111735e-01 7.765273e-01                22.347271
+
+TOP JOINT RESIDUAL PEAKS
+ rank  frequency_per_day  period_days  residual_gls_power
+    1           0.005418   184.576303            0.219870
+    2           0.005398   185.267600            0.218214
+    3           0.005438   183.890146            0.212523
+    4           0.005377   185.964095            0.207189
+    5           0.008107   123.357729            0.206973
+    6           0.008086   123.666123            0.202477
+    7           0.008127   123.050869            0.200863
+    8           0.005458   183.209071            0.197261
+    9           0.008066   123.976063            0.187871
+   10           0.005357   186.665846            0.187243
+   11           0.008147   122.745531            0.184786
+   12           0.005478   182.533023            0.175786
+   13           0.008046   124.287561            0.164695
+   14           0.008167   122.441706            0.160476
+   15           0.005337   187.372914            0.159850
+   16           0.005499   181.861945            0.150163
+   17           0.008026   124.600628            0.135344
+   18           0.003194   313.078792            0.133572
+   19           0.003214   311.109743            0.130974
+   20           0.008187   122.139381            0.130538
+   21           0.003174   315.072925            0.130347
+   22           0.005317   188.085358            0.127700
+   23           0.005519   181.195785            0.122518
+   24           0.003235   309.165307            0.122190
+   25           0.003154   317.092623            0.122169
+
+CAUTION
+This is a fixed-period joint sinusoidal diagnostic, not a full Keplerian fit. Periods, eccentricities, uncertainties and model comparison require further analysis.

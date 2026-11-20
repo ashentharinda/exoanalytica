@@ -1,0 +1,59 @@
+HD115617 SEASONAL STABILITY VALIDATION v1
+==========================================================
+Original target rows: 1213
+Valid numeric observations: 1213
+Excluded invalid rows: 0
+Baseline days: 4946.644917
+Season gap threshold: 100.0 days
+Total gap-defined seasons: 16
+Eligible LOSO seasons: 10
+Eligible season IDs: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+SEASON COVERAGE
+----------------------------------------------------------
+Season 00: N=25, span=31.99 d, cycles@123.666=0.26, cycles@184.576=0.17, LOSO=False
+Season 01: N=1, span=0.00 d, cycles@123.666=0.00, cycles@184.576=0.00, LOSO=False
+Season 02: N=10, span=0.01 d, cycles@123.666=0.00, cycles@184.576=0.00, LOSO=False
+Season 03: N=75, span=160.64 d, cycles@123.666=1.30, cycles@184.576=0.87, LOSO=True
+Season 04: N=60, span=76.82 d, cycles@123.666=0.62, cycles@184.576=0.42, LOSO=True
+Season 05: N=159, span=197.63 d, cycles@123.666=1.60, cycles@184.576=1.07, LOSO=True
+Season 06: N=278, span=206.62 d, cycles@123.666=1.67, cycles@184.576=1.12, LOSO=True
+Season 07: N=147, span=190.64 d, cycles@123.666=1.54, cycles@184.576=1.03, LOSO=True
+Season 08: N=81, span=205.68 d, cycles@123.666=1.66, cycles@184.576=1.11, LOSO=True
+Season 09: N=95, span=226.63 d, cycles@123.666=1.83, cycles@184.576=1.23, LOSO=True
+Season 10: N=158, span=228.64 d, cycles@123.666=1.85, cycles@184.576=1.24, LOSO=True
+Season 11: N=38, span=153.70 d, cycles@123.666=1.24, cycles@184.576=0.83, LOSO=True
+Season 12: N=75, span=161.76 d, cycles@123.666=1.31, cycles@184.576=0.88, LOSO=True
+Season 13: N=7, span=43.99 d, cycles@123.666=0.36, cycles@184.576=0.24, LOSO=False
+Season 14: N=1, span=0.00 d, cycles@123.666=0.00, cycles@184.576=0.00, LOSO=False
+Season 15: N=3, span=0.01 d, cycles@123.666=0.00, cycles@184.576=0.00, LOSO=False
+
+LOSO MODEL C VS MODEL B
+----------------------------------------------------------
+Season 03: Delta chi2 (B-C)=1555.617, Delta weighted RMSE (B-C)=0.2329 m/s, A123=1.0612 m/s, A185=1.1119 m/s
+Season 04: Delta chi2 (B-C)=4410.615, Delta weighted RMSE (B-C)=0.4279 m/s, A123=1.0064 m/s, A185=0.9769 m/s
+Season 05: Delta chi2 (B-C)=2023.351, Delta weighted RMSE (B-C)=0.1969 m/s, A123=0.9478 m/s, A185=1.1678 m/s
+Season 06: Delta chi2 (B-C)=877.931, Delta weighted RMSE (B-C)=0.0462 m/s, A123=1.0559 m/s, A185=1.1620 m/s
+Season 07: Delta chi2 (B-C)=2102.667, Delta weighted RMSE (B-C)=0.1862 m/s, A123=1.1490 m/s, A185=0.8639 m/s
+Season 08: Delta chi2 (B-C)=1498.124, Delta weighted RMSE (B-C)=0.2161 m/s, A123=1.0325 m/s, A185=1.1070 m/s
+Season 09: Delta chi2 (B-C)=2139.968, Delta weighted RMSE (B-C)=0.3420 m/s, A123=1.0593 m/s, A185=1.0385 m/s
+Season 10: Delta chi2 (B-C)=10984.639, Delta weighted RMSE (B-C)=0.6211 m/s, A123=1.0355 m/s, A185=0.7721 m/s
+Season 11: Delta chi2 (B-C)=4922.993, Delta weighted RMSE (B-C)=0.7892 m/s, A123=0.9782 m/s, A185=0.9629 m/s
+Season 12: Delta chi2 (B-C)=1649.204, Delta weighted RMSE (B-C)=0.3165 m/s, A123=1.0329 m/s, A185=1.0281 m/s
+
+MEDIAN HELD-OUT COMPARISON
+----------------------------------------------------------
+Median Delta chi2 (B-C): 2063.0091
+Median Delta weighted RMSE (B-C): 0.274704 m/s
+Folds where Model C improves held-out weighted RMSE: 10/10
+
+SCIENTIFIC LIMITATIONS
+----------------------------------------------------------
+1. The 100-day gap rule defines observing blocks, not guaranteed physical stellar seasons.
+2. Only blocks with at least 20 observations and 60 days span are used as held-out LOSO folds.
+3. Many individual blocks cover fewer than two cycles of the 123d and 185d candidates.
+4. Model C uses fixed candidate periods and sinusoidal terms; this is not a full Keplerian or activity Gaussian-process model.
+5. Held-out improvements are predictive diagnostics, not proof that either long-period signal is planetary.
+6. Measurement uncertainties may not capture correlated stellar noise or all instrumental systematics.
+7. BIS Span is included as a linear activity proxy; this does not establish a causal activity model.
+8. The short and sparse seasons are retained in the season summary but not treated as independent LOSO validation folds.

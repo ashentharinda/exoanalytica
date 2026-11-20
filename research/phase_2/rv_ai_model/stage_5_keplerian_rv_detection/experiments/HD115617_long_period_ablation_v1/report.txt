@@ -1,0 +1,40 @@
+HD115617 LONG-PERIOD ABLATION VALIDATION v1
+==========================================================
+Original target rows: 1213
+Valid observations: 1213
+Eligible LOSO seasons: 10
+Eligible season IDs: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+MODEL DEFINITIONS
+A: 4.214d + 38.051d
+B: Model A + standardized BIS Span
+B_PLUS_123: Model B + 123.666d
+B_PLUS_185: Model B + 184.576d
+C_BOTH: Model B + both long-period terms
+
+MEDIAN HELD-OUT METRICS
+----------------------------------------------------------
+A: median weighted RMSE=2.416868 m/s; median chi2=11110.807
+B: median weighted RMSE=2.284138 m/s; median chi2=10807.708
+B_PLUS_123: median weighted RMSE=2.061257 m/s; median chi2=7697.358
+B_PLUS_185: median weighted RMSE=2.027986 m/s; median chi2=8876.777
+C_BOTH: median weighted RMSE=2.007315 m/s; median chi2=7569.968
+
+PERIOD-SPECIFIC IMPROVEMENT COUNTS
+----------------------------------------------------------
+123d improves over B: 9/10 folds
+185d improves over B: 9/10 folds
+Both improve over B: 10/10 folds
+
+MEDIAN WEIGHTED RMSE IMPROVEMENT VS MODEL B
+123d only: 0.284049 m/s
+185d only: 0.219590 m/s
+Both: 0.274704 m/s
+
+SCIENTIFIC LIMITATIONS
+1. Fixed-period sinusoidal models; not full Keplerian fits.
+2. LOSO folds are observing blocks defined by a 100-day gap.
+3. Long-period signals are not fully sampled within every block.
+4. Predictive improvement does not prove planetary origin.
+5. Correlated stellar noise and instrumental systematics remain possible.
+6. Results depend on the selected candidate periods.

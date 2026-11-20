@@ -1,0 +1,51 @@
+{
+  "target": "HD115617",
+  "input": "research\\phase_2\\rv_ai_model\\stage_5_keplerian_rv_detection\\data\\input\\harps_rv_observations_18_targets.csv",
+  "gap_threshold_days": 100.0,
+  "eligible_seasons": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "periods_days": {
+    "4.214": 4.21421445,
+    "38.051": 38.0511147476,
+    "123.666": 123.666123,
+    "184.576": 184.576303
+  },
+  "method": "Weighted least squares leave-one-season-out ablation",
+  "models": {
+    "A": [
+      false,
+      false,
+      false
+    ],
+    "B": [
+      true,
+      false,
+      false
+    ],
+    "B_PLUS_123": [
+      true,
+      true,
+      false
+    ],
+    "B_PLUS_185": [
+      true,
+      false,
+      true
+    ],
+    "C_BOTH": [
+      true,
+      true,
+      true
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "target": "HD115617",
+  "model": "constant_plus_two_fixed_period_sinusoids",
+  "observations": 1213,
+  "baseline_days": 4946.644917190075,
+  "frequency_samples": 24714,
+  "period_b_days": 4.21421445,
+  "period_c_days": 38.05111474761596,
+  "offset_mps": -7754.216909545018,
+  "planet_b_sin_coefficient_mps": -0.7953724399588482,
+  "planet_b_cos_coefficient_mps": -2.1791775622839014,
+  "planet_b_semi_amplitude_mps": 2.3197914057534783,
+  "planet_c_sin_coefficient_mps": -2.051020105139373,
+  "planet_c_cos_coefficient_mps": -3.579231360990574,
+  "planet_c_semi_amplitude_mps": 4.125237036484614,
+  "residual_rms_mps": 3.682234830515279,
+  "weighted_chi2_before": 611746.4226497128,
+  "weighted_chi2_after": 280610.4299951822,
+  "weighted_chi2_reduction_percent": 54.129616519905625,
+  "design_matrix_rank": 5,
+  "warning": "This is a fixed-period joint sinusoidal diagnostic, not a full Keplerian fit. Periods, eccentricities, uncertainties and model comparison require further analysis."
+}
