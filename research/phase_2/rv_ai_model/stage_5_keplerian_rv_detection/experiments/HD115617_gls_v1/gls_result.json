@@ -1,0 +1,24 @@
+{
+  "target": "HD115617",
+  "status": "COMPLETED",
+  "valid_observations": 1213,
+  "baseline_days": 4946.644917190075,
+  "period_search_min_days": 2.0,
+  "period_search_max_days": 2473.3224585950375,
+  "frequency_samples": 24714,
+  "best_period_days": 38.05111474761596,
+  "best_frequency_per_day": 0.026280438999823352,
+  "best_power": 0.42816210718396275,
+  "approximate_baluev_fap": 6.387010766774881e-143,
+  "fap_warning": null,
+  "qc_flag_counts": {
+    "flag_invalid_rv": 0,
+    "flag_invalid_uncertainty": 0,
+    "flag_extreme_rv_review": 0,
+    "flag_extreme_bis_review": 0,
+    "flag_low_or_zero_snr": 0,
+    "flag_invalid_fwhm": 0,
+    "flag_rv_field_disagreement": 0
+  },
+  "interpretation": "Exploratory GLS result only. A periodogram peak is not a confirmed planet detection. Keplerian fitting, alias analysis, residual analysis and independent validation are still required."
+}

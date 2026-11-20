@@ -1,0 +1,50 @@
+EXOANALYTICA - STAGE 5 GLS PILOT
+=======================================================
+Target: HD115617
+Status: COMPLETED
+Valid observations: 1213
+Numerically invalid rows excluded: 0
+Baseline days: 4946.644917
+Search period range: 2.000000 - 2473.322459
+Frequency samples: 24714
+
+Highest-power period (days): 38.0511147476
+Highest GLS power: 0.4281621072
+Approximate Baluev FAP: 6.387010766774881e-143
+
+TOP LOCAL PERIODICITY PEAKS
+-------------------------------------------------------
+Rank 1: period=38.05111475 d, frequency=0.02628044/d, power=0.42816211
+Rank 2: period=42.53349026 d, frequency=0.02351089/d, power=0.30290000
+Rank 3: period=185.96409463 d, frequency=0.00537738/d, power=0.23776482
+Rank 4: period=34.42341626 d, frequency=0.02904999/d, power=0.20062913
+Rank 5: period=123.66612293 d, frequency=0.00808629/d, power=0.18895140
+Rank 6: period=4.21421445 d, frequency=0.23729215/d, power=0.15319636
+Rank 7: period=1301.74866242 d, frequency=0.00076820/d, power=0.14491788
+Rank 8: period=34.78653247 d, frequency=0.02874676/d, power=0.14316760
+Rank 9: period=353.33177980 d, frequency=0.00283020/d, power=0.13686950
+Rank 10: period=223.83008675 d, frequency=0.00446767/d, power=0.12970698
+Rank 11: period=19.28516537 d, frequency=0.05185333/d, power=0.11638856
+Rank 12: period=27.22424280 d, frequency=0.03673197/d, power=0.11339769
+Rank 13: period=313.07879223 d, frequency=0.00319408/d, power=0.10861463
+Rank 14: period=284.28993777 d, frequency=0.00351754/d, power=0.09811153
+Rank 15: period=2248.47496236 d, frequency=0.00044475/d, power=0.09679578
+Rank 16: period=29.69174620 d, frequency=0.03367939/d, power=0.09636371
+Rank 17: period=504.75968543 d, frequency=0.00198114/d, power=0.09416850
+Rank 18: period=18.30734610 d, frequency=0.05462288/d, power=0.08963356
+Rank 19: period=39.73208769 d, frequency=0.02516857/d, power=0.08836949
+Rank 20: period=11.75812911 d, frequency=0.08504754/d, power=0.08634619
+
+QC FLAG COUNTS (review only; no automatic rejection)
+flag_invalid_rv: 0
+flag_invalid_uncertainty: 0
+flag_extreme_rv_review: 0
+flag_extreme_bis_review: 0
+flag_low_or_zero_snr: 0
+flag_invalid_fwhm: 0
+flag_rv_field_disagreement: 0
+
+SCIENTIFIC LIMITATION
+Exploratory GLS result only. A periodogram peak is not a confirmed planet detection. Keplerian fitting, alias analysis, residual analysis and independent validation are still required.
+
+No planet confirmation is claimed by this experiment.
