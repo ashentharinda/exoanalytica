@@ -1,0 +1,21 @@
+{
+  "target": "HD115617",
+  "input_file": "D:\\exoanalytica\\research\\phase_2\\rv_ai_model\\stage_5_keplerian_rv_detection\\data\\input\\harps_rv_observations_18_targets.csv",
+  "rows_used": 1213,
+  "time_baseline_days": 4946.644917190075,
+  "periods_days": {
+    "signal_4d": 4.21421445,
+    "signal_38d": 38.0511147476,
+    "signal_123d": 123.666123,
+    "signal_185d": 184.576303
+  },
+  "BIS_span_centered_and_standardized": true,
+  "primary_fit": "weighted_least_squares",
+  "robust_sensitivity": "Huber loss, f_scale=1.345",
+  "models": [
+    "A: constant + 4.214d + 38.051d sinusoids",
+    "B: Model A + standardized BIS span linear term",
+    "C: Model B + 123.666d + 184.576d sinusoids"
+  ],
+  "caution": "Fixed-period sinusoidal diagnostic, not a full Keplerian fit. In-sample model improvement does not establish planetary origin or prove stellar activity causation. Correlated noise and sampling effects remain possible."
+}

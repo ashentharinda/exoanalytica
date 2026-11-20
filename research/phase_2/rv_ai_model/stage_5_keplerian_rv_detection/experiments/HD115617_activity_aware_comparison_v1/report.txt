@@ -1,0 +1,18 @@
+HD115617 ACTIVITY-AWARE MODEL COMPARISON
+==========================================================
+Observations used: 1213
+Time baseline: 4946.645 days
+
+               model  weighted_chi2  reduced_chi2           AIC           BIC  delta_BIC_from_best  strongest_residual_period_days  strongest_residual_gls_power  Huber_weighted_chi2
+    A_planets_4d_38d  280610.429999    232.293402 279454.348558 279479.852817        191590.782570                      184.581662                      0.219893        286697.196096
+  B_planets_plus_BIS  119871.576284     99.313651 118717.494842 118748.099954         30859.029706                      123.669809                      0.181773        121814.853511
+C_BIS_plus_123d_185d   88984.143170     73.968531  87838.061729  87889.070248             0.000000                        8.485076                      0.079896         95157.236861
+
+INTERPRETATION NOTES
+- Lower AIC/BIC indicates better relative fit under the assumed model.
+- Model B tests a linear BIS-span contribution.
+- Model C tests whether 123d/185d sinusoids add explanatory power.
+- Huber results are a robustness sensitivity check.
+- These in-sample comparisons do not prove planet or activity origin.
+- Correlated stellar noise and the sampling window remain important.
+- This is not a full Keplerian orbital fit.
