@@ -1,0 +1,49 @@
+PHASE 2 - STAGE 4: BJD-DAY RV PROCESSING V1
+=================================================================
+Raw input: D:\exoanalytica\research\phase_2\rv_ai_model\data\interim\harps_rv_observations_18_targets.csv
+Processed output: D:\exoanalytica\research\phase_2\rv_ai_model\data\processed\harps_rv_bjd_day_summary_v1.csv
+Observation provenance: D:\exoanalytica\research\phase_2\rv_ai_model\data\processed\harps_rv_bjd_day_observation_qc_v1.csv
+
+Raw observations: 37,442
+Targets: 18
+BJD-day groups: 4,672
+
+ESTIMATOR DEFINITIONS
+- RV median: median of all finite RV observations.
+- Weighted mean: inverse-variance weighted using finite RV
+  and strictly positive finite uncertainty.
+- Formal uncertainty: sqrt(1 / sum(weights)).
+- MAD scatter: 1.4826 * median absolute deviation.
+- BIS span: drs_bis_span converted from km/s to m/s.
+- BIS mean velocity is retained separately.
+
+REVIEW FLAGS - NOT AUTOMATIC REJECTION LIMITS
+|RV| > 100000 m/s
+|BIS span| > 1e+06 m/s
+|drs_ccf_rvc - drs_ccf_rv| > 10 m/s
+
+OBSERVATION-LEVEL FLAG TOTALS
+flag_invalid_rv: 0
+flag_invalid_uncertainty: 0
+flag_extreme_rv_review: 94
+flag_extreme_bis_review: 292
+flag_low_or_zero_snr: 12
+flag_invalid_fwhm: 9
+flag_rv_field_disagreement: 10
+
+GROUP-LEVEL REVIEW TOTALS
+flag_group_rv_review: 41
+flag_group_uncertainty_review: 0
+flag_group_bis_review: 72
+
+UNIT CONVERSION
+Maximum |rv_mps - drs_ccf_rvc * 1000|: 4.65661287308e-10 m/s
+Rows with conversion error > 1e-6 m/s: 0
+
+DATA POLICY
+No raw observations were deleted.
+No automatic scientific outlier rejection was applied.
+BJD-day groups are not assumed to equal UTC observing nights.
+All observation-level source row indices are retained.
+
+COMPLETED

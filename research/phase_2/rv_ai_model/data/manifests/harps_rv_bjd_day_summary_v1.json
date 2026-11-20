@@ -1,0 +1,22 @@
+{
+  "dataset": "harps_rv_bjd_day_summary_v1",
+  "version": "1.0.0",
+  "input": "data\\interim\\harps_rv_observations_18_targets.csv",
+  "output": "data\\processed\\harps_rv_bjd_day_summary_v1.csv",
+  "provenance": "data\\processed\\harps_rv_bjd_day_observation_qc_v1.csv",
+  "report": "reports\\harps_rv_bjd_day_qc_report_v1.txt",
+  "raw_observations": 37442,
+  "target_count": 18,
+  "bjd_day_groups": 4672,
+  "grouping": "tel_object + floor(drs_bjd)",
+  "rv_primary_estimator": "median of finite rv_mps",
+  "rv_auxiliary_estimator": "inverse-variance weighted mean",
+  "uncertainty_policy": "positive finite drs_dvrms only for weights",
+  "raw_observations_deleted": 0,
+  "automatic_outlier_rejection": false,
+  "review_thresholds": {
+    "absolute_rv_mps": 100000.0,
+    "absolute_bis_span_mps": 1000000.0,
+    "rv_field_disagreement_mps": 10.0
+  }
+}
