@@ -1,0 +1,17 @@
+{
+  "stage": 5,
+  "version": "1.0",
+  "raw_observations": 37442,
+  "qc_observations": 37442,
+  "targets": 18,
+  "row_alignment": "PASS",
+  "source_indices_unique": true,
+  "valid_core_observations": 37442,
+  "observations_removed": 0,
+  "automatic_outlier_rejection": false,
+  "time_column": "drs_bjd",
+  "rv_column": "rv_mps",
+  "uncertainty_column": "drs_dvrms",
+  "uncertainty_unit": "m/s",
+  "summary_file": "stage5_input_assessment_v1.csv"
+}
