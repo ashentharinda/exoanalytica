@@ -1,0 +1,41 @@
+HD115617 FALSE-ALARM & ALIAS VALIDATION V1
+=================================================================
+
+Simulation count per method: 500
+Block size in observing nights: 3
+Local period window: +/- 5 percent
+
+OBSERVED RESIDUAL PERIODOGRAM
+-----------------------------------------------------------------
+global_max_power: 0.0676520418920242
+global_peak_period_days: 11.578032307677613
+P11_579225_local_max_power: 0.0676520418920242
+P11_579225_local_peak_period_days: 11.578032307677613
+P16_439498_local_max_power: 0.05969549269734398
+P16_439498_local_peak_period_days: 16.442147246754303
+
+NIGHTLY BLOCK SIGN-FLIP
+-----------------------------------------------------------------
+Global FAP: 0.09580838323353294
+
+P11_579225 local FAP: 0.003992015968063872
+P16_439498 local FAP: 0.021956087824351298
+
+RANDOM PERMUTATION
+-----------------------------------------------------------------
+Global FAP: 0.001996007984031936
+
+P11_579225 local FAP: 0.001996007984031936
+P16_439498 local FAP: 0.001996007984031936
+
+SCIENTIFIC LIMITATIONS
+-----------------------------------------------------------------
+1. Results are conditional on PLUS_BOTH residuals.
+2. Candidate periods were selected using the same dataset.
+3. Block sign-flip assumes approximate sign symmetry under the null and preserves structure only within each assigned block of observing nights.
+4. Random permutation destroys temporal dependence and is a comparison method only.
+5. Neither method independently confirms a planetary signal.
+6. Local FAP uses the maximum power in a +/-5 percent period window around each candidate.
+7. Global FAP uses the maximum power across the full 0.01-0.50 cycles/day frequency grid.
+
+These exploratory empirical FAP estimates should not be interpreted as final planet-validation probabilities.

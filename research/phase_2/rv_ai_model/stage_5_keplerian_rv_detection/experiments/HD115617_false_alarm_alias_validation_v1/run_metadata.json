@@ -1,0 +1,28 @@
+{
+  "experiment": "HD115617 False-Alarm & Alias Validation v1",
+  "input_file": "D:\\exoanalytica\\research\\phase_2\\rv_ai_model\\stage_5_keplerian_rv_detection\\experiments\\HD115617_keplerian_validation_v1\\residuals.csv",
+  "model": "PLUS_BOTH",
+  "valid_observations": 1213,
+  "unique_observing_nights": 223,
+  "simulations_per_method": 500,
+  "block_nights": 3,
+  "random_seed_block": 20261121,
+  "random_seed_permutation": 20261122,
+  "frequency_min_cycles_per_day": 0.01,
+  "frequency_max_cycles_per_day": 0.5,
+  "frequency_bins": 12120,
+  "candidate_periods_days": {
+    "P11_579225": 11.579225,
+    "P16_439498": 16.439498
+  },
+  "local_period_tolerance_fraction": 0.05,
+  "method_primary": "3-observing-night block-wise residual sign flip",
+  "method_comparison": "standardized residual random permutation",
+  "limitations": [
+    "Conditional PLUS_BOTH residual analysis",
+    "Candidate periods selected using the same dataset",
+    "Block sign-flip assumes approximate sign symmetry",
+    "Random permutation destroys temporal dependence",
+    "Exploratory empirical FAP, not independent planet confirmation"
+  ]
+}

@@ -1,0 +1,53 @@
+HD115617 RESIDUAL INJECTION & RECOVERY TEST V1
+==========================================================
+
+Purpose:
+Explore recovery of 11.579d and 16.439d signals
+using the actual PLUS_BOTH residual timestamps.
+
+Input:
+D:\exoanalytica\research\phase_2\rv_ai_model\stage_5_keplerian_rv_detection\experiments\HD115617_keplerian_validation_v1\residuals.csv
+Valid observations: 1213
+First BJD: 2453026.86317952
+Last BJD: 2457973.50809671
+Baseline days: 4946.64491719
+Frequency bins: 12120
+
+Residual model: PLUS_BOTH
+Measurement weights: total_sigma_mps
+Injection waveform: circular sinusoidal signals
+Injected amplitudes (m/s): [1.0, 2.0, 3.0]
+Injected phases (degrees): [0, 90, 180, 270]
+Local search width: +/- 5.0%
+Recovery tolerance: 1.0%
+
+Baseline top 5 peaks:
+  1. 11.577424 d (power=0.067569)
+  2. 16.441331 d (power=0.059843)
+  3. 11.225372 d (power=0.059825)
+  4. 15.730279 d (power=0.047891)
+  5. 15.820837 d (power=0.046165)
+
+Injection recovery summary:
+  BOTH | P11_579 | K=1.0 m/s | local recovery=87.5% | global detection=50.0%
+  BOTH | P16_439 | K=1.0 m/s | local recovery=93.8% | global detection=50.0%
+  BOTH | P11_579 | K=2.0 m/s | local recovery=100.0% | global detection=50.0%
+  BOTH | P16_439 | K=2.0 m/s | local recovery=100.0% | global detection=50.0%
+  BOTH | P11_579 | K=3.0 m/s | local recovery=100.0% | global detection=50.0%
+  BOTH | P16_439 | K=3.0 m/s | local recovery=100.0% | global detection=50.0%
+  P11_ONLY | P11_579 | K=1.0 m/s | local recovery=75.0% | global detection=75.0%
+  P11_ONLY | P11_579 | K=2.0 m/s | local recovery=100.0% | global detection=100.0%
+  P11_ONLY | P11_579 | K=3.0 m/s | local recovery=100.0% | global detection=100.0%
+  P16_ONLY | P16_439 | K=1.0 m/s | local recovery=100.0% | global detection=75.0%
+  P16_ONLY | P16_439 | K=2.0 m/s | local recovery=100.0% | global detection=100.0%
+  P16_ONLY | P16_439 | K=3.0 m/s | local recovery=100.0% | global detection=100.0%
+
+Interpretation limitations:
+- Synthetic circular sinusoids, not full Keplerian injections.
+- Residuals are conditional on the previously fitted PLUS_BOTH model.
+- Periods were identified from the same observational dataset.
+- This is an exploratory recovery and alias diagnostic.
+- Recovery does not establish planetary origin.
+- Activity and correlated noise may affect detectability.
+
+Runtime seconds: 12.63

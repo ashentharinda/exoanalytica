@@ -1,0 +1,32 @@
+{
+  "experiment": "HD115617 Block-Length Sensitivity Validation v1",
+  "input": "D:\\exoanalytica\\research\\phase_2\\rv_ai_model\\stage_5_keplerian_rv_detection\\experiments\\HD115617_keplerian_validation_v1\\residuals.csv",
+  "model": "PLUS_BOTH",
+  "valid_observations": 1213,
+  "unique_observing_nights": 223,
+  "block_lengths_nights": [
+    1,
+    3,
+    5,
+    10
+  ],
+  "simulations_per_block_length": 500,
+  "total_simulations": 2000,
+  "random_seed_base": 20261121,
+  "frequency_min_cycles_per_day": 0.01,
+  "frequency_max_cycles_per_day": 0.5,
+  "frequency_bins": 12120,
+  "candidate_periods_days": {
+    "P11_579225": 11.579225,
+    "P16_439498": 16.439498
+  },
+  "method": "Non-overlapping consecutive observing-night block sign-flip",
+  "limitations": [
+    "Conditional on PLUS_BOTH residuals",
+    "Candidate periods were selected using the same dataset",
+    "Block sign-flip assumes approximate sign symmetry",
+    "Sensitivity analysis does not independently validate planets",
+    "Block boundaries may affect the results",
+    "This is not a conventional moving-block bootstrap"
+  ]
+}
