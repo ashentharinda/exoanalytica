@@ -1,0 +1,125 @@
+===== HARPS / NASA EXOPLANET CROSSMATCH =====
+HARPS input: research\phase_2\rv_ai_model\reports\harps_pilot_target_candidates.csv
+NASA table: pscomppars
+Matching: Exact HD/HIP identifier; exact name fallback
+RV spectra download: DISABLED
+
+HARPS targets loaded: 100
+Connecting to NASA Exoplanet Archive TAP...
+NASA planet records retrieved: 6473
+NASA snapshot saved: research\phase_2\rv_ai_model\data\raw\nasa_pscomppars_snapshot.csv
+
+===== CROSSMATCH RESULTS =====
+Total HARPS targets: 100
+Targets with exact NASA matches: 38
+Matched planet records: 96
+Targets without exact matches: 62
+
+===== MATCHED SYSTEMS =====
+HD10700 -> tau Cet g | Host=tau Cet | Method=Radial Velocity | Period=20.0 days | RV amplitude=0.49 m/s | Basis=HD_IDENTIFIER
+HD10700 -> tau Cet h | Host=tau Cet | Method=Radial Velocity | Period=49.41 days | RV amplitude=0.39 m/s | Basis=HD_IDENTIFIER
+HD10700 -> tau Cet f | Host=tau Cet | Method=Radial Velocity | Period=636.13 days | RV amplitude=0.35 m/s | Basis=HD_IDENTIFIER
+HD039060 -> bet Pic c | Host=bet Pic | Method=Radial Velocity | Period=1202.0 days | RV amplitude=137.999 m/s | Basis=HD_IDENTIFIER
+HD039060 -> bet Pic d | Host=bet Pic | Method=Imaging | Period=33200.0 days | RV amplitude=nan m/s | Basis=HD_IDENTIFIER
+HD039060 -> bet Pic b | Host=bet Pic | Method=Imaging | Period=8682.0 days | RV amplitude=78.791 m/s | Basis=HD_IDENTIFIER
+HD20794 -> HD 20794 e | Host=HD 20794 | Method=Radial Velocity | Period=147.02 days | RV amplitude=0.69 m/s | Basis=HD_IDENTIFIER
+HD20794 -> HD 20794 d | Host=HD 20794 | Method=Radial Velocity | Period=89.68 days | RV amplitude=0.502 m/s | Basis=HD_IDENTIFIER
+HD20794 -> HD 20794 f | Host=HD 20794 | Method=Radial Velocity | Period=647.6 days | RV amplitude=0.567 m/s | Basis=HD_IDENTIFIER
+HD20794 -> HD 20794 b | Host=HD 20794 | Method=Radial Velocity | Period=18.314 days | RV amplitude=0.614 m/s | Basis=HD_IDENTIFIER
+HD160691 -> HD 160691 b | Host=HD 160691 | Method=Radial Velocity | Period=645.0 days | RV amplitude=36.1 m/s | Basis=HD_IDENTIFIER
+HD160691 -> HD 160691 c | Host=HD 160691 | Method=Radial Velocity | Period=3947.0 days | RV amplitude=22.18 m/s | Basis=HD_IDENTIFIER
+HD160691 -> HD 160691 d | Host=HD 160691 | Method=Radial Velocity | Period=9.6392 days | RV amplitude=2.94 m/s | Basis=HD_IDENTIFIER
+HD160691 -> HD 160691 e | Host=HD 160691 | Method=Radial Velocity | Period=307.9 days | RV amplitude=12.23 m/s | Basis=HD_IDENTIFIER
+tau-Cet -> tau Cet g | Host=tau Cet | Method=Radial Velocity | Period=20.0 days | RV amplitude=0.49 m/s | Basis=EXACT_HOSTNAME
+tau-Cet -> tau Cet h | Host=tau Cet | Method=Radial Velocity | Period=49.41 days | RV amplitude=0.39 m/s | Basis=EXACT_HOSTNAME
+tau-Cet -> tau Cet f | Host=tau Cet | Method=Radial Velocity | Period=636.13 days | RV amplitude=0.35 m/s | Basis=EXACT_HOSTNAME
+HD17051 -> HR 810 b | Host=HR 810 | Method=Radial Velocity | Period=302.79999 days | RV amplitude=57.1 m/s | Basis=HD_IDENTIFIER
+HD192310 -> HD 192310 c | Host=HD 192310 | Method=Radial Velocity | Period=525.8 days | RV amplitude=2.27 m/s | Basis=HD_IDENTIFIER
+HD192310 -> HD 192310 b | Host=HD 192310 | Method=Radial Velocity | Period=74.72 days | RV amplitude=3.0 m/s | Basis=HD_IDENTIFIER
+HD19994 -> HD 19994 b | Host=HD 19994 | Method=Radial Velocity | Period=466.2 days | RV amplitude=29.3 m/s | Basis=HD_IDENTIFIER
+HD115617 -> 61 Vir c | Host=61 Vir | Method=Radial Velocity | Period=38.021 days | RV amplitude=3.62 m/s | Basis=HD_IDENTIFIER
+HD115617 -> 61 Vir d | Host=61 Vir | Method=Radial Velocity | Period=123.01 days | RV amplitude=3.25 m/s | Basis=HD_IDENTIFIER
+HD115617 -> 61 Vir b | Host=61 Vir | Method=Radial Velocity | Period=4.215 days | RV amplitude=2.12 m/s | Basis=HD_IDENTIFIER
+HD46375 -> HD 46375 b | Host=HD 46375 | Method=Radial Velocity | Period=3.023573 days | RV amplitude=33.65 m/s | Basis=HD_IDENTIFIER
+HD39060 -> bet Pic c | Host=bet Pic | Method=Radial Velocity | Period=1202.0 days | RV amplitude=137.999 m/s | Basis=HD_IDENTIFIER
+HD39060 -> bet Pic d | Host=bet Pic | Method=Imaging | Period=33200.0 days | RV amplitude=nan m/s | Basis=HD_IDENTIFIER
+HD39060 -> bet Pic b | Host=bet Pic | Method=Imaging | Period=8682.0 days | RV amplitude=78.791 m/s | Basis=HD_IDENTIFIER
+HD136352 -> HD 136352 b | Host=HD 136352 | Method=Radial Velocity | Period=11.57797 days | RV amplitude=1.46 m/s | Basis=HD_IDENTIFIER
+HD136352 -> HD 136352 d | Host=HD 136352 | Method=Radial Velocity | Period=107.245 days | RV amplitude=1.3 m/s | Basis=HD_IDENTIFIER
+HD136352 -> HD 136352 c | Host=HD 136352 | Method=Radial Velocity | Period=27.59221 days | RV amplitude=2.61 m/s | Basis=HD_IDENTIFIER
+HD69830 -> HD 69830 d | Host=HD 69830 | Method=Radial Velocity | Period=197.0 days | RV amplitude=2.2 m/s | Basis=HD_IDENTIFIER
+HD69830 -> HD 69830 b | Host=HD 69830 | Method=Radial Velocity | Period=8.667 days | RV amplitude=3.51 m/s | Basis=HD_IDENTIFIER
+HD69830 -> HD 69830 c | Host=HD 69830 | Method=Radial Velocity | Period=31.56 days | RV amplitude=2.66 m/s | Basis=HD_IDENTIFIER
+HD209100 -> eps Ind A b | Host=eps Ind A | Method=Radial Velocity | Period=25450.0 days | RV amplitude=29.22 m/s | Basis=HD_IDENTIFIER
+HD189567 -> HD 189567 b | Host=HD 189567 | Method=Radial Velocity | Period=14.288 days | RV amplitude=2.53 m/s | Basis=HD_IDENTIFIER
+HD189567 -> HD 189567 c | Host=HD 189567 | Method=Radial Velocity | Period=33.688 days | RV amplitude=1.6 m/s | Basis=HD_IDENTIFIER
+HD-160691 -> HD 160691 b | Host=HD 160691 | Method=Radial Velocity | Period=645.0 days | RV amplitude=36.1 m/s | Basis=HD_IDENTIFIER
+HD-160691 -> HD 160691 c | Host=HD 160691 | Method=Radial Velocity | Period=3947.0 days | RV amplitude=22.18 m/s | Basis=HD_IDENTIFIER
+HD-160691 -> HD 160691 d | Host=HD 160691 | Method=Radial Velocity | Period=9.6392 days | RV amplitude=2.94 m/s | Basis=HD_IDENTIFIER
+HD-160691 -> HD 160691 e | Host=HD 160691 | Method=Radial Velocity | Period=307.9 days | RV amplitude=12.23 m/s | Basis=HD_IDENTIFIER
+HD39091 -> pi Men c | Host=HD 39091 | Method=Transit | Period=6.267823 days | RV amplitude=1.16 m/s | Basis=HD_IDENTIFIER
+HD39091 -> HD 39091 b | Host=HD 39091 | Method=Radial Velocity | Period=2088.7 days | RV amplitude=192.4 m/s | Basis=HD_IDENTIFIER
+HD39091 -> pi Men d | Host=HD 39091 | Method=Radial Velocity | Period=123.1 days | RV amplitude=1.8 m/s | Basis=HD_IDENTIFIER
+HD40307 -> HD 40307 g | Host=HD 40307 | Method=Radial Velocity | Period=197.8 days | RV amplitude=0.95 m/s | Basis=HD_IDENTIFIER
+HD40307 -> HD 40307 b | Host=HD 40307 | Method=Radial Velocity | Period=4.3123 days | RV amplitude=1.94 m/s | Basis=HD_IDENTIFIER
+HD40307 -> HD 40307 f | Host=HD 40307 | Method=Radial Velocity | Period=51.76 days | RV amplitude=1.09 m/s | Basis=HD_IDENTIFIER
+HD40307 -> HD 40307 c | Host=HD 40307 | Method=Radial Velocity | Period=9.6184 days | RV amplitude=2.45 m/s | Basis=HD_IDENTIFIER
+HD40307 -> HD 40307 d | Host=HD 40307 | Method=Radial Velocity | Period=20.432 days | RV amplitude=2.75 m/s | Basis=HD_IDENTIFIER
+HD1461 -> HD 1461 b | Host=HD 1461 | Method=Radial Velocity | Period=5.77152 days | RV amplitude=2.28 m/s | Basis=HD_IDENTIFIER
+HD1461 -> HD 1461 c | Host=HD 1461 | Method=Radial Velocity | Period=13.5052 days | RV amplitude=1.49 m/s | Basis=HD_IDENTIFIER
+HD22049 -> eps Eri b | Host=eps Eri | Method=Radial Velocity | Period=2680.0 days | RV amplitude=18.5 m/s | Basis=HD_IDENTIFIER
+GJ887 -> GJ 887 d | Host=GJ 887 | Method=Radial Velocity | Period=50.77 days | RV amplitude=1.7 m/s | Basis=EXACT_HOSTNAME
+GJ887 -> GJ 887 c | Host=GJ 887 | Method=Radial Velocity | Period=21.784 days | RV amplitude=2.54 m/s | Basis=EXACT_HOSTNAME
+GJ887 -> GJ 887 b | Host=GJ 887 | Method=Radial Velocity | Period=9.2619 days | RV amplitude=2.0 m/s | Basis=EXACT_HOSTNAME
+GJ887 -> GJ 887 e | Host=GJ 887 | Method=Radial Velocity | Period=4.4249 days | RV amplitude=0.91 m/s | Basis=EXACT_HOSTNAME
+HD4308 -> HD 4308 b | Host=HD 4308 | Method=Radial Velocity | Period=15.56 days | RV amplitude=4.1 m/s | Basis=HD_IDENTIFIER
+HD215152 -> HD 215152 c | Host=HD 215152 | Method=Radial Velocity | Period=7.28243 days | RV amplitude=0.675 m/s | Basis=HD_IDENTIFIER
+HD215152 -> HD 215152 b | Host=HD 215152 | Method=Radial Velocity | Period=5.75999 days | RV amplitude=0.772 m/s | Basis=HD_IDENTIFIER
+HD215152 -> HD 215152 d | Host=HD 215152 | Method=Radial Velocity | Period=10.86499 days | RV amplitude=0.963 m/s | Basis=HD_IDENTIFIER
+HD215152 -> HD 215152 e | Host=HD 215152 | Method=Radial Velocity | Period=25.1967 days | RV amplitude=0.747 m/s | Basis=HD_IDENTIFIER
+HD96700 -> HD 96700 b | Host=HD 96700 | Method=Radial Velocity | Period=8.1245 days | RV amplitude=3.06 m/s | Basis=HD_IDENTIFIER
+HD96700 -> HD 96700 d | Host=HD 96700 | Method=Radial Velocity | Period=103.5 days | RV amplitude=1.94 m/s | Basis=HD_IDENTIFIER
+HD96700 -> HD 96700 c | Host=HD 96700 | Method=Radial Velocity | Period=19.88 days | RV amplitude=0.9 m/s | Basis=HD_IDENTIFIER
+WASP-189 -> WASP-189 b | Host=WASP-189 | Method=Transit | Period=2.724033 days | RV amplitude=182.0 m/s | Basis=EXACT_HOSTNAME
+KELT-11 -> KELT-11 b | Host=KELT-11 | Method=Transit | Period=4.73620865 days | RV amplitude=19.49 m/s | Basis=EXACT_HOSTNAME
+HD134060 -> HD 134060 c | Host=HD 134060 | Method=Radial Velocity | Period=1291.5646 days | RV amplitude=1.65 m/s | Basis=HD_IDENTIFIER
+HD134060 -> HD 134060 b | Host=HD 134060 | Method=Radial Velocity | Period=3.2696 days | RV amplitude=4.61 m/s | Basis=HD_IDENTIFIER
+HD10180 -> HD 10180 c | Host=HD 10180 | Method=Radial Velocity | Period=5.75969 days | RV amplitude=4.545 m/s | Basis=HD_IDENTIFIER
+HD10180 -> HD 10180 d | Host=HD 10180 | Method=Radial Velocity | Period=16.357 days | RV amplitude=2.935 m/s | Basis=HD_IDENTIFIER
+HD10180 -> HD 10180 f | Host=HD 10180 | Method=Radial Velocity | Period=122.744 days | RV amplitude=2.862 m/s | Basis=HD_IDENTIFIER
+HD10180 -> HD 10180 g | Host=HD 10180 | Method=Radial Velocity | Period=604.67 days | RV amplitude=1.754 m/s | Basis=HD_IDENTIFIER
+HD10180 -> HD 10180 h | Host=HD 10180 | Method=Radial Velocity | Period=2205.0 days | RV amplitude=3.117 m/s | Basis=HD_IDENTIFIER
+HD10180 -> HD 10180 e | Host=HD 10180 | Method=Radial Velocity | Period=49.748 days | RV amplitude=4.283 m/s | Basis=HD_IDENTIFIER
+HD45184 -> HD 45184 c | Host=HD 45184 | Method=Radial Velocity | Period=13.1354 days | RV amplitude=2.36 m/s | Basis=HD_IDENTIFIER
+HD45184 -> HD 45184 b | Host=HD 45184 | Method=Radial Velocity | Period=5.8854 days | RV amplitude=4.26 m/s | Basis=HD_IDENTIFIER
+GJ367 -> GJ 367 b | Host=GJ 367 | Method=Transit | Period=0.3219226 days | RV amplitude=0.78 m/s | Basis=EXACT_HOSTNAME
+GJ367 -> GJ 367 c | Host=GJ 367 | Method=Radial Velocity | Period=11.5301 days | RV amplitude=1.99 m/s | Basis=EXACT_HOSTNAME
+GJ367 -> GJ 367 d | Host=GJ 367 | Method=Radial Velocity | Period=34.369 days | RV amplitude=2.03 m/s | Basis=EXACT_HOSTNAME
+LHS1140 -> LHS 1140 b | Host=LHS 1140 | Method=Transit | Period=24.73723 days | RV amplitude=3.8 m/s | Basis=EXACT_HOSTNAME
+LHS1140 -> LHS 1140 c | Host=LHS 1140 | Method=Transit | Period=3.77794 days | RV amplitude=2.42 m/s | Basis=EXACT_HOSTNAME
+HD134606 -> HD 134606 c | Host=HD 134606 | Method=Radial Velocity | Period=58.883 days | RV amplitude=1.81 m/s | Basis=HD_IDENTIFIER
+HD134606 -> HD 134606 b | Host=HD 134606 | Method=Radial Velocity | Period=12.089 days | RV amplitude=2.47 m/s | Basis=HD_IDENTIFIER
+HD134606 -> HD 134606 e | Host=HD 134606 | Method=Radial Velocity | Period=4.3203 days | RV amplitude=0.92 m/s | Basis=HD_IDENTIFIER
+HD134606 -> HD 134606 d | Host=HD 134606 | Method=Radial Velocity | Period=966.5 days | RV amplitude=2.83 m/s | Basis=HD_IDENTIFIER
+HD134606 -> HD 134606 f | Host=HD 134606 | Method=Radial Velocity | Period=26.915 days | RV amplitude=1.18 m/s | Basis=HD_IDENTIFIER
+HD16417 -> HD 16417 b | Host=HD 16417 | Method=Radial Velocity | Period=17.24 days | RV amplitude=5.0 m/s | Basis=HD_IDENTIFIER
+HD11977 -> HD 11977 b | Host=HD 11977 | Method=Radial Velocity | Period=711.0 days | RV amplitude=105.0 m/s | Basis=HD_IDENTIFIER
+HD154088 -> HD 154088 b | Host=HD 154088 | Method=Radial Velocity | Period=18.56 days | RV amplitude=1.7 m/s | Basis=HD_IDENTIFIER
+HD39194 -> HD 39194 d | Host=HD 39194 | Method=Radial Velocity | Period=33.874 days | RV amplitude=1.13 m/s | Basis=HD_IDENTIFIER
+HD39194 -> HD 39194 b | Host=HD 39194 | Method=Radial Velocity | Period=5.63692 days | RV amplitude=1.84 m/s | Basis=HD_IDENTIFIER
+HD39194 -> HD 39194 c | Host=HD 39194 | Method=Radial Velocity | Period=14.0309 days | RV amplitude=2.19 m/s | Basis=HD_IDENTIFIER
+HD31527 -> HD 31527 b | Host=HD 31527 | Method=Radial Velocity | Period=16.5535 days | RV amplitude=2.72 m/s | Basis=HD_IDENTIFIER
+HD31527 -> HD 31527 c | Host=HD 31527 | Method=Radial Velocity | Period=51.2053 days | RV amplitude=2.51 m/s | Basis=HD_IDENTIFIER
+HD31527 -> HD 31527 d | Host=HD 31527 | Method=Radial Velocity | Period=271.6737 days | RV amplitude=1.25 m/s | Basis=HD_IDENTIFIER
+HD179079 -> HD 179079 b | Host=HD 179079 | Method=Radial Velocity | Period=14.479 days | RV amplitude=6.22 m/s | Basis=HD_IDENTIFIER
+
+===== IMPORTANT INTERPRETATION =====
+NO_EXACT_MATCH does NOT mean a star has no planets.
+It means no exact identifier/name match was found.
+Aliases require a separate SIMBAD identity-resolution step.
+A NASA catalogue match is a reference label, not a new detection.
+
+Matched CSV: D:\exoanalytica\research\phase_2\rv_ai_model\reports\harps_nasa_planet_matches.csv
+Unmatched CSV: D:\exoanalytica\research\phase_2\rv_ai_model\reports\harps_unmatched_targets.csv
+NASA snapshot: D:\exoanalytica\research\phase_2\rv_ai_model\data\raw\nasa_pscomppars_snapshot.csv
+===== CROSSMATCH COMPLETED =====

@@ -1,0 +1,113 @@
+===== ESO HARPS TAP INSPECTION =====
+Client: PyVO
+Mode: Metadata only
+Science data download: DISABLED
+
+TAP connection initialized.
+
+===== RETRIEVING TABLE NAMES =====
+Metadata table names retrieved: 133
+
+===== HARPS / RADIAL VELOCITY MATCHES =====
+safcat.AMBRE_HARPS_V1
+safcat.EREBOS_RV_cat_fits_V1
+safcat.HARPS_RVCAT_V1
+
+===== COLUMN INSPECTION =====
+Table: safcat.AMBRE_HARPS_V1
+Columns returned: 27
+DP_ID | char |  | meta.id
+OBJECT | char |  | meta.id
+TARGNAME | char |  | meta.id
+RAJ2000 | double | deg | pos.eq.ra;meta.main
+DEJ2000 | double | deg | pos.eq.dec;meta.main
+MJD_OBS | double | d | obs;time.epoch
+EXPTIME | float | s | obs.exposure
+SNR | float |  | stat.snr
+VRAD | float | km/s | spect.dopplerVeloc
+ERR_VRAD | float | km/s | stat.error;spect.dopplerVeloc
+VRAD_CCF_FWHM | float | Angstrom | stat.correlation
+VRAD_FLAG | short |  | meta.code.class
+TEFF | float | K | phys.temperature.effective
+ERR_INT_TEFF | float | K | stat.error;phys.temperature.effective
+ERR_EXT_TEFF | float | K | stat.error;phys.temperature.effective
+LOG_G | float | cm.s**(-2) | phys.gravity
+ERR_INT_LOG_G | float | cm.s**(-2) | stat.error;phys.gravity
+ERR_EXT_LOG_G | float | cm.s**(-2) | stat.error;phys.gravity
+M_H | float |  | phys.abund.Fe;stat.mean
+ERR_INT_M_H | float |  | stat.error;phys.abund.Fe
+ERR_EXT_M_H | float |  | stat.error;phys.abund.Fe
+ALPHA | float |  | phys.abund
+ERR_INT_ALPHA | float |  | stat.error;phys.abund
+ERR_EXT_ALPHA | float |  | stat.error;phys.abund
+CHI2 | float |  | stat.fit.chi2
+CHI2_FLAG | short |  | meta.code.class
+ESO_SPEC_ID | char |  | meta.id;meta.main
+
+===== COLUMN INSPECTION =====
+Table: safcat.EREBOS_RV_cat_fits_V1
+Columns returned: 6
+SPEC_ID | char |  | meta.id;meta.main
+SOURCE_ID | char |  | meta.id
+HJD_MID | double | days | time.epoch
+phase | float |  | time.phase
+FILENAME | char |  | meta.ref
+FILENAME_ARCFILE | char |  | meta.ref
+
+===== COLUMN INSPECTION =====
+Table: safcat.HARPS_RVCAT_V1
+Columns returned: 52
+adp_dpid | char |  | meta.id;meta.main
+raw_dpid | char |  | meta.id
+progid | char |  | meta.id;obs.proposal
+dpr_tech | char |  | meta.code;obs
+dpr_type | char |  | meta.code;obs
+ins_mode | char |  | meta.code
+tel_object | char |  | meta.id
+tel_targ_alpha | double | deg | pos.eq.ra
+tel_targ_delta | double | deg | pos.eq.dec
+date_obs | char | d | time.start
+mjd_obs | double | d | time.start
+exptime | double | s | time.duration;obs.exposure
+ins_det1_tmmean | float |  | time.duration;arith.ratio
+drs_bjd | double | d | time.start
+drs_version_number | float |  | meta.version;meta.software
+drs_snr | double |  | stat.snr;stat.median
+drs_berv | double | km/s | phys.veloc;phys
+drs_mask | char |  | meta
+drs_ccf_rvc | double | km/s | spect.dopplerVeloc;em.opt
+drs_ccf_rv | double | km/s | spect.dopplerVeloc;em.opt
+drs_bis_rv | double | km/s | spect.dopplerVeloc;em.opt
+drs_dvrms | double | m/s | stat.error;spect.dopplerVeloc;em.opt
+drs_ccf_contrast | double |  | stat.correlation
+drs_ccf_fwhm | double | km/s | stat.correlation;stat.fwhm
+drs_ccf_noise | double | km/s | stat.error;spect.dopplerVeloc;em.opt
+drs_bis_span | double | km/s | spect.dopplerVeloc;em.opt
+drs_drift_noise | double | m/s | stat.error;instr.det.noise
+drs_drift_rv_used | double | m/s | stat.error;instr.det.noise
+H_I_6562_rv | double | km/s | spect.dopplerVeloc;spect
+H_I_6562_rv_error | double | km/s | stat.error;spect.dopplerVeloc;spect
+H_I_6562_fit_chi2 | double |  | stat.fit.chi2
+main_id_simbad | char |  | meta.id
+sp_type_simbad | char |  | src.spType
+main_type_simbad | char |  | src.class
+other_types_simbad | char |  | src.class
+ra_simbad | double | deg | pos.eq.ra;meta.main
+dec_simbad | double | deg | pos.eq.dec;meta.main
+radvel_simbad | double | km/s | spect.dopplerVeloc.opt
+radvel_err_simbad | double | km/s | stat.error;spect.dopplerVeloc.opt
+plx_simbad | double | mas | pos.parallax.trig
+plx_err_simbad | double | mas | stat.error;pos.parallax.trig
+pmra_simbad | double | mas/yr | pos.pm;pos.eq.ra
+pmdec_simbad | double | mas/yr | pos.pm;pos.eq.dec
+pmra_err_simbad | double | mas/yr | stat.error;pos.pm;pos.eq.ra
+pmdec_err_simbad | double | mas/yr | stat.error;pos.pm;pos.eq.dec
+pm_err_pa_simbad | short | deg | stat.error;pos.posAng;pos.pm
+Bmag_simbad | float | mag | phot.mag;em.opt.B
+Vmag_simbad | float | mag | phot.mag;em.opt.V
+Jmag_simbad | float | mag | phot.mag;em.IR.J
+Hmag_simbad | float | mag | phot.mag;em.IR.H
+Kmag_simbad | float | mag | phot.mag;em.IR.K
+angDist_simbad | double | arcsec | pos.angDistance
+
+===== INSPECTION COMPLETED =====

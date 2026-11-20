@@ -1,0 +1,32 @@
+===== HARPS PILOT TARGET SELECTION =====
+Table: safcat.HARPS_RVCAT_V1
+Mode: Target-level statistical summary
+Raw spectra download: DISABLED
+
+Querying HARPS target summaries...
+Candidate targets returned: 100
+
+===== TOP HARPS TARGET CANDIDATES =====
+HD128621 | observations=19698.0 | baseline_days=3716.86 | mean_uncertainty_mps=0.171
+HD10700 | observations=9420.0 | baseline_days=6905.92 | mean_uncertainty_mps=0.249
+HD039060 | observations=7532.0 | baseline_days=4444.06 | mean_uncertainty_mps=0.881
+HD20794 | observations=7042.0 | baseline_days=7047.79 | mean_uncertainty_mps=0.254
+Procyon | observations=5703.0 | baseline_days=306.29 | mean_uncertainty_mps=0.301
+HD121370 | observations=5175.0 | baseline_days=35.05 | mean_uncertainty_mps=0.546
+HD190248 | observations=5098.0 | baseline_days=4725.14 | mean_uncertainty_mps=0.222
+Alp-Cir | observations=4920.0 | baseline_days=1402.91 | mean_uncertainty_mps=0.974
+HD128620 | observations=4780.0 | baseline_days=1847.97 | mean_uncertainty_mps=0.182
+Eps-Indi-A | observations=3808.0 | baseline_days=12.31 | mean_uncertainty_mps=0.744
+HD1581 | observations=3707.0 | baseline_days=6870.97 | mean_uncertainty_mps=0.351
+18_Sco | observations=2833.0 | baseline_days=11.33 | mean_uncertainty_mps=0.467
+Beta-Hyi | observations=2694.0 | baseline_days=6.38 | mean_uncertainty_mps=0.297
+HD203608 | observations=2625.0 | baseline_days=2001.80 | mean_uncertainty_mps=1.001
+HD160691 | observations=2450.0 | baseline_days=4095.17 | mean_uncertainty_mps=0.488
+HD188512 | observations=2262.0 | baseline_days=35.17 | mean_uncertainty_mps=0.235
+HD210302 | observations=2183.0 | baseline_days=2608.97 | mean_uncertainty_mps=0.742
+tau-Cet | observations=1988.0 | baseline_days=6.36 | mean_uncertainty_mps=0.420
+18 Sco | observations=1919.0 | baseline_days=11.35 | mean_uncertainty_mps=0.539
+HD17051 | observations=1900.0 | baseline_days=3509.34 | mean_uncertainty_mps=0.758
+
+CSV saved: D:\exoanalytica\research\phase_2\rv_ai_model\reports\harps_pilot_target_candidates.csv
+===== TARGET SUMMARY COMPLETED =====

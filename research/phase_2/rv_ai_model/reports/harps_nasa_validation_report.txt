@@ -1,0 +1,64 @@
+===== HARPS / NASA CROSSMATCH VALIDATION =====
+HARPS input targets: 100
+Matched HARPS target names: 38
+Original matched rows: 96
+Unique planet records after deduplication: 86
+Unique canonical NASA host systems: 35
+Duplicate alias groups: 3
+
+===== PLANET CLASSIFICATION =====
+RV discovery planets: 78
+Non-RV discovery planets: 8
+RV-flagged planets: 84
+Controversial-flagged planets: 5
+
+===== RV DISCOVERY SYSTEMS =====
+HD 10180 | RV planets=6 | All planets=6 | HARPS names=HD10180
+HD 134606 | RV planets=5 | All planets=5 | HARPS names=HD134606
+HD 40307 | RV planets=5 | All planets=5 | HARPS names=HD40307
+HD 20794 | RV planets=4 | All planets=4 | HARPS names=HD20794
+HD 215152 | RV planets=4 | All planets=4 | HARPS names=HD215152
+GJ 887 | RV planets=4 | All planets=4 | HARPS names=GJ887
+HD 160691 | RV planets=4 | All planets=4 | HARPS names=HD160691
+HD 96700 | RV planets=3 | All planets=3 | HARPS names=HD96700
+HD 69830 | RV planets=3 | All planets=3 | HARPS names=HD69830
+HD 39194 | RV planets=3 | All planets=3 | HARPS names=HD39194
+HD 31527 | RV planets=3 | All planets=3 | HARPS names=HD31527
+61 Vir | RV planets=3 | All planets=3 | HARPS names=HD115617
+tau Cet | RV planets=3 | All planets=3 | HARPS names=HD10700
+HD 136352 | RV planets=3 | All planets=3 | HARPS names=HD136352
+HD 192310 | RV planets=2 | All planets=2 | HARPS names=HD192310
+GJ 367 | RV planets=2 | All planets=3 | HARPS names=GJ367
+HD 39091 | RV planets=2 | All planets=3 | HARPS names=HD39091
+HD 1461 | RV planets=2 | All planets=2 | HARPS names=HD1461
+HD 189567 | RV planets=2 | All planets=2 | HARPS names=HD189567
+HD 45184 | RV planets=2 | All planets=2 | HARPS names=HD45184
+HD 134060 | RV planets=2 | All planets=2 | HARPS names=HD134060
+HD 11977 | RV planets=1 | All planets=1 | HARPS names=HD11977
+eps Ind A | RV planets=1 | All planets=1 | HARPS names=HD209100
+eps Eri | RV planets=1 | All planets=1 | HARPS names=HD22049
+bet Pic | RV planets=1 | All planets=3 | HARPS names=HD039060
+HR 810 | RV planets=1 | All planets=1 | HARPS names=HD17051
+HD 179079 | RV planets=1 | All planets=1 | HARPS names=HD179079
+HD 46375 | RV planets=1 | All planets=1 | HARPS names=HD46375
+HD 154088 | RV planets=1 | All planets=1 | HARPS names=HD154088
+HD 16417 | RV planets=1 | All planets=1 | HARPS names=HD16417
+HD 19994 | RV planets=1 | All planets=1 | HARPS names=HD19994
+HD 4308 | RV planets=1 | All planets=1 | HARPS names=HD4308
+
+===== DUPLICATE ALIAS GROUPS =====
+HD 160691 | HD-160691 | HD160691
+bet Pic | HD039060 | HD39060
+tau Cet | HD10700 | tau-Cet
+
+IMPORTANT:
+RV_DISCOVERY means discovery method is Radial Velocity.
+RV_FLAG is retained separately and is not a discovery label.
+Controversial records are flagged, not silently removed.
+Non-RV discovery does not mean the system has no RV data.
+NASA matches are reference labels, not new detections.
+
+Validated planets CSV: D:\exoanalytica\research\phase_2\rv_ai_model\reports\harps_nasa_planet_validation.csv
+System summary CSV: D:\exoanalytica\research\phase_2\rv_ai_model\reports\harps_nasa_system_summary.csv
+Duplicate aliases CSV: D:\exoanalytica\research\phase_2\rv_ai_model\reports\harps_duplicate_alias_targets.csv
+===== VALIDATION COMPLETED =====
