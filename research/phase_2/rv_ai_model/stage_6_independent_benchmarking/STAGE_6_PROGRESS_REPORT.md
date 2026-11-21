@@ -458,5 +458,64 @@ The SBART and DRS products contain overlapping observations and must not be coun
 - No scientific algorithms or model parameters were changed.
 - Independent benchmark conclusions remain provisional pending final provenance and cross-instrument checks.
 
+
+## 8.4 HD40307 — Mayor et al. (2009) and Tuomi et al. (2013) Observation-Level Overlap
+
+### Mayor et al. (2009) published RV comparison
+
+The published Mayor et al. (2009) RV table was compared against the ESO HARPS archive observations for HD40307.
+
+- Published numeric observations: 129
+- Matched observations within 300 seconds: 127
+- Unique matched ESO archive observations (DPIDs): 127
+- Median absolute time difference: 0.034560 seconds
+- Median absolute RV difference: 1.505171 m/s
+- Mean absolute RV difference: 1.596171 m/s
+- 95th percentile absolute RV difference: 2.766497 m/s
+- Maximum absolute RV difference: 4.318722 m/s
+- All 127 matches belong to ESO programme `072.C-0488(E)`.
+- Two published observations remain unmatched within the 300-second threshold; one additional match was found within 1800 seconds and is not classified as a 300-second match.
+
+These results provide strong evidence of observation-level overlap. The Mayor et al. (2009) observations must therefore not be treated as an independent observation-level benchmark against this ESO archive dataset.
+
+Diagnostic file:
+`data/hd40307_mayor_2009_overlap_diagnostic.csv`
+
+### Tuomi et al. (2013) Table A.2 comparison
+
+The 345 extracted published rows from Tuomi et al. (2013), Table A.2, were matched against the ESO HARPS archive observations for HD40307.
+
+- Published rows: 345
+- Matched ESO observations: 345
+- Unique matched ESO archive DPIDs: 345
+- Duplicate DPID assignments: 0
+- Maximum absolute time difference: 0.429408 seconds
+
+The paper labels its time column as JD. These timestamps align with the ESO archive BJD values to sub-second precision; the time-column label is therefore retained as published rather than relabelled as BJD.
+
+The paper provides separate differential radial-velocity series for the full spectrum (F) and red spectral region (R). They were compared separately with the ESO DRS RV values:
+
+| Comparison | Median ESO-minus-published offset | Median absolute residual after offset |
+|---|---:|---:|
+| F series | +31,334.148 m/s | 0.306 m/s |
+| R series | +31,334.048 m/s | 0.635 m/s |
+
+The large constant offset must not be interpreted as an instrumental zero-point error. The published values are differential RVs, whereas the ESO DRS values use an absolute RV scale; their reference conventions differ. The residual statistics are reported after subtracting each series' median offset.
+
+The one-to-one timestamp and DPID correspondence provides very strong evidence that all 345 published rows correspond to observations in the ESO archive. This is not an independent observation-level benchmark.
+
+Verification file:
+`data/hd40307_tuomi_2013_overlap_verification.csv`
+
+### Benchmarking implications
+
+- Both the Mayor et al. (2009) and Tuomi et al. (2013) datasets overlap with the local ESO HARPS archive observations.
+- HD40307 must not be counted as an independent observation-level validation target against either publication.
+- The F and R RV series remain distinct and are not merged.
+- No observations were deleted or modified.
+- No scientific algorithms, model parameters, or production code were changed.
+- These findings strengthen the provenance assessment but do not independently validate planet detections or the RV model.
+
+
 **End of Interim Stage 6 Report**
 
