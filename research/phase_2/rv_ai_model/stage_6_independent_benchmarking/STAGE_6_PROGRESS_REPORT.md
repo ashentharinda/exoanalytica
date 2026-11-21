@@ -1,4 +1,4 @@
-﻿# Stage 6 â€” Independent Benchmarking
+# Stage 6 â€” Independent Benchmarking
 ## Scientific Progress and Data Provenance Report
 
 **Status:** In Progress
@@ -305,57 +305,6 @@ AI-performance claim follows from this provenance comparison.
 
 ---
 
-## 9. Current Scientific Assessment
-
-### Completed
-
-- HARPS dataset target and time-range inspection.
-- ESO archive cross-match for all 18 targets.
-- One-to-one observation matching.
-- Archive identifier availability verification.
-- Instrument-mode distribution inspection.
-- BJD numerical consistency verification.
-- RV measurement numerical consistency verification.
-- RV uncertainty numerical consistency verification.
-- NASA publication metadata retrieval.
-- Initial planet-mass field consistency audit.
-- Initial controversial-record identification.
-
-### Pending
-
-- Resolve all discovery references to bibliographic records.
-- Determine observation/publication overlap.
-- Assess whether any genuinely independent benchmark observations
-  are available.
-- Identify suitable negative-control systems.
-- Define reliable positive, negative, and uncertain labels.
-- Evaluate selection bias and target-level sampling.
-- Finalize benchmark eligibility and dataset readiness.
-
----
-
-## 10. Conclusion
-
-The 37,442-row HARPS dataset has passed the current ESO archive
-observation-matching and numerical consistency checks.
-
-All local observation timestamps matched unique ESO archive records.
-Archive identifiers and instrument metadata were available for every
-matched record.
-
-This provides strong evidence of observation-level archive provenance
-for the inspected dataset.
-
-However, scientific benchmark independence has not yet been
-established. Publication overlap and reference-label reliability
-remain essential unresolved questions.
-
-Stage 6 therefore remains **In Progress**.
-
-No AI training-readiness approval or planet-confirmation claim is
-made by this interim report.
-
-
 ## 8.2 HD192310 â€” Six-Exposure CCF and Target-RV Prior Investigation
 
 **Status:** Strong evidence of a target-RV-prior-associated CCF failure; causal attribution remains unconfirmed.
@@ -576,3 +525,230 @@ Diagnostic file:
 
 **End of Interim Stage 6 Report**
 
+
+
+## 8.6 HD19994 ? Mayor et al. (2004) CORALIE Orbital Reproduction
+
+### Reference dataset and provenance
+
+A 48-observation radial-velocity time series associated with Mayor et al. (2004), bibcode `2004A&A...415..391M`, was retrieved from the NASA Exoplanet Archive literature time-series collection.
+
+- Target: HD 19994
+- Reference: Mayor et al. (2004), A&A, 415, 391
+- Telescope: 1.2-m Euler Swiss telescope
+- Instrument: CORALIE
+- Observatory: ESO La Silla, Chile
+- Time reference: BJD
+- RV units: m/s
+- RV uncertainty units: m/s
+- Observations: 48
+- Unique timestamps: 48
+- Time baseline: 1,518.889 days
+- RV range: 19,280 to 19,382 m/s
+- Mean reported RV uncertainty: 6.667 m/s
+
+The downloaded file is the NASA Exoplanet Archive literature time-series copy. Its association with the publication and its metadata were verified; byte-for-byte identity with an original CORALIE source file has not been established.
+
+Reference file:
+
+`data/hd19994_mayor_2004_nasa_archive.tbl`
+
+### Published-orbit reproduction
+
+The published orbital parameters were held fixed for the reproduction:
+
+| Parameter | Adopted value |
+|---|---:|
+| Period | 535.7 days |
+| Eccentricity | 0.30 |
+| Published periastron epoch | 2450944 (time standard not independently verified) |
+| Argument of periastron | 41 degrees |
+| Published semi-amplitude | 36.2 m/s |
+
+Only the systemic velocity and semi-amplitude were fitted to the 48 archived observations.
+
+| Metric | Reproduction result |
+|---|---:|
+| Fitted systemic velocity | 19,335.1774 m/s |
+| Fitted semi-amplitude | 35.9578 m/s |
+| Difference from published K | -0.2422 m/s |
+| Relative K difference | -0.67% |
+| Weighted residual RMS | 7.9807 m/s |
+| Reduced chi-square | 2.1255 |
+| Residual minimum | -27.5106 m/s |
+| Residual maximum | +22.2548 m/s |
+
+The recovered semi-amplitude is close to the published value. This is a successful reference-level orbital reproduction, conditional on the adopted published orbital parameters. A formal uncertainty for the newly fitted semi-amplitude was not calculated in this test.
+
+### Localized residual variability
+
+A previously identified interval, BJD 2451500-2451700, was examined separately. It contains 19 observations.
+
+| Metric | Interval (19 observations) | Outside interval (29 observations) |
+|---|---:|---:|
+| Mean residual | -3.311 m/s | +0.086 m/s |
+| Weighted residual RMS | 12.491 m/s | 5.844 m/s |
+| Diagnostic chi-square per (N-2) | 3.415 | 1.471 |
+| Minimum residual | -27.511 m/s | -12.421 m/s |
+| Maximum residual | +22.255 m/s | +18.249 m/s |
+
+The weighted residual RMS inside the selected interval is approximately 2.14 times the value outside it. This indicates elevated residual variability within that interval. The diagnostic chi-square values use an (N-2) denominator; the orbital parameters were fitted globally and were not refitted independently within each subset. These values should not be interpreted as formal subset-specific reduced chi-square statistics.
+
+The interval was selected for a targeted diagnostic rather than through a blind search. The comparison is therefore descriptive and must not be interpreted as a blind detection or a formal significance test. Stellar activity, instrumental effects, and other possible causes have not been distinguished.
+
+Residual plot:
+
+`data/hd19994_mayor_2004_residuals.png`
+
+### Benchmarking implications and limitations
+
+- HD 19994 provides a CORALIE literature-reference reproduction, not an observation-level match against the local HARPS dataset.
+- The recovered semi-amplitude agrees closely with the published reference value.
+- The elevated residual variability in the selected interval remains unexplained.
+- The NASA archive copy is not claimed to be byte-identical to the original publication data file.
+- This exercise is not an independent planet discovery validation because it reproduces a published orbital solution using a literature time series associated with that publication.
+- No observations were deleted or modified.
+- No production scientific algorithms or model parameters were changed.
+- No conclusions about the physical cause of the residual variability are made.
+
+## 8.7 HD136352 (?? Lupi) ? HARPS DACE?ESO Provenance and RV Consistency Investigation
+
+### Reference context and data sources
+
+HD136352 was examined using the local ESO HARPS archive observations, DACE standard-processed radial velocities, and the published HARPS reference context.
+
+The relevant reference is Udry et al. (2019), A&A, 622, A37, which reports 649 HARPS spectra and 240 one-hour-binned radial-velocity measurements for HD136352.
+
+The individual ESO archive dataset contains 685 observations for this target. These counts describe different data products and must not be treated as interchangeable.
+
+A separate published dataset from Kane et al. (2020), *HARPS, HIRES and AAT Radial Velocities of HD 136352*, was also examined. Its HARPS table contains 246 observations.
+
+### ESO archive provenance
+
+The local ESO HARPS dataset contains 685 HD136352 observations.
+
+The ESO archive cross-match established observation-level provenance for the local records. The RV values used in the local dataset were verified against the ESO drift-corrected barycentric CCF RV field (`drs_ccf_rvc`) after conversion from km/s to m/s.
+
+The local ESO dataset therefore has verified archive provenance. This does not, by itself, establish equivalence to a particular publication's binned time series.
+
+### DACE standard-processing comparison
+
+The DACE standard HARPS dataset contains 716 records for HD136352.
+
+A one-to-one time-based cross-match using a 300-second tolerance produced:
+
+| Metric | Result |
+|---|---:|
+| DACE HARPS records | 716 |
+| Local ESO observations | 685 |
+| Matched observations | 680 |
+| Unmatched DACE records | 36 |
+| Unmatched ESO observations | 5 |
+| Median absolute time difference | approximately 66.7 seconds |
+| Maximum time difference among matches | approximately 201.1 seconds |
+
+For the 680 matched observations, the global median DACE-minus-ESO RV offset was approximately -5.676 m/s. After subtracting that median offset, the residual RMS was approximately 1.164 m/s and the median absolute deviation was approximately 0.457 m/s.
+
+These statistics indicate substantial overall agreement, but they do not establish that the two processing products are numerically identical or that a single global offset explains every observation.
+
+### Programme-specific discrepancy
+
+The 38 DACE records associated with programme 192.C-0852(A) comprise:
+
+- 31 HARPS03 records.
+- 7 HARPS15 records.
+
+All 38 records report DRS version 3.3.6, DRS ID 15, latest-DRS status, and CCF RV extraction.
+
+The seven HARPS15 observations correspond to the investigated discrepant records. Their RV differences relative to the matched ESO observations are substantially larger than those seen for most other matched records:
+
+- 2015-06-08: approximately -8.03 m/s.
+- 2015-06-10: approximately -8.07 to -8.50 m/s.
+- 2015-08-24: approximately +7.00 to +7.24 m/s.
+- 2016-02-07: approximately -9.65 m/s.
+
+The HARPS15 records show differences in CCF FWHM and contrast relative to the HARPS03 records. The two observations on 2015-08-24 also have `cal_drift_rv` values near -0.0204 km/s.
+
+These are diagnostic observations, not proof of a causal mechanism. The common DRS version does not establish identical calibration histories, and the available metadata do not establish that the CCF or drift terms caused the RV discrepancies. The discrepancy therefore remains unresolved.
+
+### Other unmatched DACE records
+
+Of the 36 unmatched DACE records, 27 belong to programme 60.A-9036(A) and have extreme RV values around -82,556 to -82,880 m/s with substantially larger quoted uncertainties. The remaining nine unmatched records belong to programme 183.C-0972(A).
+
+These unmatched records are retained as provenance limitations. They are not assigned synthetic ESO matches.
+
+### Kane et al. (2020) published-table comparison
+
+The 246-row Kane et al. HARPS table was independently compared with the local ESO observations.
+
+A time-based match within 300 seconds identified 245 corresponding observations. After removal of the median RV zero-point difference, the residual RMS was approximately 2.138 m/s.
+
+This is a separate publication-table comparison. It must not be conflated with the Udry et al. (2019) one-hour-binned dataset.
+
+### Benchmarking implications and limitations
+
+- The local 685-row ESO dataset has verified archive provenance.
+- The DACE standard HARPS comparison shows broad agreement, with a small number of unresolved discrepancies and unmatched records.
+- The seven discrepant HARPS15 records require caution; their cause has not been established.
+- The 27 extreme unmatched DACE records from programme 60.A-9036(A) are not treated as validated ESO observations.
+- The Kane et al. (2020) table provides a separate published-table comparison with 245 matched observations.
+- The Udry et al. (2019) set of 240 one-hour-binned measurements has not been directly reproduced or independently validated observation by observation in this investigation.
+- HD136352 is therefore a useful provenance and cross-pipeline consistency case, but it is not a fully independent validation benchmark.
+- No observations were deleted or modified.
+- No production scientific algorithms, model parameters, or training data labels were changed.
+
+Verification inputs:
+
+- `data/hd136352_dace_standard_rv.csv`
+- `data/hd136352_dace_public_frames.csv`
+- `data/hd136352_kane_2020_table1_raw.tsv`
+- `../data/interim/harps_rv_observations_18_targets.csv`
+
+## 9. Current Scientific Assessment
+
+### Completed
+
+- HARPS dataset target and time-range inspection.
+- ESO archive provenance cross-match for all 18 targets.
+- One-to-one observation matching and archive identifier verification.
+- Instrument-mode distribution and BJD/RV numerical consistency checks.
+- NASA Exoplanet Archive publication metadata retrieval and initial planet-mass consistency review.
+- Target-level publication-overlap and cross-pipeline investigations documented in Sections 8.1?8.7:
+  - HD10180
+  - HD192310
+  - HD20794
+  - HD40307
+  - HD160691
+  - HD19994
+  - HD136352
+- Identification of cases where published observations overlap the local archive data and therefore cannot be treated as independent observation-level benchmarks.
+- Documentation of unresolved data-provenance, pipeline, and residual-variability limitations.
+
+### Remaining before benchmark eligibility can be finalized
+
+- Complete a consolidated audit linking discovery references, planet records, and the adopted reference labels.
+- Define defensible positive, negative, and uncertain benchmark labels with traceable evidence.
+- Identify and verify suitable negative-control systems.
+- Assess target-selection bias and sampling limitations.
+- Establish which targets and observations qualify as genuinely independent benchmarks.
+- Finalize benchmark eligibility and dataset readiness criteria.
+
+Stage 6 has completed substantial provenance and reference-comparison work. However, the investigations in Sections 8.1?8.7 do not by themselves establish a fully independent, label-validated benchmark dataset.
+
+---
+
+## 10. Conclusion
+
+The 37,442-row local HARPS dataset has passed the documented ESO archive observation-matching and numerical consistency checks. All inspected local observations were matched to unique ESO archive records, supporting their archive provenance.
+
+The target-level investigations in Sections 8.1?8.7 provide a more detailed assessment of publication overlap, instrument and pipeline consistency, and reference-data limitations. They also demonstrate why archive provenance must be distinguished from scientific benchmark independence.
+
+HD136352 illustrates this distinction: the local ESO observations have verified archive provenance and show broad agreement with DACE standard HARPS measurements, but seven HARPS15 records have unresolved RV discrepancies. The Kane et al. (2020) comparison is a separate published-table check, while the 240 one-hour-binned Udry et al. (2019) measurements have not been directly validated observation by observation.
+
+Across the investigated systems, publication overlap, pipeline differences, unresolved residual behaviour, and reference-label limitations must be accounted for before any target is designated an independent benchmark.
+
+**Stage 6 status: In Progress ? target-level provenance investigations documented; final benchmark eligibility and label validation remain pending.**
+
+This report does not approve AI training readiness, claim independent planet confirmation, or establish that the investigated targets form a statistically representative benchmark sample.
+
+No production scientific algorithms or model parameters were changed as part of these investigations.

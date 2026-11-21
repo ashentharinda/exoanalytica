@@ -1,0 +1,40 @@
+===== ESO HARPS PROVENANCE EXPORT =====
+Source: ESO safcat.HARPS_RVCAT_V1
+Mode: Metadata only; no science data download
+Local observations: 37442
+Unique targets: 18
+Connecting to ESO TAP...
+ESO archive observations returned: 37442
+
+===== OBSERVATION KEY CROSSMATCH =====
+Local rows: 37442
+ESO rows: 37442
+Matched rows: 37442
+Local unmatched: 0
+ESO archive-only: 0
+
+===== NUMERICAL CONSISTENCY =====
+drs_bjd:
+  Comparable: 37442
+  Equal within 1e-12: 36390
+  Maximum absolute difference: 4.65661287307739e-10
+drs_ccf_rvc:
+  Comparable: 37442
+  Equal within 1e-12: 37442
+  Maximum absolute difference: 4.54747350886464e-13
+drs_dvrms:
+  Comparable: 37442
+  Equal within 1e-12: 37442
+  Maximum absolute difference: 8.88178419700125e-16
+
+===== METADATA COMPLETENESS =====
+ins_mode: 37442/37442 populated; 2 unique
+adp_dpid: 37442/37442 populated; 37442 unique
+raw_dpid: 37442/37442 populated; 37442 unique
+progid: 37442/37442 populated; 53 unique
+
+===== OUTPUT FILES =====
+D:\exoanalytica\research\phase_2\rv_ai_model\stage_6_independent_benchmarking\data\eso_harps_archive_metadata_18_targets.csv
+D:\exoanalytica\research\phase_2\rv_ai_model\stage_6_independent_benchmarking\data\harps_eso_provenance_crossmatch.csv
+
+===== EXPORT COMPLETED =====

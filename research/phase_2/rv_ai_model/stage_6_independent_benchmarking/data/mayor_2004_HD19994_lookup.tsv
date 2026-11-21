@@ -1,0 +1,38 @@
+#
+#   VizieR Astronomical Server vizier.cfa.harvard.edu
+#    Date: 2026-11-21T17:01:37 [V7.6.1]
+#   In case of problem, please report to:	cds-question@unistra.fr
+#
+#
+#Coosys	J2000:	eq_FK5 J2000
+#INFO	service_protocol=ASU	  IVOID of the protocol through which the data was retrieved
+#INFO	request_date=2026-11-21T17:01:37	  Query execution date
+#INFO	request=https://vizier.cfa.harvard.edu/viz-bin/asu-tsv?-source=J%2FA%2BA%2F415%2F391%2Fstars&HD=19994&-out=HD,FileName	  Full request URL
+#INFO	contact=cds-question@unistra.fr	  Email or URL to contact publisher
+#INFO	server_software=VizieR/7.6.1	  Software version
+#INFO	publisher=CDS	  Data centre that produced the VOTable
+#INFO	MaxTuples=50000	
+
+#RESOURCE=yCat_34150391
+#Name: J/A+A/415/391
+#Title: The CORALIE survey for extrasolar planets. XII (Mayor+, 2004)
+#INFO	ivoid=ivo://cds.vizier/j/a+a/415/391	    IVOID of underlying data collection
+#INFO	data_ivoid=ivo://cds.vizier/j/a+a/415/391	    IVOID of underlying data collection
+#INFO	creator=Mayor M.	    First author or institution
+#INFO	cites=bibcode:2004A&A...415..391M	    Article or Data origin sources
+#INFO	journal=A&A	    Journal name
+#INFO	original_date=2004	    Year of the article publication
+#INFO	reference_url=https://cdsarc.cds.unistra.fr/viz-bin/cat/J/A+A/415/391	    Dataset landing page
+#INFO	citation=doi:10.26093/cds/vizier.34150391	    Dataset identifier that can be used for citation
+#INFO	publication_date=2017-06-21	    Date of first publication in the data centre
+#INFO	rights_uri=https://cds.unistra.fr/vizier-org/licences_vizier.html	    Licence URI
+#Table	J_A_A_415_391_stars:
+#Name: J/A+A/415/391/stars
+#Title: Star positions and magnitudes (from Simbad)
+#Column	HD	(I6)	HD number	[ucd=meta.id;meta.main]
+#Column	FileName	(a11)	Name of the file containing radial velocities	[ucd=meta.id;meta.file]
+HD	FileName
+ 	
+------	-----------
+ 19994	table2.dat
+
