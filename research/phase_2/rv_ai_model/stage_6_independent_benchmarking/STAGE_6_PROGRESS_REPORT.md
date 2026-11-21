@@ -1,10 +1,10 @@
-# Stage 6 — Independent Benchmarking
+﻿# Stage 6 â€” Independent Benchmarking
 ## Scientific Progress and Data Provenance Report
 
 **Status:** In Progress
 **Report type:** Interim scientific assessment
 **Project:** ExoAnalytica
-**Stage:** 6 — Independent Benchmarking
+**Stage:** 6 â€” Independent Benchmarking
 
 ---
 
@@ -248,7 +248,7 @@ independent benchmark or used to claim general detection accuracy.
 
 ---
 
-## 8.1 HD10180 — Observation-Level Publication Overlap Pilot
+## 8.1 HD10180 â€” Observation-Level Publication Overlap Pilot
 
 An observation-level comparison was performed between the 190 valid
 BJD/RV rows in the published Lovis et al. (2011) HD 10180 radial-velocity
@@ -356,7 +356,7 @@ No AI training-readiness approval or planet-confirmation claim is
 made by this interim report.
 
 
-## 8.2 HD192310 — Six-Exposure CCF and Target-RV Prior Investigation
+## 8.2 HD192310 â€” Six-Exposure CCF and Target-RV Prior Investigation
 
 **Status:** Strong evidence of a target-RV-prior-associated CCF failure; causal attribution remains unconfirmed.
 
@@ -373,7 +373,7 @@ The six archived HARPS DRS auxiliary products for the two three-exposure sequenc
 | 2004-12-04 00:16:15.918 | -54.4 | -54.224604 | -54.225019 | 6.0943 |
 | 2004-12-04 00:21:18.778 | -54.4 | -54.224854 | -54.225136 | 6.0962 |
 
-The December 2 CCF velocity grid starts at -20.0 km/s with a 0.25 km/s step and 161 bins, corresponding to a nominal range of -20.0 to +20.0 km/s. The December 4 grid starts at -74.4 km/s with the same step and 162 bins, corresponding to -74.4 to -34.15 km/s. In both sequences, the grid is centered on the supplied target-RV prior (approximately target RV ±20 km/s).
+The December 2 CCF velocity grid starts at -20.0 km/s with a 0.25 km/s step and 161 bins, corresponding to a nominal range of -20.0 to +20.0 km/s. The December 4 grid starts at -74.4 km/s with the same step and 162 bins, corresponding to -74.4 to -34.15 km/s. In both sequences, the grid is centered on the supplied target-RV prior (approximately target RV Â±20 km/s).
 
 ### Interpretation
 
@@ -394,4 +394,69 @@ This is strong diagnostic evidence, not a completed causal demonstration. The ar
 
 ---
 
+
+## 8.3 HD20794 — Nari et al. (2025) YARARA and ESPRESSO Cross-Pipeline Investigation
+
+### HARPS YARARA overlap
+
+The Nari et al. (2025) HARPS03 and HARPS15 YARARA datasets were compared against ESO HARPS archive observations for HD20794.
+
+**HARPS03 YARARA**
+- Published observations: 514
+- Unique ESO matches within 10 seconds: 22
+- Unique ESO matches within 60 seconds: 124
+- Median RV offset at 60 seconds: +87,954.914 m/s
+- Median absolute residual: 4.549 m/s
+- 95th percentile residual: 7.586 m/s
+
+**HARPS15 YARARA**
+- Published observations: 232
+- Unique ESO matches within 10 seconds: 10
+- Unique ESO matches within 60 seconds: 33
+- Median RV offset at 60 seconds: +87,979.687 m/s
+- Median absolute residual: 0.955 m/s
+- 95th percentile residual: 14.485 m/s
+- One observation has a large residual of approximately 1,846 m/s and requires separate investigation.
+
+These results provide evidence of temporal correspondence with ESO archive observations. They do not prove that every corresponding measurement is the exact same exposure.
+
+### ESPRESSO SBART and DRS cross-pipeline comparison
+
+Three Nari et al. (2025) ESPRESSO tables were examined:
+
+- espsbart: 695 numeric observations
+- esp19drs: 656 numeric observations
+- esp18drs: 29 numeric observations
+
+The DRS reduced-JD values were converted using JD = table value + 2,400,000 before comparison with full BJD values.
+
+**SBART versus DRS 2018**
+- 29 of 29 DRS observations matched SBART timestamps exactly.
+- Median RV offset: -10.863 m/s.
+- Median absolute residual: 0.051 m/s.
+- Maximum absolute residual: 0.295 m/s.
+
+**SBART versus DRS 2019**
+- 651 DRS observations matched SBART timestamps exactly.
+- Median RV offset: -14.919 m/s.
+- Median absolute residual: 0.256 m/s.
+- Maximum absolute residual: 2.952 m/s.
+
+**DRS 2018 versus DRS 2019**
+- No matches within 1,800 seconds.
+- The two DRS tables represent different observing periods in this comparison.
+
+The SBART and DRS products contain overlapping observations and must not be counted as three independent ESPRESSO datasets. Their RV zero-points differ and should be accounted for during future calibration.
+
+### Benchmarking implications
+
+- HARPS YARARA and ESO HARPS archive observations show evidence of overlap.
+- ESPRESSO SBART and DRS products show strong cross-pipeline overlap.
+- ESPRESSO is a different spectrograph from HARPS and may support cross-instrument validation.
+- These Nari et al. datasets are publication-associated data and should not be described as publication-independent validation.
+- No observations were deleted or modified.
+- No scientific algorithms or model parameters were changed.
+- Independent benchmark conclusions remain provisional pending final provenance and cross-instrument checks.
+
 **End of Interim Stage 6 Report**
+
