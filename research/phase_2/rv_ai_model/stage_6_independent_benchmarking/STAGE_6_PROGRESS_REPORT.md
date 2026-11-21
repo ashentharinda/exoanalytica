@@ -355,10 +355,6 @@ Stage 6 therefore remains **In Progress**.
 No AI training-readiness approval or planet-confirmation claim is
 made by this interim report.
 
----
-
-**End of Interim Stage 6 Report**
-
 
 ## 8.2 HD192310 — Six-Exposure CCF and Target-RV Prior Investigation
 
@@ -394,3 +390,8 @@ This is strong diagnostic evidence, not a completed causal demonstration. The ar
 **Benchmarking consequence:** HD192310 must not be treated as an independent observation-level benchmark against the Pepe et al. (2011) publication. The previously established timing-overlap evidence remains: 50 unique ESO observations matched published epochs within 300 seconds, with 49 of those 50 RV differences within 10 m/s; one match is the identified grossly anomalous December 2 record. The remaining published epochs are not classified by this comparison.
 
 **Data handling:** No observations were deleted or altered. The investigation used archived DRS CCF/BIS products and header metadata.
+
+
+---
+
+**End of Interim Stage 6 Report**
