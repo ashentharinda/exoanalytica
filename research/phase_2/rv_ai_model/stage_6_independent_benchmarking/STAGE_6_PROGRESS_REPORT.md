@@ -516,6 +516,63 @@ Verification file:
 - No scientific algorithms, model parameters, or production code were changed.
 - These findings strengthen the provenance assessment but do not independently validate planet detections or the RV model.
 
+## 8.5 HD160691 (μ Arae) — Pepe et al. (2007) Observation-Level Overlap
+
+### Published RV table and time convention
+
+The published radial-velocity measurements were extracted from Table 3 of Pepe et al. (2007), "The HARPS search for southern extra-solar planets IX. μ Ara, a system with four planets" (A&A, 462, 769).
+
+- Published numeric records extracted: 86
+- The table reports its time column as reduced JD (`T - 2,400,000`).
+- The published time column is retained as JD and is not relabelled as BJD.
+- The table contains the historical 2003 measurement and observations from the 2004–2006 HARPS observing period.
+
+### Individual ESO exposure matching
+
+Each published timestamp was compared with the nearest individual ESO HARPS archive exposure for HD160691. Matching was assessed using a 300-second tolerance.
+
+- Published records: 86
+- Matched published records within 300 seconds: 83
+- Unique matched ESO archive DPIDs: 83
+- Duplicate DPID assignments: 0
+- Unmatched published records: 3
+- Median absolute time difference: 41.258 seconds
+- Maximum absolute time difference: 233.998 seconds
+
+The 83 matched observations belong to the following ESO programmes:
+
+| ESO programme | Matched observations |
+|---|---:|
+| `072.C-0488(E)` | 77 |
+| `073.D-0578(A)` | 6 |
+
+The three unmatched published records correspond to:
+- 2003-09-24: a historical measurement preceding the available ESO HARPS archive observations in this dataset.
+- 2004-06-04 and 2004-06-05: published observations preceding the first available local ESO archive observation for this target, dated 2004-06-06.
+
+### RV comparison
+
+For the 83 timestamp-matched observations:
+
+- Median RV offset (published minus ESO): approximately -6.950 m/s.
+- Median absolute RV residual after subtracting the median offset: 1.343 m/s.
+- 95th percentile absolute residual after offset: 4.182 m/s.
+
+The published values are nightly measurements, whereas the matched ESO values are individual exposures. Therefore, these RV residual statistics are exploratory and should not be interpreted as a direct same-measurement comparison or as a definitive instrumental zero-point estimate.
+
+### Benchmarking implications
+
+- The 83 unique timestamp matches provide strong evidence of observation-level overlap between Pepe et al. (2007) and the local ESO HARPS archive dataset.
+- HD160691 must not be treated as an independent observation-level benchmark against Pepe et al. (2007).
+- The three unmatched published records are retained as unmatched; no synthetic matches are assigned.
+- No observations were deleted or modified.
+- No scientific algorithms, model parameters, or production code were changed.
+
+Verification file:
+`data/hd160691_pepe_2007_final_overlap_verification.csv`
+
+Diagnostic file:
+`data/hd160691_pepe_2007_individual_overlap_diagnostic.csv`
 
 **End of Interim Stage 6 Report**
 
