@@ -248,6 +248,63 @@ independent benchmark or used to claim general detection accuracy.
 
 ---
 
+## 8.1 HD10180 — Observation-Level Publication Overlap Pilot
+
+An observation-level comparison was performed between the 190 valid
+BJD/RV rows in the published Lovis et al. (2011) HD 10180 radial-velocity
+table and the 336 HD10180 observations in the local HARPS dataset.
+
+Published BJD values were compared with the nearest local ESO HARPS
+catalogue BJD. A match was accepted when the absolute BJD difference
+was no greater than 2 seconds. The published table reports BJD to six
+decimal places, so this tolerance accommodates its timestamp precision.
+
+| Check | Result |
+|---|---:|
+| Valid published observations | 190 |
+| Local HD10180 observations | 336 |
+| Published observations matched | 156 |
+| Published observations not matched within 2 seconds | 34 |
+| Match fraction | 82.1% |
+| Median absolute BJD difference | 0.0216 seconds |
+| Maximum absolute BJD difference | 1.3686 seconds |
+| Matched local observations (unique) | 156 |
+
+All 156 matched RV values agreed within 1 m/s between the published
+table and the local ESO catalogue values. The local-minus-published
+RV difference had a mean of approximately -0.0034 m/s and a standard
+deviation of approximately 0.0713 m/s.
+
+The matched observations were associated with these ESO observing
+programmes:
+
+| ESO programme ID | Matched observations |
+|---|---:|
+| 072.C-0488(E) | 100 |
+| 183.C-0972(A) | 56 |
+| **Total** | **156** |
+
+**Assessment:** The close BJD agreement, RV-value agreement, and
+observation-level association with ESO programme identifiers provide
+strong evidence that these 156 published measurements overlap with
+the local HARPS dataset. HD10180 therefore cannot be treated as an
+independent observation-level benchmark against the Lovis et al. (2011)
+reference data.
+
+The remaining 34 published observations were not matched within the
+2-second tolerance in this pilot. Their provenance is unresolved; a
+non-match in this comparison does not establish that they are absent
+from the archive or independent.
+
+This is a pilot result for HD10180 only. It must not be generalized
+to the other 17 targets without equivalent observation-level checks.
+The 156 overlapping observations must be grouped together for any
+future data splitting or evaluation involving this publication, to
+prevent observation-level leakage. No planet-confirmation or
+AI-performance claim follows from this provenance comparison.
+
+---
+
 ## 9. Current Scientific Assessment
 
 ### Completed
