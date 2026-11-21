@@ -358,3 +358,39 @@ made by this interim report.
 ---
 
 **End of Interim Stage 6 Report**
+
+
+## 8.2 HD192310 — Six-Exposure CCF and Target-RV Prior Investigation
+
+**Status:** Strong evidence of a target-RV-prior-associated CCF failure; causal attribution remains unconfirmed.
+
+### Six-exposure comparison
+
+The six archived HARPS DRS auxiliary products for the two three-exposure sequences were inspected.
+
+| Exposure sequence | Target RV input (km/s) | CCF RV (km/s) | Drift-corrected CCF RV (km/s) | FWHM |
+|---|---:|---:|---:|---:|
+| 2004-12-02 00:06:48.081 | 0.0 | +0.719477 | +0.719363 | 4.9120 |
+| 2004-12-02 00:11:49.290 | 0.0 | +0.703833 | +0.703634 | 4.8824 |
+| 2004-12-02 00:16:50.760 | 0.0 | +0.765966 | +0.765877 | 4.8675 |
+| 2004-12-04 00:11:15.049 | -54.4 | -54.224701 | -54.225011 | 6.0948 |
+| 2004-12-04 00:16:15.918 | -54.4 | -54.224604 | -54.225019 | 6.0943 |
+| 2004-12-04 00:21:18.778 | -54.4 | -54.224854 | -54.225136 | 6.0962 |
+
+The December 2 CCF velocity grid starts at -20.0 km/s with a 0.25 km/s step and 161 bins, corresponding to a nominal range of -20.0 to +20.0 km/s. The December 4 grid starts at -74.4 km/s with the same step and 162 bins, corresponding to -74.4 to -34.15 km/s. In both sequences, the grid is centered on the supplied target-RV prior (approximately target RV ±20 km/s).
+
+### Interpretation
+
+- All three December 2 exposures used the header value ESO TEL TARG RADVEL = 0.0 km/s and returned CCF RVs near +0.7 km/s.
+- All three December 4 exposures used ESO TEL TARG RADVEL = -54.4 km/s and returned consistent CCF RVs near -54.225 km/s.
+- The anomalous value is present in the archived DRS CCF products themselves; it is not merely a later CSV export or catalogue-join error.
+- The sequence-level consistency and the different CCF search windows strongly support the hypothesis that the incorrect December 2 target-RV prior caused the DRS CCF search to operate in the wrong velocity region and return a false solution.
+- The CCF contrast values differ substantially between the two sequences (approximately 0.41 versus 45.4). Their units/normalization have not been established here, so this difference is recorded but not interpreted as a quality metric.
+
+### Limitation and required confirmation
+
+This is strong diagnostic evidence, not a completed causal demonstration. The archived CCF products alone do not prove what the pipeline would return if the December 2 spectra were reprocessed with a correct target-RV prior or the documented iterative mode. A controlled DRS reprocessing or an independently validated wider-velocity CCF analysis is still required before assigning the root cause conclusively.
+
+**Benchmarking consequence:** HD192310 must not be treated as an independent observation-level benchmark against the Pepe et al. (2011) publication. The previously established timing-overlap evidence remains: 50 unique ESO observations matched published epochs within 300 seconds, with 49 of those 50 RV differences within 10 m/s; one match is the identified grossly anomalous December 2 record. The remaining published epochs are not classified by this comparison.
+
+**Data handling:** No observations were deleted or altered. The investigation used archived DRS CCF/BIS products and header metadata.
