@@ -756,6 +756,90 @@ The strong BIS-RV association is not independent confirmation of stellar activit
 
 No observations were deleted or modified. No production scientific algorithms, model parameters, or training labels were changed.
 
+
+## 8.9 HD115617 (61 Virginis): YARARA–HARPS Observation-Level Provenance Validation
+
+### Objective
+
+Evaluate the temporal and radial-velocity correspondence between the published YARARA v2 dataset and the ESO HARPS archive observations for HD115617.
+
+The purpose was to assess observation-level provenance correspondence, not to independently confirm the known planets or establish a new planetary signal.
+
+### Data Sources
+
+- Published YARARA v2 table retrieved through the IDIA/VizieR source.
+- ESO HARPS archive metadata for the Stage 6 target sample.
+- Local HARPS date inventory containing 218 observation dates.
+- Published YARARA table containing 201 valid RV observations after correcting the table parsing procedure.
+
+The original direct table retrieval returned a database connection error. The IDIA/VizieR copy was used instead. Its time column requires careful interpretation of its zero point and time convention.
+
+### Temporal Correspondence
+
+The published table contained 201 unique observation dates, while the local inventory contained 218 unique dates.
+
+- Shared dates: 181.
+- Published-only dates: 20.
+- Inventory-only dates: 37.
+
+The initial MJD-to-JD assumption using an offset of 2400000.5 did not produce close matches. A diagnostic using 2400000.0 produced substantially better temporal correspondence.
+
+Within a 300-second nearest-time matching window:
+
+- 192 published observations had a nearest ESO observation.
+- 192 distinct ESO raw observation identifiers were selected.
+- No raw observation identifier was reused among those nearest matches.
+- No ambiguous nearest-time ties were identified.
+
+Within a stricter 10-second window:
+
+- 53 published observations matched.
+- All 53 matched observations had distinct ESO raw observation identifiers.
+- Median time difference was approximately -0.196 seconds.
+
+These results provide strong temporal correspondence. However, the published table does not expose the ESO raw exposure identifiers, so nearest-time matching alone cannot prove exact exposure identity.
+
+### Radial-Velocity Comparison
+
+The ESO archive RV values were compared with the published YARARA RV values using a provisional scale conversion and a fitted zero-point offset.
+
+For the 53 observations matched within 10 seconds:
+
+- Pearson correlation: approximately 0.961.
+- Diagnostic median offset: approximately 7754.309 m/s.
+- Residual RMS after offset removal: approximately 1.051 m/s.
+- Residual MAD: approximately 0.649 m/s.
+- Maximum absolute residual: approximately 3.155 m/s.
+- Residuals within 1 times the published uncertainty: 58.5%.
+- Residuals within 2 times the published uncertainty: 81.1%.
+- Residuals within 3 times the published uncertainty: 98.1%.
+
+The offset was estimated from the same matched observations. Therefore, these residual statistics are an in-sample comparison, not an independent validation result.
+
+The provisional factor-of-1000 conversion strongly improved the numerical comparison, but the archive column unit and time conventions must be verified against authoritative documentation before treating the RV comparison as a definitive unit-calibrated result.
+
+The residual scatter also exceeds the median quoted published uncertainty. A formal combined uncertainty analysis, including ESO uncertainties and possible instrumental or processing systematics, has not been completed.
+
+### Scientific Assessment
+
+The investigation supports the following conclusions:
+
+1. The target identity is established as HD115617 / 61 Virginis.
+2. ESO archive provenance is available for this target.
+3. Published YARARA observations show strong temporal correspondence with distinct ESO raw observation candidates.
+4. The RV series show strong correlation after provisional scale and zero-point treatment.
+5. Exact exposure identity and exact RV agreement have not been conclusively established.
+6. This comparison does not constitute independent confirmation of the known planets.
+7. The matched datasets must not be treated as independent benchmark datasets because they may derive from the same underlying HARPS observations.
+
+### Final Status
+
+**PARTIAL OBSERVATION-LEVEL PROVENANCE VALIDATION**
+
+HD115617 provides a useful provenance-validation case study for Stage 6. The results support substantial temporal correspondence and partial RV agreement, while retaining explicit limitations concerning exposure identity, unit conventions, zero-point fitting, uncertainty treatment, and data independence.
+
+This case study does not establish a new planet, independently confirm an existing planet, or qualify the target as an independent AI benchmark.
+
 ## 9. Current Scientific Assessment
 
 ### Completed
