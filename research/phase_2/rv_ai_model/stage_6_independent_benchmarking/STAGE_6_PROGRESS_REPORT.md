@@ -704,6 +704,58 @@ Verification inputs:
 - `data/hd136352_kane_2020_table1_raw.tsv`
 - `../data/interim/harps_rv_observations_18_targets.csv`
 
+## 8.8 HD72673 — ESO Archive, CCF Mask and Activity-Indicator Investigation
+
+An investigation of HD72673 was conducted using 526 observations retrieved from the ESO HARPS radial-velocity catalogue. This target is separate from the original 18-target local HARPS time-series dataset.
+
+### Archive and CCF mask findings
+
+All 526 observations contained the inspected RV, uncertainty, CCF, BIS and H-alpha catalogue fields.
+
+The CCF mask distribution was:
+
+- K5: 501 observations
+- K0: 10 observations
+- G2: 10 observations
+- M2: 5 observations
+
+Substantial RV distribution differences were observed between masks. These differences must not be interpreted directly as astrophysical RV offsets because the CCF templates have different reference characteristics.
+
+The five catalogue-selected M2 observations had CCF contrasts of approximately 3.54–3.56%, substantially below the typical contrasts of the other mask groups. Ancillary CCF products from six selected observations showed similarly low M2 contrast behaviour, including an observation whose catalogue-selected mask was K5. Therefore, low M2 contrast alone does not explain the anomalous catalogue RV values.
+
+### DRS version and observing-epoch limitations
+
+For K5 observations, the median RV was approximately 14898.946 m/s for DRS 3.5 (448 observations) and 14917.155 m/s for DRS 3.8 (53 observations), a difference of approximately 18.21 m/s.
+
+The version groups were not observed over equivalent time intervals. In programme 192.C-0852(A), DRS 3.5 observations cover January 2014 to May 2015, whereas DRS 3.8 observations cover November 2015 to March 2016. Consequently, the observed RV difference cannot be attributed uniquely to a DRS version change.
+
+### BIS and H-alpha activity-indicator analysis
+
+For the 501 K5 observations, the raw Spearman correlation between catalogue RV and BIS RV was 0.9595.
+
+After programme and DRS-version median-centering, the correlation remained strong (rho = 0.9158). The corresponding centred correlations were:
+
+- BIS span: -0.0811
+- H-alpha RV: +0.1505
+- H-alpha fit chi-square: -0.3097
+- CCF contrast: -0.2403
+- CCF FWHM: +0.3632
+
+The strong BIS-RV association is not independent confirmation of stellar activity because both quantities are derived from related CCF information. The remaining indicators show weaker or mixed associations. Median-centering is a diagnostic adjustment; it does not replace a time-series activity model or account fully for within-group dependence and multiple comparisons.
+
+### Benchmarking implications and limitations
+
+- HD72673 is not part of the original 18-target local HARPS time-series dataset; this investigation uses a separate ESO archive query.
+- The selected ancillary products provide detailed CCF and spectral information for six observations, not all 526 observations.
+- Mask-dependent RV differences are documented.
+- DRS version and observing epoch are confounded.
+- The available activity indicators do not establish a definitive stellar-activity explanation.
+- No planetary signal or planet-free status has been established by this investigation.
+- HD72673 remains an unresolved RV/CCF investigation target.
+- Negative-control eligibility remains on HOLD pending defensible detection limits and independent evidence.
+
+No observations were deleted or modified. No production scientific algorithms, model parameters, or training labels were changed.
+
 ## 9. Current Scientific Assessment
 
 ### Completed
@@ -713,7 +765,7 @@ Verification inputs:
 - One-to-one observation matching and archive identifier verification.
 - Instrument-mode distribution and BJD/RV numerical consistency checks.
 - NASA Exoplanet Archive publication metadata retrieval and initial planet-mass consistency review.
-- Target-level publication-overlap and cross-pipeline investigations documented in Sections 8.1?8.7:
+- Target-level publication-overlap and cross-pipeline investigations documented in Sections 8.1–8.8:
   - HD10180
   - HD192310
   - HD20794
@@ -721,6 +773,7 @@ Verification inputs:
   - HD160691
   - HD19994
   - HD136352
+  - HD72673: ESO archive, CCF mask, DRS-version and activity-indicator investigation documented; negative-control eligibility remains on HOLD.
 - Identification of cases where published observations overlap the local archive data and therefore cannot be treated as independent observation-level benchmarks.
 - Documentation of unresolved data-provenance, pipeline, and residual-variability limitations.
 
@@ -733,7 +786,7 @@ Verification inputs:
 - Establish which targets and observations qualify as genuinely independent benchmarks.
 - Finalize benchmark eligibility and dataset readiness criteria.
 
-Stage 6 has completed substantial provenance and reference-comparison work. However, the investigations in Sections 8.1?8.7 do not by themselves establish a fully independent, label-validated benchmark dataset.
+Stage 6 has completed substantial provenance and reference-comparison work. However, the investigations in Sections 8.1–8.8 do not by themselves establish a fully independent, label-validated benchmark dataset.
 
 ---
 
@@ -741,13 +794,13 @@ Stage 6 has completed substantial provenance and reference-comparison work. Howe
 
 The 37,442-row local HARPS dataset has passed the documented ESO archive observation-matching and numerical consistency checks. All inspected local observations were matched to unique ESO archive records, supporting their archive provenance.
 
-The target-level investigations in Sections 8.1?8.7 provide a more detailed assessment of publication overlap, instrument and pipeline consistency, and reference-data limitations. They also demonstrate why archive provenance must be distinguished from scientific benchmark independence.
+The target-level investigations in Sections 8.1–8.8 provide a more detailed assessment of publication overlap, instrument and pipeline consistency, and reference-data limitations. They also demonstrate why archive provenance must be distinguished from scientific benchmark independence.
 
 HD136352 illustrates this distinction: the local ESO observations have verified archive provenance and show broad agreement with DACE standard HARPS measurements, but seven HARPS15 records have unresolved RV discrepancies. The Kane et al. (2020) comparison is a separate published-table check, while the 240 one-hour-binned Udry et al. (2019) measurements have not been directly validated observation by observation.
 
 Across the investigated systems, publication overlap, pipeline differences, unresolved residual behaviour, and reference-label limitations must be accounted for before any target is designated an independent benchmark.
 
-**Stage 6 status: In Progress ? target-level provenance investigations documented; final benchmark eligibility and label validation remain pending.**
+**Stage 6 status: In Progress — target-level provenance, CCF and activity-indicator investigations documented; final benchmark eligibility and label validation remain pending.**
 
 This report does not approve AI training readiness, claim independent planet confirmation, or establish that the investigated targets form a statistically representative benchmark sample.
 

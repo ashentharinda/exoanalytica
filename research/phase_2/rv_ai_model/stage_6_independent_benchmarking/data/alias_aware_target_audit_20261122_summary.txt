@@ -1,0 +1,91 @@
+STAGE 6 ALIAS-AWARE TARGET AUDIT
+==================================================
+Source target rows: 62
+Unique target identifiers: 62
+Audit output rows: 89
+
+IDENTITY VALIDATION COUNTS
+identity_validation
+NO_NASA_CATALOGUE_MATCH     53
+ALIAS_IDENTITY_CONFIRMED    32
+SIMBAD_UNRESOLVED            2
+ALIAS_COLLISION_REJECTED     2
+
+BENCHMARK LABEL COUNTS
+benchmark_label
+UNCLASSIFIED                   57
+CATALOGUED_RV_DISCOVERY        19
+CATALOGUED_NON_RV_DISCOVERY    10
+UNCERTAIN                       3
+
+TARGET-LEVEL SUMMARY
+HD128621: SIMBAD=['* alf Cen B']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+Procyon: SIMBAD=['* alf CMi']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD121370: SIMBAD=['* eta Boo']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD190248: SIMBAD=['* del Pav']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+Alp-Cir: SIMBAD=['* alf Cir']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD128620: SIMBAD=['* alf Cen A']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+Eps-Indi-A: SIMBAD=['* eps Ind']; NASA planets=['eps Ind A b']; statuses=['ALIAS_IDENTITY_CONFIRMED']
+HD1581: SIMBAD=['* zet Tuc']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+18_Sco: SIMBAD=['*  18 Sco']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+Beta-Hyi: SIMBAD=['* bet Hyi']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD203608: SIMBAD=['* gam Pav']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD188512: SIMBAD=['* bet Aql']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD210302: SIMBAD=['* tau PsA']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+18 Sco: SIMBAD=['*  18 Sco']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD 165341A: SIMBAD=['*  70 Oph A']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD63077: SIMBAD=['* 171 Pup']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD216956: SIMBAD=['* alf PsA']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD139211: SIMBAD=['HD 139211']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD-209625: SIMBAD=[]; NASA planets=[]; statuses=['SIMBAD_UNRESOLVED']
+HD85512: SIMBAD=['HD  85512']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD49933: SIMBAD=['HD  49933']; NASA planets=['CoRoT-20 c', 'CoRoT-20 b']; statuses=['ALIAS_COLLISION_REJECTED']
+HD23249: SIMBAD=['* del Eri']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD-101065: SIMBAD=['V* V816 Cen']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD167858: SIMBAD=['V* V2502 Oph']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD65907A: SIMBAD=['HD  65907']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD 199288: SIMBAD=['HD 199288']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD188228: SIMBAD=['* eps Pav']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD109200: SIMBAD=['HD 109200']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD154577: SIMBAD=['HD 154577']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD114613: SIMBAD=['HD 114613']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD-190248: SIMBAD=['* del Pav']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD172555: SIMBAD=['HD 172555']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD59468: SIMBAD=['HD  59468']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD72673: SIMBAD=['HD  72673']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD209625: SIMBAD=[]; NASA planets=[]; statuses=['SIMBAD_UNRESOLVED']
+HD102365: SIMBAD=['HD 102365']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD144628: SIMBAD=['HD 144628']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD26965: SIMBAD=['* omi02 Eri']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD146624: SIMBAD=['* d Sco']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD207129: SIMBAD=['HD 207129']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD109536: SIMBAD=['HD 109536']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+EPIC211311380: SIMBAD=['BD+10  1799']; NASA planets=['HIP 41378 b', 'HIP 41378 c', 'HIP 41378 d', 'HIP 41378 e', 'HIP 41378 f', 'HIP 41378 g']; statuses=['ALIAS_IDENTITY_CONFIRMED']
+HD67523: SIMBAD=['* rho Pup']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD189631: SIMBAD=['HD 189631']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD95456: SIMBAD=['HD  95456']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD146233: SIMBAD=['*  18 Sco']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+delta-Pav: SIMBAD=['* del Pav']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+12-Boo: SIMBAD=['* d Boo']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD36003: SIMBAD=['HD  36003']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD26965A: SIMBAD=['* omi02 Eri']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HR5987: SIMBAD=['* tet Lup']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD128620A: SIMBAD=['* alf Cen A']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD210918: SIMBAD=['HD 210918']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+Gl54.1: SIMBAD=['V* YZ Cet']; NASA planets=['YZ Cet b', 'YZ Cet c', 'YZ Cet d']; statuses=['ALIAS_IDENTITY_CONFIRMED']
+Gl667C: SIMBAD=['HD 156384C']; NASA planets=['GJ 667 C b', 'GJ 667 C c', 'GJ 667 C e', 'GJ 667 C f', 'GJ 667 C g']; statuses=['ALIAS_IDENTITY_CONFIRMED']
+Gl876: SIMBAD=['BD-15  6290']; NASA planets=['GJ 876 b', 'GJ 876 c', 'GJ 876 d', 'GJ 876 e']; statuses=['ALIAS_IDENTITY_CONFIRMED']
+Proxima: SIMBAD=['NAME Proxima Centauri']; NASA planets=['Proxima Cen d', 'Proxima Cen b']; statuses=['ALIAS_IDENTITY_CONFIRMED']
+HD215456: SIMBAD=['HD 215456']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD223171: SIMBAD=['HD 223171']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD20807: SIMBAD=['* zet02 Ret']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+GJ588: SIMBAD=['CD-40  9712']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+HD31128: SIMBAD=['HD  31128']; NASA planets=[]; statuses=['NO_NASA_CATALOGUE_MATCH']
+
+IMPORTANT LIMITATIONS
+- A NASA catalogue match is not independent validation.
+- No catalogue match does not establish a planet-free system.
+- RV_FLAG is distinct from discovery_method.
+- Coordinate confirmation uses a 5-arcsecond threshold.
+- Confirmed identity does not prove benchmark eligibility.
+- This audit does not assign negative-control labels.
